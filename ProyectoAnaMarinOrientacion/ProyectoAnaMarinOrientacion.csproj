@@ -1,0 +1,431 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CC76875-8C5E-4BBF-9BE8-84358E16A137}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProyectoAnaMarinOrientacion</RootNamespace>
+    <AssemblyName>ProyectoAnaMarinOrientacion</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.2.2.5\lib\AForge.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AForge.Controls">
+      <HintPath>..\..\..\..\Downloads\AForge.NET Framework-2.2.5-(libs only)\Release\AForge.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.2.2.5\lib\AForge.Video.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13\lib\itextsharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MessagingToolkit.QRCode, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MessagingToolkit.QRCode.1.3.0\lib\MessagingToolkit.QRCode.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Reporting.WinForms.v11.1.0.0.0\lib\Microsoft.ReportViewer.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Reporting.WinForms.v11.1.0.0.0\lib\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Reporting.WinForms.v11.1.0.0.0\lib\Microsoft.ReportViewer.WinForms.DLL</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Reporting.WinForms.v11.1.0.0.0\lib\Microsoft.SqlServer.Types.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Zen.Barcode.Core, Version=3.1.0.0, Culture=neutral, PublicKeyToken=b5ae55aa76d2d9de, processorArchitecture=MSIL">
+      <HintPath>..\packages\Zen.Barcode.Rendering.Framework.3.1.10729.1\lib\Zen.Barcode.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FrmBusquedaExpedientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBusquedaExpedientes.Designer.cs">
+      <DependentUpon>FrmBusquedaExpedientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmComprobanteAsistencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmComprobanteAsistencia.Designer.cs">
+      <DependentUpon>FrmComprobanteAsistencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDatosEncargado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDatosEncargado.Designer.cs">
+      <DependentUpon>FrmDatosEncargado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDatosEstudiante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDatosEstudiante.Designer.cs">
+      <DependentUpon>FrmDatosEstudiante.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmExpediente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmExpediente.Designer.cs">
+      <DependentUpon>FrmExpediente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPrincipal.Designer.cs">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Instrumentos\FrmEntrevistaConFuncionarioCentroEducativo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Instrumentos\FrmEntrevistaConFuncionarioCentroEducativo.Designer.cs">
+      <DependentUpon>FrmEntrevistaConFuncionarioCentroEducativo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Instrumentos\FrmEntrevistaEstudiante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Instrumentos\FrmEntrevistaEstudiante.Designer.cs">
+      <DependentUpon>FrmEntrevistaEstudiante.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Instrumentos\FrmEntrevistaPadre,Madre,Encargado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Instrumentos\FrmEntrevistaPadre,Madre,Encargado.Designer.cs">
+      <DependentUpon>FrmEntrevistaPadre,Madre,Encargado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Instrumentos\FrmInformeVisitaAlHogar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Instrumentos\FrmInformeVisitaAlHogar.Designer.cs">
+      <DependentUpon>FrmInformeVisitaAlHogar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Instrumentos\FrmReferenciaExterna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Instrumentos\FrmReferenciaExterna.Designer.cs">
+      <DependentUpon>FrmReferenciaExterna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Logger.cs" />
+    <Compile Include="FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\FrmManNivel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\FrmManNivel.Designer.cs">
+      <DependentUpon>FrmManNivel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\FrmMantEncargado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\FrmMantEncargado.Designer.cs">
+      <DependentUpon>FrmMantEncargado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\FrmMantEstudiantePrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\FrmMantEstudiantePrincipal.Designer.cs">
+      <DependentUpon>FrmMantEstudiantePrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\FrmMantExpediente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\FrmMantExpediente.Designer.cs">
+      <DependentUpon>FrmMantExpediente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\FrmMantMotivoAtencion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\FrmMantMotivoAtencion.Designer.cs">
+      <DependentUpon>FrmMantMotivoAtencion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\FrmMantPeriodos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\FrmMantPeriodos.Designer.cs">
+      <DependentUpon>FrmMantPeriodos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\FrmMantSecciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\FrmMantSecciones.Designer.cs">
+      <DependentUpon>FrmMantSecciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\FrmUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\FrmUsuarios.Designer.cs">
+      <DependentUpon>FrmUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmBusquedaExpedientes.resx">
+      <DependentUpon>FrmBusquedaExpedientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmComprobanteAsistencia.resx">
+      <DependentUpon>FrmComprobanteAsistencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDatosEncargado.resx">
+      <DependentUpon>FrmDatosEncargado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDatosEstudiante.resx">
+      <DependentUpon>FrmDatosEstudiante.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmExpediente.resx">
+      <DependentUpon>FrmExpediente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPrincipal.resx">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Instrumentos\FrmEntrevistaConFuncionarioCentroEducativo.resx">
+      <DependentUpon>FrmEntrevistaConFuncionarioCentroEducativo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Instrumentos\FrmEntrevistaEstudiante.resx">
+      <DependentUpon>FrmEntrevistaEstudiante.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Instrumentos\FrmEntrevistaPadre,Madre,Encargado.resx">
+      <DependentUpon>FrmEntrevistaPadre,Madre,Encargado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Instrumentos\FrmInformeVisitaAlHogar.resx">
+      <DependentUpon>FrmInformeVisitaAlHogar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Instrumentos\FrmReferenciaExterna.resx">
+      <DependentUpon>FrmReferenciaExterna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\FrmManNivel.resx">
+      <DependentUpon>FrmManNivel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\FrmMantEncargado.resx">
+      <DependentUpon>FrmMantEncargado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\FrmMantEstudiantePrincipal.resx">
+      <DependentUpon>FrmMantEstudiantePrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\FrmMantExpediente.resx">
+      <DependentUpon>FrmMantExpediente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\FrmMantMotivoAtencion.resx">
+      <DependentUpon>FrmMantMotivoAtencion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\FrmMantPeriodos.resx">
+      <DependentUpon>FrmMantPeriodos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\FrmMantSecciones.resx">
+      <DependentUpon>FrmMantSecciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\FrmUsuarios.resx">
+      <DependentUpon>FrmUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Capa.Entidades\Capa.Entidades.csproj">
+      <Project>{a9faf93a-d2e8-4199-901e-a9653b4834f2}</Project>
+      <Name>Capa.Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Capa.Logica\Capa.Logica.csproj">
+      <Project>{2f7498d7-a5be-4ea6-8a0a-7023385070fe}</Project>
+      <Name>Capa.Logica</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Imprimir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\Imprimir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\Icono_Control_de_Asistencia.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\login-icon-with-research-sign-vector-20390961.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\Login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\aCEPTARC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\camara.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\ACEP.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\cANCE.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\descargatelefono.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\expediente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\lupa-e-tablet_318-39283.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Reportes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\Eliminar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\actualizar-una-pagina.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\insertar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\descarga.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\consulta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\44516307-botón-de-la-cruz-icono-agregar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\editar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\secciones.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\sec.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\cronograma.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\uea-flat-calendar-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\icono_login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\19820-blue-vintage-wallpaper-background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\887603_user_512x512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\Background-texture-11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\textured-aqua-colored-plastic-close-up.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\5631356-background-image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\logo-asistencia.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\306218.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\flat-style-circle-add_icon-icons.com_66944.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\eliminarrr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\refresh-525698_960_720.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\ninos.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
