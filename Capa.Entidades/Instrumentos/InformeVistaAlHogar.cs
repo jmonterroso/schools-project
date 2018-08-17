@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Capa.Entidades
 {
-  public  class InformeVisitaAlHogar :Instrumentos
+  public  class InformeVisitaAlHogar :ClaseInstrumento
     {
 
         public int Numero { get; set; }
@@ -18,7 +18,6 @@ namespace Capa.Entidades
         public string Recomendaciones { get; set; }
         public string Direccion { get; set; }
 
-
-
+       
     }
 }

@@ -217,7 +217,7 @@ namespace Capa.Datos
                     est.Identificacion = reader["Identificacion"].ToString();
                     est.NombreCompleto = reader["NombreCompleto"].ToString();
                     est.Seccion = new SeccionesDatos().SeleccionarPorId(Convert.ToInt32(reader["IdSeccion"]));
-                    est.Sexo = (Sexo)reader["Sexo"];
+                    est.Sexo = (Sexo)Enum.Parse(typeof(Sexo), reader["Sexo"].ToString());
                     est.Direccion = reader["Direccion"].ToString();
                     est.IdEncargado = reader["IdEncargado"].ToString();
                     est.FechaNacimiento = (DateTime)reader["FechaNacimiento"];

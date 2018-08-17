@@ -205,7 +205,7 @@
             this.referenciaExternaToolStripMenuItem});
             this.instrumentosToolStripMenuItem1.Name = "instrumentosToolStripMenuItem1";
             this.instrumentosToolStripMenuItem1.Size = new System.Drawing.Size(89, 20);
-            this.instrumentosToolStripMenuItem1.Text = "Instrumentos";
+            this.instrumentosToolStripMenuItem1.Text = "ClaseInstrumento";
             // 
             // entrevistaConFuncionarioToolStripMenuItem
             // 

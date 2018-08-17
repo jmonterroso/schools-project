@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Capa.Entidades
 {
-  public  class Referencia :Instrumentos
+  public  class Referencia :ClaseInstrumento
     {
         public int Numero { get; set; }
         public string Provincia { get; set; }
@@ -22,8 +22,6 @@ namespace Capa.Entidades
         public string ObservacionesyRecomendaciones { get; set; }
         public string InstitucionDondeSeRefiere { get; set; }
 
-
-
-
-}
+      
+    }
 }

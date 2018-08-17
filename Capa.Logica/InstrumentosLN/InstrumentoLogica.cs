@@ -10,6 +10,6 @@ namespace Capa.Logica.InstrumentosLN
 
     {
 
-        public abstract void Guardar();
+        
     }
 }

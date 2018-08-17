@@ -34,10 +34,6 @@
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtNombrePadre = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtNombreEstudiante = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtResumen = new System.Windows.Forms.TextBox();
@@ -52,6 +48,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtNombrePadre = new System.Windows.Forms.TextBox();
+            this.txtNombreEstudiante = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -114,39 +114,6 @@
             this.checkBox1.TabIndex = 0;
             this.checkBox1.Text = "Iniciativa del padre";
             this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(222, 64);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(230, 13);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Nombre del padre, madre o persona encargada";
-            // 
-            // txtNombrePadre
-            // 
-            this.txtNombrePadre.Location = new System.Drawing.Point(458, 53);
-            this.txtNombrePadre.Name = "txtNombrePadre";
-            this.txtNombrePadre.Size = new System.Drawing.Size(245, 20);
-            this.txtNombrePadre.TabIndex = 14;
-            this.txtNombrePadre.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(222, 87);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(133, 13);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Nombre del o la estudiante";
-            // 
-            // txtNombreEstudiante
-            // 
-            this.txtNombreEstudiante.Location = new System.Drawing.Point(458, 87);
-            this.txtNombreEstudiante.Name = "txtNombreEstudiante";
-            this.txtNombreEstudiante.Size = new System.Drawing.Size(245, 20);
-            this.txtNombreEstudiante.TabIndex = 16;
             // 
             // label4
             // 
@@ -271,6 +238,39 @@
             this.label9.TabIndex = 47;
             this.label9.Text = "Cedula";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(222, 64);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(230, 13);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Nombre del padre, madre o persona encargada";
+            // 
+            // txtNombrePadre
+            // 
+            this.txtNombrePadre.Location = new System.Drawing.Point(458, 53);
+            this.txtNombrePadre.Name = "txtNombrePadre";
+            this.txtNombrePadre.Size = new System.Drawing.Size(245, 20);
+            this.txtNombrePadre.TabIndex = 14;
+            this.txtNombrePadre.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // txtNombreEstudiante
+            // 
+            this.txtNombreEstudiante.Location = new System.Drawing.Point(458, 87);
+            this.txtNombreEstudiante.Name = "txtNombreEstudiante";
+            this.txtNombreEstudiante.Size = new System.Drawing.Size(245, 20);
+            this.txtNombreEstudiante.TabIndex = 16;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(222, 87);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(133, 13);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Nombre del o la estudiante";
+            // 
             // FrmEntrevistaPadre_Madre_Encargado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -315,10 +315,6 @@
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtNombrePadre;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtNombreEstudiante;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtResumen;
@@ -333,5 +329,9 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtNombrePadre;
+        private System.Windows.Forms.TextBox txtNombreEstudiante;
+        private System.Windows.Forms.Label label3;
     }
 }

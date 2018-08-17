@@ -33,12 +33,12 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
         {
             //boton de aceptar
 
-            if (txtNombrePadre.Text == "")
-            {
-                MessageBox.Show("Debe digitar el nombre del padre/madre/encargado");
-                txtNombrePadre.Focus();
-                return;
-            }
+            //if (txtNombrePadre.Text == "")
+            //{
+            //    MessageBox.Show("Debe digitar el nombre del padre/madre/encargado");
+            //    txtNombrePadre.Focus();
+            //    return;
+            //}
 
             if (txtDireccion.Text == "")
             {
@@ -106,9 +106,12 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
                     Recomendaciones = txtRecomendaciones.Text,
                     Motivo = (MotivoAtencion)cboMotivos.SelectedItem,
                     Direccion= txtDireccion.Text,
+                    Nombre = "Visita al Hogar"
                 };
+                FrmExpediente.instrumentos.Add(visita);
                // Logica.Guardar(vista);
                 MessageBox.Show("  Datos guardados con exito ");
+                Dispose();
 
 
             }

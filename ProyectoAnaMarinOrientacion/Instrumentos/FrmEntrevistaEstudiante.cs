@@ -66,14 +66,17 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
             {
                 EntrevistaEstudiante entrevista = new EntrevistaEstudiante();
 
-                entrevista.IntervencionRealizada = txtIntervencion.Text;
-                entrevista.SituacionPresentada = txtSituacion.Text;
-                entrevista.ProcesoASeguir = txtProceso.Text;
+                entrevista.Intervencion = txtIntervencion.Text;
+                entrevista.Situacion = txtSituacion.Text;
+                entrevista.Acciones = txtProceso.Text;
                 entrevista.Recomendaciones = txtRecomendaciones.Text;
                 entrevista.Motivo = (MotivoAtencion)cboMotivos.SelectedItem;
-
+                entrevista.Nombre = "Entrevista a Estudiante";
+                
+                
+                
+                FrmExpediente.instrumentos.Add(entrevista);
                 MessageBox.Show("  Datos guardados con exito ");
-                FrmExpediente.entrevistaEstudiante.Add(entrevista);
                 Limpiar();
                 Dispose();
 

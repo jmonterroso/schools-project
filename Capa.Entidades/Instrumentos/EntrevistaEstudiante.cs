@@ -6,16 +6,15 @@ using System.Threading.Tasks;
 
 namespace Capa.Entidades
 {
-  public  class EntrevistaEstudiante :Instrumentos
+  public  class EntrevistaEstudiante :ClaseInstrumento
     {
-        public int Numero { get; set; }
-        public string IntervencionRealizada { get; set; }
-        public string ProcesoASeguir { get; set; }
-     
-        public string SituacionPresentada { get; set; }
-        public string Recomendaciones { get; set; }
 
-
-
+        public bool DetecciondelProfesional;
+        public bool Referencia;
+        public bool Solicitud;
+        public bool Otros;
+        public string OtrosExplicacion;
+      
+        
     }
 }

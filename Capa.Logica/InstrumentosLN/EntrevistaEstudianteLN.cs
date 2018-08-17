@@ -12,14 +12,11 @@ namespace Capa.Logica.InstrumentosLN
     {
        
 
-        public override void Guardar()
+        public void Guardar(EntrevistaEstudiante ent)
         {
-            EntrevistaEstudiante ent = new EntrevistaEstudiante();
-            if (ent.Numero == 0)
-                throw new ApplicationException("Debe digitar el nombre");
 
             EntrevistaEstudianteDatos datos = new EntrevistaEstudianteDatos();
-            if (datos.SeleccionarPorId(ent.Numero) == null)
+            if (datos.SeleccionarPorId(ent.Id) == null)
                 datos.Insertar(ent);
             else
                 datos.Actualizar(ent);

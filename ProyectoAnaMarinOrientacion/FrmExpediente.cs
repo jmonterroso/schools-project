@@ -21,10 +21,11 @@ namespace ProyectoAnaMarinOrientacion
         Capa.Logica.EstudianteLN logicaEstudiante;
         public static Encargado encar;
         public static List<EntrevistaFuncionario> entrevistasFuncionario;
-        public static List<EntrevistaEstudiante> entrevistaEstudiante;
-        public static List<EntrevistaEncargado> entrevistaEncargado;
-        public static List<InformeVisitaAlHogar> informe;
-        public static List<Referencia> refrencia;
+        public static List<EntrevistaEstudiante> entrevistasEstudiante;
+        public static List<EntrevistaEncargado> entrevistasEncargado;
+        public static List<InformeVisitaAlHogar> visitaAlHogar;
+        public static List<Referencia> referenciaExterna;
+        public static List<ClaseInstrumento> instrumentos;
 
         Capa.Logica.SeccionesLN logicaSecciones;
         Capa.Logica.CicloLN logicaCiclo;
@@ -36,14 +37,17 @@ namespace ProyectoAnaMarinOrientacion
         {
             InitializeComponent();
             logicaperiodos = new Capa.Logica.PeriodosLN();
-           
-            cargarInstrumentos();
             logicaEncargado = new Capa.Logica.EncargadoLN();
             logicaEstudiante = new Capa.Logica.EstudianteLN();
             logicaSecciones = new Capa.Logica.SeccionesLN();
             logicaCiclo = new Capa.Logica.CicloLN();
             logicaNivel = new Capa.Logica.NivelLN();
-
+            entrevistasFuncionario = new List<EntrevistaFuncionario>();
+            entrevistasEstudiante = new List<EntrevistaEstudiante>();
+            entrevistasEncargado = new List<EntrevistaEncargado>();
+            visitaAlHogar = new List<InformeVisitaAlHogar>();
+            referenciaExterna = new List<Referencia>();
+            instrumentos = new List<ClaseInstrumento>();
         }
         
 
@@ -53,10 +57,11 @@ namespace ProyectoAnaMarinOrientacion
             {
                 ExpedienteFacade facade = new ExpedienteFacade();
                facade.AgregarEstudiante(est.Identificacion, est.NombreCompleto, est.Seccion, est.Sexo, est.FechaNacimiento, est.Direccion);
-               facade.AgregarEncargado(encar.Identificacion,encar.NombreCompleto, encar.CorreoElectronico, encar.Ocupacion, encar.Parentesco);
-               facade.AgregarCiclo( (Capa.Entidades.Ciclo) cboCiclo.SelectedItem);
-               facade.AgregarPeriodo((Periodos)cboPeriodo.SelectedItem);
-               facade.AgregarNivel((Capa.Entidades.Nivel)cboNivel.SelectedItem);
+                Encargado enc = logicaEncargado.SeleccionarPorId(est.IdEncargado);
+               facade.AgregarEncargado(enc.Identificacion,enc.NombreCompleto, enc.CorreoElectronico, enc.Ocupacion, enc.Parentesco);
+               //facade.AgregarCiclo( (Capa.Entidades.Ciclo) cboCiclo.SelectedItem);
+               //facade.AgregarPeriodo((Periodos)cboPeriodo.SelectedItem);
+               //facade.AgregarNivel((Capa.Entidades.Nivel)cboNivel.SelectedItem);
                 //facade.AgregarInstrumento();
 
                 logicaEstudiante.Guardar(est);
@@ -68,12 +73,86 @@ namespace ProyectoAnaMarinOrientacion
             }
 
         }
+        private void ValidacionDeListas()
+        {
+            if (entrevistasFuncionario.Count == 0)
+            {
+                groupBox1.Visible = false;
+
+            }
+            else
+            {
+                groupBox1.Visible = true;
+            }
+            if (entrevistasEncargado.Count == 0)
+            {
+                groupBox2.Visible = false;
+            }
+            else
+            {
+                groupBox2.Visible = true;
+            }
+            if (entrevistasEstudiante.Count == 0)
+            {
+                groupBox3.Visible = false;
+            }
+            else
+            {
+                groupBox3.Visible = true;
+            }
+            if (visitaAlHogar.Count == 0)
+            {
+                groupBox4.Visible = false;
+            }
+            else
+            {
+                groupBox4.Visible = true;
+            }
+            if (referenciaExterna.Count == 0)
+            {
+                groupBox5.Visible = false;
+            }
+            else
+            {
+                groupBox5.Visible = true;
+            }
+
+
+        }
+        private void RefrescarGrids()
+
+        {
+            ValidacionDeListas();
+            // configuracion de propiedades del grid
+            dgvInstrumentoFuncionario.AutoGenerateColumns = false;
+            dgvEncargado.AutoGenerateColumns = false;
+            dgvEstudiante.AutoGenerateColumns = false;
+            dgvInstrumentoFuncionario.AutoGenerateColumns = false;
+            dgvVisitaAlHogar.AutoGenerateColumns = false;
+            dgvReferenciaExterna.AutoGenerateColumns = false;
+            dgvInstrumentos.AutoGenerateColumns = false;
+
+            // creacion de binding para los datagrids
+            var listaFuncionario = new BindingList<EntrevistaFuncionario>(entrevistasFuncionario);
+            var listaEncargado = new BindingList<EntrevistaEncargado>(entrevistasEncargado);
+            var listaEstudiante = new BindingList<EntrevistaEstudiante>(entrevistasEstudiante);
+            var listaVisitaAlHogar = new BindingList<InformeVisitaAlHogar>(visitaAlHogar);
+            var listaReferenciaExterna = new BindingList<Referencia>(referenciaExterna);
+            var listaInstrumentos = new BindingList<ClaseInstrumento>(instrumentos);
+            // asignacion de datagrids
+            dgvInstrumentoFuncionario.DataSource = listaFuncionario; 
+            dgvEncargado.DataSource = listaEncargado;
+            dgvEstudiante.DataSource = listaEstudiante;
+            dgvVisitaAlHogar.DataSource = listaVisitaAlHogar;
+            dgvReferenciaExterna.DataSource = listaReferenciaExterna;
+            dgvInstrumentos.DataSource = listaInstrumentos;
+
+
+        }
 
         private void FrmExpediente_Load(object sender, EventArgs e)
         {
-            cargarComboCiclo();
-            //cargarComboPeriodo();
-            //cargarComboNivel();
+            RefrescarGrids();
 
         }
 
@@ -109,28 +188,9 @@ namespace ProyectoAnaMarinOrientacion
 
 
     
-        private void cargarComboNivel()
-        {
-            cboNivel.DataSource = logicaSecciones.SeleccionarTodos();
-            cboNivel.SelectedIndex = -1;
-        }
+     
 
-        private void cargarComboCiclo()
-        {
-            cboCiclo.DataSource = logicaCiclo.SeleccionarTodos();
-            cboCiclo.ValueMember = "Nombre";
-            cboCiclo.SelectedIndex = -1;
-        }
-
-        private void cargarComboPeriodo()
-        {
-            cboPeriodo.DataSource = logicaperiodos.SeleccionarTodos();
-            cboPeriodo.DisplayMember = "Nombre";
-            // cboSecciones.ValueMember = "Id";
-
-            cboPeriodo.SelectedIndex = -1;
-        }
-
+        
         private void button5_Click(object sender, EventArgs e)
         {   
             //boton para crear un comprobante de asistencia
@@ -138,69 +198,71 @@ namespace ProyectoAnaMarinOrientacion
             comproAsistencia.Show();
         }
 
-        private void cargarInstrumentos()
+
+        private void label1_Click(object sender, EventArgs e)
         {
-            cboInstrumentos.DataSource = Enum.GetValues(typeof(Capa.Entidades.Enumeradores.Instrumentos));
-            cboInstrumentos.SelectedIndex = -1;
+
         }
 
-        private void btnAgregarInstrumento_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            if (cboInstrumentos.SelectedIndex == 0)
+            if(txtIdentificacionEstudiante.Text == "")
             {
-                Instrumentos.FrmEntrevistaConFuncionarioCentroEducativo funcio = new Instrumentos.FrmEntrevistaConFuncionarioCentroEducativo();
-                funcio.Show();
-            }
-            else
-            {
-                if (cboInstrumentos.SelectedIndex == 1)
-                {
-                    Instrumentos.FrmEntrevistaPadre_Madre_Encargado enc = new Instrumentos.FrmEntrevistaPadre_Madre_Encargado();
-                    enc.Show();
-                }
-                else
-                {
-                    if(cboInstrumentos.SelectedIndex == 2)
-                    {
-                        Instrumentos.FrmEntrevistaEstudiante est = new Instrumentos.FrmEntrevistaEstudiante();
-                        est.Show();
-                    }
-                    else
-                    {
-                        if (cboInstrumentos.SelectedIndex == 3)
-                        {
-                            Instrumentos.FrmInformeVisitaAlHogar inf = new Instrumentos.FrmInformeVisitaAlHogar();
-                            inf.Show();
-                        }
-                        else
-                        {
-                            Instrumentos.FrmReferenciaExterna ext = new Instrumentos.FrmReferenciaExterna();
-                            ext.Show();
-                        }
-                    }
-                }
-
-            }
-        }
-
-        private void CargarComboNivel()
-        {
-            if (cboCiclo.SelectedItem == null)
-            {
+                MessageBox.Show("Debe ingresar la  identificacion del estudiante");
                 return;
             }
-            Ciclo ci = (Ciclo)cboCiclo.SelectedItem;
-            cboNivel.DataSource = logicaNivel.SeleccionarNivelPorCiclo(ci.Id);
-            cboNivel.ValueMember = "Nombre";
-            cboNivel.SelectedIndex = -1;
+            est = logicaEstudiante.SeleccionarPorId(txtIdentificacionEstudiante.Text);
+            if(est == null)
+            {
+                MessageBox.Show("No se encontro el estudiante con el id proporcionado");
+                return;
+            }
+            LblEstSeleccionado.Text = est.NombreCompleto;
+            
 
         }
-        private void cboCiclo_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void FrmExpediente_Activated(object sender, EventArgs e)
         {
-            if (cboCiclo.SelectedIndex != -1)
+            RefrescarGrids();
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            Instrumentos.FrmEntrevistaConFuncionarioCentroEducativo funcio = new Instrumentos.FrmEntrevistaConFuncionarioCentroEducativo();
+            funcio.Show();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Instrumentos.FrmEntrevistaPadre_Madre_Encargado enc = new Instrumentos.FrmEntrevistaPadre_Madre_Encargado();
+            enc.Show();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Instrumentos.FrmEntrevistaEstudiante est = new Instrumentos.FrmEntrevistaEstudiante();
+            est.Show();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            Instrumentos.FrmInformeVisitaAlHogar inf = new Instrumentos.FrmInformeVisitaAlHogar();
+            inf.Show();
+        }
+
+        private void txtIdentificacionEstudiante_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Return)
             {
-                CargarComboNivel();
+                button2_Click(null, null);
             }
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            Instrumentos.FrmReferenciaExterna inf = new Instrumentos.FrmReferenciaExterna();
+            inf.Show();
         }
     }
 }

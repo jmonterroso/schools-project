@@ -23,7 +23,17 @@ namespace Capa.Datos.Instrumentos
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 // Si el SP requeire parametros se le deben asignar al comando
 
-                comando.Parameters.AddWithValue("@Numero", entEst.Numero);
+                comando.Parameters.AddWithValue("@Recomendaciones", entEst.Recomendaciones);
+                comando.Parameters.AddWithValue("@DetecciondelProfesional", entEst.DetecciondelProfesional);
+                comando.Parameters.AddWithValue("@Referencia", entEst.Referencia);
+                comando.Parameters.AddWithValue("@Solicitud", entEst.Solicitud);
+                comando.Parameters.AddWithValue("@Otros", entEst.Otros);
+                comando.Parameters.AddWithValue("@OtrosExplicacion", entEst.OtrosExplicacion);
+                comando.Parameters.AddWithValue("@Situacion", entEst.Situacion);
+                comando.Parameters.AddWithValue("@Acciones", entEst.Acciones);
+                comando.Parameters.AddWithValue("@Intervencion", entEst.Intervencion);
+                comando.Parameters.AddWithValue("@IdMotivo", entEst.Motivo.IdMotivo);
+
 
 
 
@@ -54,7 +64,7 @@ namespace Capa.Datos.Instrumentos
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 // Si el SP requeire parametros se le deben asignar al comando
 
-                comando.Parameters.AddWithValue("@Numero", entEst.Numero);
+                comando.Parameters.AddWithValue("@Id", entEst.Id);
 
 
                 // Finalmente ejecutamos el comando
@@ -125,7 +135,7 @@ namespace Capa.Datos.Instrumentos
                 {
                     EntrevistaEstudiante entEst = new EntrevistaEstudiante();
 
-                    entEst.Numero = Convert.ToInt32(reader["Numero"]);
+                    entEst.Id = Convert.ToInt32(reader["Id"]);
                     lista.Add(entEst);
                 }
 
@@ -142,7 +152,7 @@ namespace Capa.Datos.Instrumentos
             return lista;
         }
 
-        public EntrevistaEstudiante SeleccionarPorId(int numero)
+        public EntrevistaEstudiante SeleccionarPorId(int Id)
         {
             // SqlConnection requiere el using System.Data.SqlClient;
             SqlConnection conexion = new SqlConnection(Conexion.Cadena);
@@ -150,10 +160,10 @@ namespace Capa.Datos.Instrumentos
             {
                 conexion.Open(); // un error aca: revisar cadena de conexion
                 // El command permite ejecutar un comando en la conexion establecida
-                SqlCommand comando = new SqlCommand("PA_SeleccionarEncargadoPorNumero", conexion);
+                SqlCommand comando = new SqlCommand("PA_SeleccionarEntrevistaEstudiantePorId", conexion);
                 // Como es en Store Procedure se debe indicar el tipo de comando
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.AddWithValue("@Numero", numero);
+                comando.Parameters.AddWithValue("@Id", Id);
                 // Finalmente ejecutamos el comando
                 // al ser una consulta debemos usar ExecuteReader
                 SqlDataReader reader = comando.ExecuteReader();
@@ -161,7 +171,16 @@ namespace Capa.Datos.Instrumentos
                 while (reader.Read()) // cada vez que se llama el Read retorna una tupla
                 {
                     EntrevistaEstudiante entEst = new EntrevistaEstudiante();
-                    entEst.Numero = Convert.ToInt32(reader["Numero"]);
+                    entEst.FechaCreacion = Convert.ToDateTime(reader["FechaCreacion"]);
+                    entEst.Motivo = new MotivoAtencionDatos().SeleccionarporId(Convert.ToInt32(reader["IdMotivo"]));
+                    entEst.Situacion = reader["Situacion"].ToString();
+                    entEst.Acciones = reader["Acciones"].ToString();
+                    entEst.Intervencion = reader["Intervencion"].ToString();
+                    entEst.Recomendaciones = reader["Recomendaciones"].ToString();
+                    entEst.DetecciondelProfesional = (bool)reader["DetecciondelProfesional"];
+                    entEst.Referencia = (bool)reader["Referencia"];
+                    entEst.Otros = (bool)reader["Otros"];
+                    entEst.OtrosExplicacion = reader["OtrosExplicacion"].ToString();      
 
                     return entEst;
                 }

@@ -140,7 +140,7 @@ namespace ProyectoAnaMarinOrientacion.Mantenimientos
             {
                 comboBox1.Items.Add(x.Name);
             }
-            comboBox1.SelectedIndex = 0;
+            //comboBox1.SelectedIndex = 0;
         }
 
         private void button4_Click(object sender, EventArgs e)

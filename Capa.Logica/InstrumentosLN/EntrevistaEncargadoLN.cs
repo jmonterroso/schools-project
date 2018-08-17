@@ -12,7 +12,7 @@ namespace Capa.Logica.InstrumentosLN
     {
        
 
-        public override void Guardar()
+        public  void Guardar()
         {
             EntrevistaEncargado ent = new EntrevistaEncargado();
             if (ent.Numero == 0)

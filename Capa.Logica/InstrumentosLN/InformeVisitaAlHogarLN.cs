@@ -16,7 +16,7 @@ namespace Capa.Logica.InstrumentosLN
         ///  Guarda un informe de visita al hogar en la bd, valida que el nombre este correcto
         /// </summary>
 
-        public override void Guardar()
+        public  void Guardar()
         {
             Referencia ent = new Referencia();
             if (ent.Numero == 0)

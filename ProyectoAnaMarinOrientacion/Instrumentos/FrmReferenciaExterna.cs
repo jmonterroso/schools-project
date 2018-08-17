@@ -122,14 +122,15 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
                    // Numero = (Convert.ToInt32(txtNumeroInst.Text)),
                     PersonaqueRefiere = txtPersonaRefiere.Text,
                     Puesto = txtPuesto.Text,
-                    SituacionPresenta = txtSitucionObservada.Text,
-                    AccionesQueHaRealizadoElCentroEducativo = txtAcuerdos.Text,
-                    ObservacionesyRecomendaciones = txtRecomendaciones.Text,
+                    Situacion = txtSitucionObservada.Text,
+                    Acciones = txtAcuerdos.Text,
+                    Recomendaciones = txtRecomendaciones.Text,
                     Motivo = (MotivoAtencion)cboMotivos.SelectedItem,
                     InstitucionDondeSeRefiere = txtIntituciondondeserefiere.Text,
-                };
+                    Nombre = "Referencia Externa"
+                };                
+                FrmExpediente.referenciaExterna.Add(entre);
                 MessageBox.Show("  Datos guardados con exito ");
-                FrmExpediente.refrencia.Add(entre);
                 Limpiar();
                 Dispose();
 
