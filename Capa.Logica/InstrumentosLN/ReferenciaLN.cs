@@ -10,24 +10,20 @@ using System.Threading.Tasks;
 namespace Capa.Logica.InstrumentosLN
 {
     public class ReferenciaLN
-    {  
-        
+    {
+
         /// <summary>
         /// 
         /// </summary>
-        public void Guardar( )
+        public void Guardar(Referencia ent)
         {
-            Referencia refe = new Referencia();
-            if (refe.Numero == 0)
-                throw new ApplicationException("Debe digitar el nombre");
 
             ReferenciaDatos datos = new ReferenciaDatos();
-            if (datos.SeleccionarPorId(refe.Numero) == null) 
-                datos.Insertar(refe);
+            if (datos.SeleccionarPorId(ent.Id) == null)
+                datos.Insertar(ent);
             else
-                datos.Actualizar(refe);
+                datos.Actualizar(ent);
         }
-
         public List<Referencia> SeleccionarTodos()
         {
             ReferenciaDatos datos = new ReferenciaDatos();

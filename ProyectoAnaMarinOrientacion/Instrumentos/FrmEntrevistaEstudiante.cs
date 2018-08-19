@@ -1,5 +1,7 @@
 ﻿using Capa.Entidades;
+using Capa.Entidades.Enumeradores;
 using System;
+
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -72,8 +74,13 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
                 entrevista.Recomendaciones = txtRecomendaciones.Text;
                 entrevista.Motivo = (MotivoAtencion)cboMotivos.SelectedItem;
                 entrevista.Nombre = "Entrevista a Estudiante";
-                
-                
+                entrevista.DetecciondelProfesional = ckcDeteccionProfesional.Checked;
+                entrevista.Referencia = ckcReferencia.Checked;
+                entrevista.Solicitud = ckcReferencia.Checked;
+                entrevista.Otros = ckcOtro.Checked;
+                entrevista.OtrosExplicacion = txtOtro.Text;
+                entrevista.TipoInstrumento = TipoInstrumentos.EntrevistaEstudiante;
+
                 
                 FrmExpediente.instrumentos.Add(entrevista);
                 MessageBox.Show("  Datos guardados con exito ");

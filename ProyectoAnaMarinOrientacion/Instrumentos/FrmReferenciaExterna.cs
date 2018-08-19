@@ -41,36 +41,7 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
             }
            
 
-            if (txtProvincia.Text == "")
-            {
-                MessageBox.Show("Debe digitar el nombre de la provincia donde vive el estudiante");
-                txtProvincia.Focus();
-                return;
-            }
-
-            if (txtCanton.Text == "")
-            {
-                MessageBox.Show("Debe digitar el nombre del canton donde vive el estudiante");
-                txtCanton.Focus();
-                return;
-            }
-
-            if (txtDistrito.Text == "")
-            {
-                MessageBox.Show("Debe digitar el nombre del distrito donde vive el estudiante");
-                txtIntituciondondeserefiere.Focus();
-                return;
-            }
-
-
-            if(txtOtrasSenas.Text=="")
-            {
-                MessageBox.Show("Debe digitar el nombre otras senas para la direccion donde vive el estudiante");
-                txtOtrasSenas.Focus();
-                return;
-            }
-
-
+           
             if (txtPersonaRefiere.Text == "")
             {
                 MessageBox.Show("Debe digitar el nombre de la persona que refiere");
@@ -120,16 +91,19 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
                 Referencia entre = new Referencia()
                 {
                    // Numero = (Convert.ToInt32(txtNumeroInst.Text)),
-                    PersonaqueRefiere = txtPersonaRefiere.Text,
+                    PersonaRefiere = txtPersonaRefiere.Text,
                     Puesto = txtPuesto.Text,
                     Situacion = txtSitucionObservada.Text,
                     Acciones = txtAcuerdos.Text,
                     Recomendaciones = txtRecomendaciones.Text,
                     Motivo = (MotivoAtencion)cboMotivos.SelectedItem,
-                    InstitucionDondeSeRefiere = txtIntituciondondeserefiere.Text,
-                    Nombre = "Referencia Externa"
-                };                
-                FrmExpediente.referenciaExterna.Add(entre);
+                    InstitucionRefiere = txtIntituciondondeserefiere.Text,
+                    Nombre = "Referencia Externa",
+                    Intervencion="",
+                    TipoInstrumento = Capa.Entidades.Enumeradores.TipoInstrumentos.ReferenciaExterna
+                };
+                //FrmExpediente.referenciaExterna.Add(entre);
+                FrmExpediente.instrumentos.Add(entre);
                 MessageBox.Show("  Datos guardados con exito ");
                 Limpiar();
                 Dispose();
@@ -186,21 +160,13 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
 
         private void Limpiar()
         {
-            txtNIdentificacion.Clear();
-            txtIntituciondondeserefiere.Clear();
-            txtDistrito.Clear();
-            txtCedula.Clear();
-            txtCanton.Clear();
-            txtAnnosCumplidos.Clear();
-            txtAcuerdos.Clear();
-            txtCorreoElectronico.Clear();
-            txtNombreCompleto.Clear();
-            txtPersonaRefiere.Clear();
-            txtProvincia.Clear();
+            
+            txtIntituciondondeserefiere.Clear();            
+            txtAcuerdos.Clear();            
+            txtPersonaRefiere.Clear();            
             txtPuesto.Clear();
             txtRecomendaciones.Clear();
-            txtSitucionObservada.Clear();
-            txtOtrasSenas.Clear();
+            txtSitucionObservada.Clear();            
         }
 
         private void groupEstudiante_Enter(object sender, EventArgs e)

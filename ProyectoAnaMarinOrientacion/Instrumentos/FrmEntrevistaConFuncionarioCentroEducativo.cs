@@ -105,10 +105,12 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
                 entrevista.NombreFuncionario = txtNombreFuncionario.Text;
                 entrevista.Puesto = txtPuesto.Text;
                 entrevista.Acciones = txtAcuerdos.Text;
+                entrevista.Intervencion = "";
                 entrevista.Recomendaciones = txtRecomendaciones.Text;
                 entrevista.Situacion = txtResumen.Text;
                 entrevista.Motivo = (MotivoAtencion)comboBox1.SelectedItem;
                 entrevista.Nombre = "Entrevista con Funcionario";
+                entrevista.TipoInstrumento = Capa.Entidades.Enumeradores.TipoInstrumentos.EntrevistaAlFuncionario;
 
                 MessageBox.Show("  Datos guardados con exito ");
                 //logicaFuncionarios.Guardar(entrevista);

@@ -97,20 +97,20 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
             {
 
                 InformeVisitaAlHogar visita = new InformeVisitaAlHogar()
-                {
-                    Numero = (Convert.ToInt32(txtNumeroInst.Text)),
-                    ProfesionaQueRealizaLaVisita = txtProfesionalQRealizaLaVisita.Text,
-                    Cargo = txtCargo.Text,
-                     AccionesSeguimiento= txtAccionesSeguimiento.Text,
-                    SituacionObservada = txtSitucionObservada.Text,
+                {                   
+                    NombreFuncionario = txtProfesionalQRealizaLaVisita.Text,
+                    Puesto = txtCargo.Text,
+                    Acciones= txtAccionesSeguimiento.Text,
+                    Situacion = txtSitucionObservada.Text,
                     Recomendaciones = txtRecomendaciones.Text,
-                    Motivo = (MotivoAtencion)cboMotivos.SelectedItem,
-                    Direccion= txtDireccion.Text,
-                    Nombre = "Visita al Hogar"
+                    Motivo = (MotivoAtencion)cboMotivos.SelectedItem,                    
+                    Nombre = "Visita al Hogar",
+                    Intervencion ="",                    
+                    TipoInstrumento = Capa.Entidades.Enumeradores.TipoInstrumentos.InformeDeVisitaAlHogar
                 };
                 FrmExpediente.instrumentos.Add(visita);
                // Logica.Guardar(vista);
-                MessageBox.Show("  Datos guardados con exito ");
+                MessageBox.Show("Datos guardados con exito ");
                 Dispose();
 
 

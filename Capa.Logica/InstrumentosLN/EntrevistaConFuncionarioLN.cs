@@ -9,16 +9,13 @@ using System.Threading.Tasks;
 namespace Capa.Logica.InstrumentosLN
 {
    public  class EntrevistaConFuncionarioLN : InstrumentoLN
-    { 
-        
-        public  void Guardar()
+    {
+
+        public void Guardar(EntrevistaFuncionario ent)
         {
-            EntrevistaFuncionario ent = new EntrevistaFuncionario();
-            if (ent.Numero == 0)
-                throw new ApplicationException("Debe digitar el nombre");
 
             EntrevistaFuncionarioDatos datos = new EntrevistaFuncionarioDatos();
-            if (datos.SeleccionarPorId(ent.Numero) == null)
+            if (datos.SeleccionarPorId(ent.Id) == null)
                 datos.Insertar(ent);
             else
                 datos.Actualizar(ent);

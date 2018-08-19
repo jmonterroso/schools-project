@@ -49,6 +49,7 @@
     <Compile Include="Conexion.cs" />
     <Compile Include="EncargadoDatos.cs" />
     <Compile Include="EncargadoTelefonoDatos.cs" />
+    <Compile Include="ExpedienteDatos.cs" />
     <Compile Include="EstudianteDatos.cs" />
     <Compile Include="Instrumentos\EntrevistaEncargadoDatos.cs" />
     <Compile Include="Instrumentos\EntrevistaEstudianteDatos.cs" />

@@ -10,16 +10,13 @@ namespace Capa.Logica.InstrumentosLN
 {
    public class EntrevistaEncargadoLN : InstrumentoLN
     {
-       
 
-        public  void Guardar()
+
+        public void Guardar(EntrevistaEncargado ent)
         {
-            EntrevistaEncargado ent = new EntrevistaEncargado();
-            if (ent.Numero == 0)
-                throw new ApplicationException("Debe digitar el nombre");
 
             EntrevistaEncargadoDatos datos = new EntrevistaEncargadoDatos();
-            if (datos.SeleccionarPorId(ent.Numero) == null)
+            if (datos.SeleccionarPorId(ent.Id) == null)
                 datos.Insertar(ent);
             else
                 datos.Actualizar(ent);

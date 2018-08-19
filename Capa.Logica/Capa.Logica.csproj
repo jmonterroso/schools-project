@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="CicloLN.cs" />
     <Compile Include="EncargadoLN.cs" />
+    <Compile Include="ExpedienteLN.cs" />
     <Compile Include="EstudianteLN.cs" />
     <Compile Include="InstrumentosLN\EntrevistaConFuncionarioLN.cs" />
     <Compile Include="InstrumentosLN\EntrevistaEncargadoLN.cs" />

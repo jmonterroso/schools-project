@@ -8,16 +8,10 @@ namespace Capa.Entidades
 {
   public  class InformeVisitaAlHogar :ClaseInstrumento
     {
+    
+        public string NombreFuncionario { get; set; }
+        public string Puesto { get; set; }
 
-        public int Numero { get; set; }
-        public string ProfesionaQueRealizaLaVisita { get; set; }
-       
-        public string Cargo { get; set; }
-        public string AccionesSeguimiento { get; set; }
-        public string SituacionObservada { get; set; }
-        public string Recomendaciones { get; set; }
-        public string Direccion { get; set; }
 
-       
     }
 }

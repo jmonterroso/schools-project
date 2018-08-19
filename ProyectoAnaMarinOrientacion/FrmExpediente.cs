@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Capa.Entidades.Enumeradores;
 
 namespace ProyectoAnaMarinOrientacion
 {
@@ -19,6 +20,12 @@ namespace ProyectoAnaMarinOrientacion
         Capa.Logica.PeriodosLN logicaperiodos;
         Capa.Logica.EncargadoLN logicaEncargado;
         Capa.Logica.EstudianteLN logicaEstudiante;
+        Capa.Logica.InstrumentosLN.EntrevistaEstudianteLN logicaEntrevistaEstudiante;
+        Capa.Logica.InstrumentosLN.EntrevistaConFuncionarioLN logicaEntrevistaConFuncionario;
+        Capa.Logica.InstrumentosLN.EntrevistaEncargadoLN logicaEntrevistaConEncargado;
+        Capa.Logica.InstrumentosLN.InformeVisitaAlHogarLN logicaInformeVisitaAlHogar;
+        Capa.Logica.InstrumentosLN.ReferenciaLN logicaReferenciaExterna;
+        Capa.Logica.ExpedienteLN logicaExpediente;
         public static Encargado encar;
         public static List<EntrevistaFuncionario> entrevistasFuncionario;
         public static List<EntrevistaEstudiante> entrevistasEstudiante;
@@ -26,6 +33,7 @@ namespace ProyectoAnaMarinOrientacion
         public static List<InformeVisitaAlHogar> visitaAlHogar;
         public static List<Referencia> referenciaExterna;
         public static List<ClaseInstrumento> instrumentos;
+        public ExpedienteFacade facade;
 
         Capa.Logica.SeccionesLN logicaSecciones;
         Capa.Logica.CicloLN logicaCiclo;
@@ -42,12 +50,19 @@ namespace ProyectoAnaMarinOrientacion
             logicaSecciones = new Capa.Logica.SeccionesLN();
             logicaCiclo = new Capa.Logica.CicloLN();
             logicaNivel = new Capa.Logica.NivelLN();
+            logicaEntrevistaEstudiante = new Capa.Logica.InstrumentosLN.EntrevistaEstudianteLN();
+            logicaEntrevistaConFuncionario = new Capa.Logica.InstrumentosLN.EntrevistaConFuncionarioLN();
+            logicaEntrevistaConEncargado = new Capa.Logica.InstrumentosLN.EntrevistaEncargadoLN();
+            logicaInformeVisitaAlHogar = new Capa.Logica.InstrumentosLN.InformeVisitaAlHogarLN();
+            logicaReferenciaExterna = new Capa.Logica.InstrumentosLN.ReferenciaLN();
+            logicaExpediente = new Capa.Logica.ExpedienteLN();
             entrevistasFuncionario = new List<EntrevistaFuncionario>();
             entrevistasEstudiante = new List<EntrevistaEstudiante>();
             entrevistasEncargado = new List<EntrevistaEncargado>();
             visitaAlHogar = new List<InformeVisitaAlHogar>();
             referenciaExterna = new List<Referencia>();
             instrumentos = new List<ClaseInstrumento>();
+            facade = new ExpedienteFacade();
         }
         
 
@@ -55,17 +70,52 @@ namespace ProyectoAnaMarinOrientacion
         {//boton para crear expediente
             try
             {
-                ExpedienteFacade facade = new ExpedienteFacade();
+                
                facade.AgregarEstudiante(est.Identificacion, est.NombreCompleto, est.Seccion, est.Sexo, est.FechaNacimiento, est.Direccion);
                 Encargado enc = logicaEncargado.SeleccionarPorId(est.IdEncargado);
                facade.AgregarEncargado(enc.Identificacion,enc.NombreCompleto, enc.CorreoElectronico, enc.Ocupacion, enc.Parentesco);
-               //facade.AgregarCiclo( (Capa.Entidades.Ciclo) cboCiclo.SelectedItem);
-               //facade.AgregarPeriodo((Periodos)cboPeriodo.SelectedItem);
-               //facade.AgregarNivel((Capa.Entidades.Nivel)cboNivel.SelectedItem);
+                //facade.AgregarCiclo( (Capa.Entidades.Ciclo) cboCiclo.SelectedItem);
+                //facade.AgregarPeriodo((Periodos)cboPeriodo.SelectedItem);
+                //facade.AgregarNivel((Capa.Entidades.Nivel)cboNivel.SelectedItem);
                 //facade.AgregarInstrumento();
 
-                logicaEstudiante.Guardar(est);
-                logicaEncargado.Guardar(encar);
+                facade.IdEstudiante = est.Identificacion;
+                facade.Id = logicaExpediente.Guardar(facade).Id;
+                txtNumeroExpediente.Text = facade.Id.ToString();
+                if(instrumentos.Count > 0)
+                {
+                    foreach(var instrumento in instrumentos)
+                    {
+                        instrumento.IdExpediente = facade.Id;
+                        switch (instrumento.TipoInstrumento){
+                            case TipoInstrumentos.EntrevistaEstudiante:
+                                logicaEntrevistaEstudiante.Guardar((EntrevistaEstudiante)instrumento);
+                                break;
+                            case TipoInstrumentos.EntrevistaAlFuncionario:
+                                logicaEntrevistaConFuncionario.Guardar((EntrevistaFuncionario)instrumento);
+                                break;
+                            case TipoInstrumentos.EntrevistaAlEncargado:
+                                logicaEntrevistaConEncargado.Guardar((EntrevistaEncargado)instrumento);
+                                break;
+                            case TipoInstrumentos.InformeDeVisitaAlHogar:
+                                logicaInformeVisitaAlHogar.Guardar((InformeVisitaAlHogar)instrumento);
+                                break;
+                            case TipoInstrumentos.ReferenciaExterna:
+                                logicaReferenciaExterna.Guardar((Referencia)instrumento);
+                                break;
+
+                        }
+                        
+
+                    }
+                    
+                }
+                MessageBox.Show("Expediente Guardado Correctamente");
+                
+
+
+                //logicaEstudiante.Guardar(est);
+                //logicaEncargado.Guardar(encar);
             }
             catch (Exception ex)
             {
@@ -218,6 +268,15 @@ namespace ProyectoAnaMarinOrientacion
                 return;
             }
             LblEstSeleccionado.Text = est.NombreCompleto;
+            ExpedienteFacade fac = new ExpedienteFacade();
+            fac = logicaExpediente.SeleccionarPorId(est.Identificacion);
+            if(fac != null)
+            {
+                facade = fac;
+                txtNumeroExpediente.Text = facade.Id.ToString();
+            }
+            
+
             
 
         }

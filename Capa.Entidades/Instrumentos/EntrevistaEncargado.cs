@@ -8,10 +8,7 @@ namespace Capa.Entidades
 {
     public class EntrevistaEncargado :ClaseInstrumento
     {
-        public int Numero { get; set; }
-        public string ResumenSituacion { get; set; }
-        public string Recomendaciones { get; set; }
-
-      
+        public bool ConvocadoPorEncargado { get; set; }
+        public bool ConvocadoPorInstitucion { get; set; }
     }
 }

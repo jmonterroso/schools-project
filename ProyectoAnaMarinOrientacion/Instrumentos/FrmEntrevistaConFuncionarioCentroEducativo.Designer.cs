@@ -78,7 +78,7 @@
             this.txtNombreFuncionario.Location = new System.Drawing.Point(175, 47);
             this.txtNombreFuncionario.Name = "txtNombreFuncionario";
             this.txtNombreFuncionario.Size = new System.Drawing.Size(216, 20);
-            this.txtNombreFuncionario.TabIndex = 18;
+            this.txtNombreFuncionario.TabIndex = 1;
             // 
             // label2
             // 
@@ -103,7 +103,7 @@
             this.txtPuesto.Location = new System.Drawing.Point(494, 47);
             this.txtPuesto.Name = "txtPuesto";
             this.txtPuesto.Size = new System.Drawing.Size(191, 20);
-            this.txtPuesto.TabIndex = 22;
+            this.txtPuesto.TabIndex = 2;
             // 
             // txtResumen
             // 
@@ -111,7 +111,7 @@
             this.txtResumen.Multiline = true;
             this.txtResumen.Name = "txtResumen";
             this.txtResumen.Size = new System.Drawing.Size(511, 20);
-            this.txtResumen.TabIndex = 26;
+            this.txtResumen.TabIndex = 5;
             // 
             // label5
             // 
@@ -146,7 +146,7 @@
             this.txtAcuerdos.Multiline = true;
             this.txtAcuerdos.Name = "txtAcuerdos";
             this.txtAcuerdos.Size = new System.Drawing.Size(511, 20);
-            this.txtAcuerdos.TabIndex = 28;
+            this.txtAcuerdos.TabIndex = 6;
             // 
             // txtRecomendaciones
             // 
@@ -154,7 +154,7 @@
             this.txtRecomendaciones.Multiline = true;
             this.txtRecomendaciones.Name = "txtRecomendaciones";
             this.txtRecomendaciones.Size = new System.Drawing.Size(511, 20);
-            this.txtRecomendaciones.TabIndex = 30;
+            this.txtRecomendaciones.TabIndex = 7;
             // 
             // label8
             // 
@@ -170,7 +170,7 @@
             this.BtnCancelar.Location = new System.Drawing.Point(607, 391);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(102, 23);
-            this.BtnCancelar.TabIndex = 34;
+            this.BtnCancelar.TabIndex = 9;
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = true;
             this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
@@ -180,7 +180,7 @@
             this.btnAceptar.Location = new System.Drawing.Point(484, 391);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(102, 23);
-            this.btnAceptar.TabIndex = 33;
+            this.btnAceptar.TabIndex = 8;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
@@ -200,7 +200,7 @@
             this.txtNombreEstudiante.Name = "txtNombreEstudiante";
             this.txtNombreEstudiante.ReadOnly = true;
             this.txtNombreEstudiante.Size = new System.Drawing.Size(216, 20);
-            this.txtNombreEstudiante.TabIndex = 20;
+            this.txtNombreEstudiante.TabIndex = 3;
             // 
             // comboBox1
             // 
@@ -209,7 +209,7 @@
             this.comboBox1.Location = new System.Drawing.Point(151, 129);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(240, 21);
-            this.comboBox1.TabIndex = 39;
+            this.comboBox1.TabIndex = 4;
             // 
             // textBox3
             // 

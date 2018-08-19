@@ -9,7 +9,7 @@ namespace Capa.Datos.Instrumentos
 {
     public class ReferenciaDatos
     {
-        public void Insertar(Referencia refe)
+        public void Insertar(Referencia entFun)
         {
             // SqlConnection requiere el using System.Data.SqlClient;
             SqlConnection conexion = new SqlConnection(Conexion.Cadena);
@@ -17,15 +17,20 @@ namespace Capa.Datos.Instrumentos
             {
                 conexion.Open(); // un error aca: revisar cadena de conexion
                 // El command permite ejecutar un comando en la conexion establecida
-                SqlCommand comando = new SqlCommand("PA_InsertarReferencia", conexion);
+                SqlCommand comando = new SqlCommand("PA_InsertarReferenciaExterna", conexion);
                 // Como es en Store Procedure se debe indicar el tipo de comando
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 // Si el SP requeire parametros se le deben asignar al comando
-             
-                comando.Parameters.AddWithValue("@Numero", refe.Numero);
-         
 
-
+                comando.Parameters.AddWithValue("@Recomendaciones", entFun.Recomendaciones);
+                comando.Parameters.AddWithValue("@PersonaRefiere", entFun.PersonaRefiere);
+                comando.Parameters.AddWithValue("@Puesto", entFun.Puesto);
+                comando.Parameters.AddWithValue("@Situacion", entFun.Situacion);
+                comando.Parameters.AddWithValue("@Acciones", entFun.Acciones);
+                comando.Parameters.AddWithValue("@Intervencion", entFun.Intervencion);
+                comando.Parameters.AddWithValue("@IdMotivo", entFun.Motivo.IdMotivo);
+                comando.Parameters.AddWithValue("@IdExpediente", entFun.IdExpediente);
+                comando.Parameters.AddWithValue("@InstitucionRefiere", entFun.InstitucionRefiere);
                 // Finalmente ejecutamos el comando
                 // al ser un insert no requiere retornar un consulta
                 comando.ExecuteNonQuery();
@@ -53,7 +58,7 @@ namespace Capa.Datos.Instrumentos
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 // Si el SP requeire parametros se le deben asignar al comando
             
-                comando.Parameters.AddWithValue("@Numero", refe.Numero);
+                comando.Parameters.AddWithValue("@Id", refe.Id);
 
 
                 // Finalmente ejecutamos el comando
@@ -124,7 +129,7 @@ namespace Capa.Datos.Instrumentos
                 {
                     Referencia refe = new Referencia();
 
-                    refe.Numero = Convert.ToInt32(reader["Numero"]);
+                    refe.Id= Convert.ToInt32(reader["Id"]);
                     lista.Add(refe);
                 }
 
@@ -141,7 +146,7 @@ namespace Capa.Datos.Instrumentos
             return lista;
         }
 
-        public Referencia SeleccionarPorId(int numero)
+        public Referencia SeleccionarPorId(int Id)
         {
             // SqlConnection requiere el using System.Data.SqlClient;
             SqlConnection conexion = new SqlConnection(Conexion.Cadena);
@@ -149,20 +154,30 @@ namespace Capa.Datos.Instrumentos
             {
                 conexion.Open(); // un error aca: revisar cadena de conexion
                 // El command permite ejecutar un comando en la conexion establecida
-                SqlCommand comando = new SqlCommand("PA_SeleccionarEncargadoPorNumero", conexion);
+                SqlCommand comando = new SqlCommand("PA_SeleccionarReferenciaExternaPorId", conexion);
                 // Como es en Store Procedure se debe indicar el tipo de comando
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.AddWithValue("@Numero", numero);
+                comando.Parameters.AddWithValue("@Id", Id);
                 // Finalmente ejecutamos el comando
                 // al ser una consulta debemos usar ExecuteReader
                 SqlDataReader reader = comando.ExecuteReader();
                 // es necesario recorrer el reader para extraer todos los registros
                 while (reader.Read()) // cada vez que se llama el Read retorna una tupla
-                {
+                {                    
                     Referencia refe = new Referencia();
-                    refe.Numero = Convert.ToInt32(reader["Numero"]);
+                    refe.FechaCreacion = Convert.ToDateTime(reader["FechaCreacion"]);
+                    refe.Motivo = new MotivoAtencionDatos().SeleccionarporId(Convert.ToInt32(reader["IdMotivo"]));
+                    refe.Situacion = reader["Situacion"].ToString();
+                    refe.Acciones = reader["Acciones"].ToString();
+                    refe.Intervencion = reader["Intervencion"].ToString();
+                    refe.Recomendaciones = reader["Recomendaciones"].ToString();
+                    refe.PersonaRefiere = reader["PersonaRefiere"].ToString();
+                    refe.Puesto = reader["Puesto"].ToString();
+                    refe.InstitucionRefiere = reader["InstitucionRefiere"].ToString();
 
                     return refe;
+
+
                 }
 
             }

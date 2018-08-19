@@ -31,9 +31,8 @@
             this.mskFecha = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.ckConvocadoPorEncargado = new System.Windows.Forms.CheckBox();
+            this.ckConvocadoPorInstitucion = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtResumen = new System.Windows.Forms.TextBox();
@@ -74,46 +73,35 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.checkBox3);
-            this.groupBox1.Controls.Add(this.checkBox2);
-            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Controls.Add(this.ckConvocadoPorEncargado);
+            this.groupBox1.Controls.Add(this.ckConvocadoPorInstitucion);
             this.groupBox1.Location = new System.Drawing.Point(15, 41);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(185, 100);
+            this.groupBox1.Size = new System.Drawing.Size(201, 100);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fue convocado(a)  por: ";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // checkBox3
+            // ckConvocadoPorEncargado
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(24, 65);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(139, 17);
-            this.checkBox3.TabIndex = 2;
-            this.checkBox3.Text = "Iniciativa del encargado";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.ckConvocadoPorEncargado.AutoSize = true;
+            this.ckConvocadoPorEncargado.Location = new System.Drawing.Point(24, 42);
+            this.ckConvocadoPorEncargado.Name = "ckConvocadoPorEncargado";
+            this.ckConvocadoPorEncargado.Size = new System.Drawing.Size(140, 17);
+            this.ckConvocadoPorEncargado.TabIndex = 1;
+            this.ckConvocadoPorEncargado.Text = "Iniciativo del Encargado";
+            this.ckConvocadoPorEncargado.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // ckConvocadoPorInstitucion
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(24, 42);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(126, 17);
-            this.checkBox2.TabIndex = 1;
-            this.checkBox2.Text = "Iniciativa de la madre";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(24, 19);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(115, 17);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Iniciativa del padre";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.ckConvocadoPorInstitucion.AutoSize = true;
+            this.ckConvocadoPorInstitucion.Location = new System.Drawing.Point(24, 19);
+            this.ckConvocadoPorInstitucion.Name = "ckConvocadoPorInstitucion";
+            this.ckConvocadoPorInstitucion.Size = new System.Drawing.Size(168, 17);
+            this.ckConvocadoPorInstitucion.TabIndex = 0;
+            this.ckConvocadoPorInstitucion.Text = "Fue convocado o Convocada";
+            this.ckConvocadoPorInstitucion.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -312,9 +300,8 @@
         private System.Windows.Forms.MaskedTextBox mskFecha;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox ckConvocadoPorEncargado;
+        private System.Windows.Forms.CheckBox ckConvocadoPorInstitucion;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtResumen;

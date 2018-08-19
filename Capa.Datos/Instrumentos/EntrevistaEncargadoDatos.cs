@@ -22,11 +22,17 @@ namespace Capa.Datos.Instrumentos
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 // Si el SP requeire parametros se le deben asignar al comando
 
-                comando.Parameters.AddWithValue("@Numero", entEnc.Numero);
+                comando.Parameters.AddWithValue("@Recomendaciones", entEnc.Recomendaciones);
+                comando.Parameters.AddWithValue("@ConvocadoPorInstitucion", entEnc.ConvocadoPorInstitucion);
+                comando.Parameters.AddWithValue("@ConvocadoPorEncargado", entEnc.ConvocadoPorEncargado);
+                comando.Parameters.AddWithValue("@Situacion", entEnc.Situacion);
+                comando.Parameters.AddWithValue("@Acciones", entEnc.Acciones);
+                comando.Parameters.AddWithValue("@Intervencion", entEnc.Intervencion);
+                comando.Parameters.AddWithValue("@IdMotivo", entEnc.Motivo.IdMotivo);
+                comando.Parameters.AddWithValue("@IdExpediente", entEnc.IdExpediente);
 
 
-
-                // Finalmente ejecutamos el comando
+               // Finalmente ejecutamos el comando
                 // al ser un insert no requiere retornar un consulta
                 comando.ExecuteNonQuery();
             }
@@ -53,7 +59,7 @@ namespace Capa.Datos.Instrumentos
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 // Si el SP requeire parametros se le deben asignar al comando
 
-                comando.Parameters.AddWithValue("@Numero", entEnc.Numero);
+                comando.Parameters.AddWithValue("@Numero", entEnc.Id);
 
 
                 // Finalmente ejecutamos el comando
@@ -124,7 +130,7 @@ namespace Capa.Datos.Instrumentos
                 {
                     EntrevistaEncargado entEnc = new EntrevistaEncargado();
 
-                    entEnc.Numero = Convert.ToInt32(reader["Numero"]);
+                    entEnc.Id = Convert.ToInt32(reader["Numero"]);
                     lista.Add(entEnc);
                 }
 
@@ -141,7 +147,7 @@ namespace Capa.Datos.Instrumentos
             return lista;
         }
 
-        public EntrevistaEncargado SeleccionarPorId(int numero)
+        public EntrevistaEncargado SeleccionarPorId(int Id)
         {
             // SqlConnection requiere el using System.Data.SqlClient;
             SqlConnection conexion = new SqlConnection(Conexion.Cadena);
@@ -149,19 +155,25 @@ namespace Capa.Datos.Instrumentos
             {
                 conexion.Open(); // un error aca: revisar cadena de conexion
                 // El command permite ejecutar un comando en la conexion establecida
-                SqlCommand comando = new SqlCommand("PA_SeleccionarEncargadoPorNumero", conexion);
+                SqlCommand comando = new SqlCommand("PA_SeleccionarEntrevistaEncargadoPorId", conexion);
                 // Como es en Store Procedure se debe indicar el tipo de comando
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.AddWithValue("@Numero", numero);
+                comando.Parameters.AddWithValue("@Id", Id);
                 // Finalmente ejecutamos el comando
                 // al ser una consulta debemos usar ExecuteReader
                 SqlDataReader reader = comando.ExecuteReader();
                 // es necesario recorrer el reader para extraer todos los registros
                 while (reader.Read()) // cada vez que se llama el Read retorna una tupla
-                {
+                {                    
                     EntrevistaEncargado entEnc = new EntrevistaEncargado();
-                    entEnc.Numero = Convert.ToInt32(reader["Numero"]);
-
+                    entEnc.FechaCreacion = Convert.ToDateTime(reader["FechaCreacion"]);
+                    entEnc.Motivo = new MotivoAtencionDatos().SeleccionarporId(Convert.ToInt32(reader["IdMotivo"]));
+                    entEnc.Situacion = reader["Situacion"].ToString();
+                    entEnc.Acciones = reader["Acciones"].ToString();
+                    entEnc.Intervencion = reader["Intervencion"].ToString();
+                    entEnc.Recomendaciones = reader["Recomendaciones"].ToString();
+                    entEnc.ConvocadoPorInstitucion = (bool)reader["ConvocadoPorInstitucion"];
+                    entEnc.ConvocadoPorInstitucion= (bool)reader["ConvocadoPorInstitucion"];
                     return entEnc;
                 }
 

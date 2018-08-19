@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Capa.Entidades.Enumeradores
 {
-    public enum Instrumentos
+    public enum TipoInstrumentos
     {
       EntrevistaAlFuncionario,
       EntrevistaAlEncargado,

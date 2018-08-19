@@ -75,10 +75,14 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
             try
             {
                 EntrevistaEncargado entrevista = new EntrevistaEncargado();
-
+                entrevista.Acciones = "";
+                entrevista.Intervencion = "";
                 entrevista.Situacion = txtResumen.Text;
                 entrevista.Recomendaciones = txtRecomendaciones.Text;
                 entrevista.Motivo = (MotivoAtencion)cboMotivos.SelectedItem;
+                entrevista.TipoInstrumento = Capa.Entidades.Enumeradores.TipoInstrumentos.EntrevistaAlEncargado;
+                entrevista.ConvocadoPorEncargado = ckConvocadoPorEncargado.Checked;
+                entrevista.ConvocadoPorInstitucion = ckConvocadoPorInstitucion.Checked;
                 entrevista.Nombre = "Entrevista Encargado";
                 MessageBox.Show("  Datos guardados con exito ");
                 FrmExpediente.instrumentos.Add(entrevista);

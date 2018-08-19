@@ -18,6 +18,8 @@ namespace Capa.Entidades
         //private Instrumento instrumento { get; set; }
         private MotivoAtencion motivo { get; set; }
         private List<ClaseInstrumento> instrumento = new List<ClaseInstrumento>();
+        public int Id { get; set; }
+        public string IdEstudiante { get; set; }
 
 
 

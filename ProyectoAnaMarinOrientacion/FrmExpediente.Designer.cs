@@ -479,7 +479,7 @@
             this.groupBox6.Size = new System.Drawing.Size(358, 164);
             this.groupBox6.TabIndex = 50;
             this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Instrumentos";
+            this.groupBox6.Text = "TipoInstrumentos";
             // 
             // dgvInstrumentos
             // 

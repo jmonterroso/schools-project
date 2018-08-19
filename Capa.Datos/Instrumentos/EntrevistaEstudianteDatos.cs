@@ -33,10 +33,7 @@ namespace Capa.Datos.Instrumentos
                 comando.Parameters.AddWithValue("@Acciones", entEst.Acciones);
                 comando.Parameters.AddWithValue("@Intervencion", entEst.Intervencion);
                 comando.Parameters.AddWithValue("@IdMotivo", entEst.Motivo.IdMotivo);
-
-
-
-
+                comando.Parameters.AddWithValue("@IdExpediente", entEst.IdExpediente);
                 // Finalmente ejecutamos el comando
                 // al ser un insert no requiere retornar un consulta
                 comando.ExecuteNonQuery();

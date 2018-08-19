@@ -11,7 +11,7 @@ namespace Capa.Datos.Instrumentos
     public class InformeVistaHogarDatos
     {
 
-        public void Insertar(Referencia inf)
+        public void Insertar(InformeVisitaAlHogar ent)
         {
             // SqlConnection requiere el using System.Data.SqlClient;
             SqlConnection conexion = new SqlConnection(Conexion.Cadena);
@@ -19,18 +19,28 @@ namespace Capa.Datos.Instrumentos
             {
                 conexion.Open(); // un error aca: revisar cadena de conexion
                 // El command permite ejecutar un comando en la conexion establecida
-                SqlCommand comando = new SqlCommand("PA_InsertarInformeVistaAlHogar", conexion);
+                SqlCommand comando = new SqlCommand("PA_InsertarInformeVisitaAlHogar", conexion);
                 // Como es en Store Procedure se debe indicar el tipo de comando
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 // Si el SP requeire parametros se le deben asignar al comando
 
-                comando.Parameters.AddWithValue("@Numero", inf.Numero);
+
+                comando.Parameters.AddWithValue("@Recomendaciones", ent.Recomendaciones);
+                comando.Parameters.AddWithValue("@NombreFuncionario", ent.NombreFuncionario);
+                comando.Parameters.AddWithValue("@Puesto", ent.Puesto);
+                comando.Parameters.AddWithValue("@Situacion", ent.Situacion);
+                comando.Parameters.AddWithValue("@Acciones", ent.Acciones);
+                comando.Parameters.AddWithValue("@Intervencion", ent.Intervencion);
+                comando.Parameters.AddWithValue("@IdMotivo", ent.Motivo.IdMotivo);
+                comando.Parameters.AddWithValue("@IdExpediente", ent.IdExpediente);
+
+
 
 
 
                 // Finalmente ejecutamos el comando
                 // al ser un insert no requiere retornar un consulta
-                comando.ExecuteNonQuery();
+                comando.ExecuteNonQuery();  
             }
             catch (Exception)
             {
@@ -42,7 +52,7 @@ namespace Capa.Datos.Instrumentos
             }
         }
 
-        public void Actualizar( Referencia inf)
+        public void Actualizar(InformeVisitaAlHogar ent)
         {
             // SqlConnection requiere el using System.Data.SqlClient;
             SqlConnection conexion = new SqlConnection(Conexion.Cadena);
@@ -55,7 +65,14 @@ namespace Capa.Datos.Instrumentos
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 // Si el SP requeire parametros se le deben asignar al comando
 
-                comando.Parameters.AddWithValue("@Numero", inf.Numero);
+                comando.Parameters.AddWithValue("@Recomendaciones", ent.Recomendaciones);
+                comando.Parameters.AddWithValue("@NombreFuncionario", ent.NombreFuncionario);
+                comando.Parameters.AddWithValue("@Puesto", ent.Puesto);
+                comando.Parameters.AddWithValue("@Situacion", ent.Situacion);
+                comando.Parameters.AddWithValue("@Acciones", ent.Acciones);
+                comando.Parameters.AddWithValue("@Intervencion", ent.Intervencion);
+                comando.Parameters.AddWithValue("@IdMotivo", ent.Motivo.IdMotivo);
+                comando.Parameters.AddWithValue("@IdExpediente", ent.IdExpediente);
 
 
                 // Finalmente ejecutamos el comando
@@ -126,7 +143,7 @@ namespace Capa.Datos.Instrumentos
                 {
                     Referencia inf = new Referencia();
 
-                    inf.Numero = Convert.ToInt32(reader["Numero"]);
+                    inf.Id = Convert.ToInt32(reader["Id"]);
                     lista.Add(inf);
                 }
 
@@ -143,7 +160,7 @@ namespace Capa.Datos.Instrumentos
             return lista;
         }
 
-        public Referencia SeleccionarPorId(int numero)
+        public InformeVisitaAlHogar SeleccionarPorId(int numero)
         {
             // SqlConnection requiere el using System.Data.SqlClient;
             SqlConnection conexion = new SqlConnection(Conexion.Cadena);
@@ -151,20 +168,26 @@ namespace Capa.Datos.Instrumentos
             {
                 conexion.Open(); // un error aca: revisar cadena de conexion
                 // El command permite ejecutar un comando en la conexion establecida
-                SqlCommand comando = new SqlCommand("PA_SeleccionarInformeVistaAlHogarPorNumero", conexion);
+                SqlCommand comando = new SqlCommand("PA_SeleccionarInformeVisitaAlHogarPorId", conexion);
                 // Como es en Store Procedure se debe indicar el tipo de comando
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.AddWithValue("@Numero", numero);
+                comando.Parameters.AddWithValue("@Id", numero);
                 // Finalmente ejecutamos el comando
                 // al ser una consulta debemos usar ExecuteReader
                 SqlDataReader reader = comando.ExecuteReader();
                 // es necesario recorrer el reader para extraer todos los registros
                 while (reader.Read()) // cada vez que se llama el Read retorna una tupla
                 {
-                    Referencia inf = new Referencia();
-                    inf.Numero = Convert.ToInt32(reader["Numero"]);
-
-                    return inf;
+                    InformeVisitaAlHogar entEnc = new InformeVisitaAlHogar();
+                    entEnc.FechaCreacion = Convert.ToDateTime(reader["FechaCreacion"]);
+                    entEnc.Motivo = new MotivoAtencionDatos().SeleccionarporId(Convert.ToInt32(reader["IdMotivo"]));
+                    entEnc.Situacion = reader["Situacion"].ToString();
+                    entEnc.Acciones = reader["Acciones"].ToString();
+                    entEnc.Intervencion = reader["Intervencion"].ToString();
+                    entEnc.Recomendaciones = reader["Recomendaciones"].ToString();
+                    entEnc.NombreFuncionario = reader["NombreFuncionario"].ToString();
+                    entEnc.Puesto = reader["Puesto"].ToString();
+                    return entEnc;
                 }
 
             }
