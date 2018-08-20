@@ -36,7 +36,7 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
         private void FrmEntrevistaPadre_Madre_Encargado_Load(object sender, EventArgs e)
         {
             CargarComboMotivos();
-            mskFecha.Text = DateTime.Now.ToShortDateString();
+            
 
         }
 
@@ -115,8 +115,7 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
 
         private void Limpiar()
         {
-            txtNombreEstudiante.Clear();
-            txtNombrePadre.Clear();
+            
             txtRecomendaciones.Clear();
             txtResumen.Clear();
         }

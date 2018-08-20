@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.mskFecha = new System.Windows.Forms.MaskedTextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtIntituciondondeserefiere = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -47,31 +45,12 @@
             this.BtnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.cboMotivos = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // mskFecha
-            // 
-            this.mskFecha.Location = new System.Drawing.Point(68, 6);
-            this.mskFecha.Name = "mskFecha";
-            this.mskFecha.ReadOnly = true;
-            this.mskFecha.Size = new System.Drawing.Size(100, 20);
-            this.mskFecha.TabIndex = 14;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Fecha:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(191, 13);
+            this.label2.Location = new System.Drawing.Point(27, 34);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(134, 13);
             this.label2.TabIndex = 0;
@@ -79,15 +58,15 @@
             // 
             // txtIntituciondondeserefiere
             // 
-            this.txtIntituciondondeserefiere.Location = new System.Drawing.Point(340, 12);
+            this.txtIntituciondondeserefiere.Location = new System.Drawing.Point(186, 33);
             this.txtIntituciondondeserefiere.Name = "txtIntituciondondeserefiere";
             this.txtIntituciondondeserefiere.Size = new System.Drawing.Size(225, 20);
-            this.txtIntituciondondeserefiere.TabIndex = 16;
+            this.txtIntituciondondeserefiere.TabIndex = 1;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(32, 78);
+            this.label17.Location = new System.Drawing.Point(29, 75);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(99, 13);
             this.label17.TabIndex = 18;
@@ -95,23 +74,23 @@
             // 
             // txtPersonaRefiere
             // 
-            this.txtPersonaRefiere.Location = new System.Drawing.Point(149, 75);
+            this.txtPersonaRefiere.Location = new System.Drawing.Point(186, 72);
             this.txtPersonaRefiere.Name = "txtPersonaRefiere";
-            this.txtPersonaRefiere.Size = new System.Drawing.Size(198, 20);
-            this.txtPersonaRefiere.TabIndex = 19;
+            this.txtPersonaRefiere.Size = new System.Drawing.Size(225, 20);
+            this.txtPersonaRefiere.TabIndex = 2;
             this.txtPersonaRefiere.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // txtPuesto
             // 
-            this.txtPuesto.Location = new System.Drawing.Point(423, 75);
+            this.txtPuesto.Location = new System.Drawing.Point(491, 72);
             this.txtPuesto.Name = "txtPuesto";
             this.txtPuesto.Size = new System.Drawing.Size(191, 20);
-            this.txtPuesto.TabIndex = 24;
+            this.txtPuesto.TabIndex = 3;
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(361, 82);
+            this.label18.Location = new System.Drawing.Point(445, 75);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(40, 13);
             this.label18.TabIndex = 23;
@@ -122,8 +101,8 @@
             this.txtRecomendaciones.Location = new System.Drawing.Point(188, 280);
             this.txtRecomendaciones.Multiline = true;
             this.txtRecomendaciones.Name = "txtRecomendaciones";
-            this.txtRecomendaciones.Size = new System.Drawing.Size(484, 20);
-            this.txtRecomendaciones.TabIndex = 38;
+            this.txtRecomendaciones.Size = new System.Drawing.Size(494, 20);
+            this.txtRecomendaciones.TabIndex = 7;
             // 
             // label19
             // 
@@ -139,8 +118,8 @@
             this.txtAcuerdos.Location = new System.Drawing.Point(186, 233);
             this.txtAcuerdos.Multiline = true;
             this.txtAcuerdos.Name = "txtAcuerdos";
-            this.txtAcuerdos.Size = new System.Drawing.Size(488, 20);
-            this.txtAcuerdos.TabIndex = 36;
+            this.txtAcuerdos.Size = new System.Drawing.Size(496, 20);
+            this.txtAcuerdos.TabIndex = 6;
             this.txtAcuerdos.TextChanged += new System.EventHandler(this.txtAcuerdos_TextChanged);
             // 
             // label20
@@ -157,8 +136,8 @@
             this.txtSitucionObservada.Location = new System.Drawing.Point(186, 178);
             this.txtSitucionObservada.Multiline = true;
             this.txtSitucionObservada.Name = "txtSitucionObservada";
-            this.txtSitucionObservada.Size = new System.Drawing.Size(488, 20);
-            this.txtSitucionObservada.TabIndex = 34;
+            this.txtSitucionObservada.Size = new System.Drawing.Size(496, 20);
+            this.txtSitucionObservada.TabIndex = 5;
             // 
             // label21
             // 
@@ -191,20 +170,20 @@
             // 
             // BtnCancelar
             // 
-            this.BtnCancelar.Location = new System.Drawing.Point(423, 393);
+            this.BtnCancelar.Location = new System.Drawing.Point(343, 321);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(102, 23);
-            this.BtnCancelar.TabIndex = 48;
+            this.BtnCancelar.TabIndex = 9;
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = true;
             this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(269, 393);
+            this.btnAceptar.Location = new System.Drawing.Point(189, 321);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(102, 23);
-            this.btnAceptar.TabIndex = 47;
+            this.btnAceptar.TabIndex = 8;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
@@ -215,32 +194,14 @@
             this.cboMotivos.FormattingEnabled = true;
             this.cboMotivos.Location = new System.Drawing.Point(186, 128);
             this.cboMotivos.Name = "cboMotivos";
-            this.cboMotivos.Size = new System.Drawing.Size(237, 21);
-            this.cboMotivos.TabIndex = 52;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(405, 317);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(221, 20);
-            this.textBox2.TabIndex = 54;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(304, 320);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 13);
-            this.label4.TabIndex = 53;
-            this.label4.Text = "Recibido por";
+            this.cboMotivos.Size = new System.Drawing.Size(225, 21);
+            this.cboMotivos.TabIndex = 4;
             // 
             // FrmReferenciaExterna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(748, 665);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label4);
+            this.ClientSize = new System.Drawing.Size(690, 358);
             this.Controls.Add(this.cboMotivos);
             this.Controls.Add(this.BtnCancelar);
             this.Controls.Add(this.btnAceptar);
@@ -258,8 +219,6 @@
             this.Controls.Add(this.label17);
             this.Controls.Add(this.txtIntituciondondeserefiere);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.mskFecha);
-            this.Controls.Add(this.label1);
             this.Name = "FrmReferenciaExterna";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Recibido por";
@@ -270,9 +229,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.MaskedTextBox mskFecha;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtIntituciondondeserefiere;
         private System.Windows.Forms.Label label17;
@@ -290,7 +246,5 @@
         private System.Windows.Forms.Button BtnCancelar;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.ComboBox cboMotivos;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label4;
     }
 }

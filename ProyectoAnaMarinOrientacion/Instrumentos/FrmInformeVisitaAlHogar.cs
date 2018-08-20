@@ -40,12 +40,7 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
             //    return;
             //}
 
-            if (txtDireccion.Text == "")
-            {
-                MessageBox.Show("Debe digitar la direccion ");
-                txtDireccion.Focus();
-                return;
-            }
+            
             if (txtProfesionalQRealizaLaVisita.Text == "")
             {
                 MessageBox.Show("Debe digitar el nombre del profesional que realiza la visita ");
@@ -165,7 +160,7 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
         private void FrmInformeVisitaAlHogar_Load(object sender, EventArgs e)
         {
             CargarComboMotivos();
-            mskFecha.Text = DateTime.Now.ToShortDateString();
+            
         }
     }
 }

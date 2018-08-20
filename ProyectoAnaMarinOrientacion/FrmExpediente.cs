@@ -86,24 +86,26 @@ namespace ProyectoAnaMarinOrientacion
                 {
                     foreach(var instrumento in instrumentos)
                     {
-                        instrumento.IdExpediente = facade.Id;
-                        switch (instrumento.TipoInstrumento){
-                            case TipoInstrumentos.EntrevistaEstudiante:
-                                logicaEntrevistaEstudiante.Guardar((EntrevistaEstudiante)instrumento);
-                                break;
-                            case TipoInstrumentos.EntrevistaAlFuncionario:
-                                logicaEntrevistaConFuncionario.Guardar((EntrevistaFuncionario)instrumento);
-                                break;
-                            case TipoInstrumentos.EntrevistaAlEncargado:
-                                logicaEntrevistaConEncargado.Guardar((EntrevistaEncargado)instrumento);
-                                break;
-                            case TipoInstrumentos.InformeDeVisitaAlHogar:
-                                logicaInformeVisitaAlHogar.Guardar((InformeVisitaAlHogar)instrumento);
-                                break;
-                            case TipoInstrumentos.ReferenciaExterna:
-                                logicaReferenciaExterna.Guardar((Referencia)instrumento);
-                                break;
+                        if (instrumento.Id  == 0) {
+                            instrumento.IdExpediente = facade.Id;
+                            switch (instrumento.TipoInstrumento) {
+                                case TipoInstrumentos.EntrevistaEstudiante:
+                                    logicaEntrevistaEstudiante.Guardar((EntrevistaEstudiante)instrumento);
+                                    break;
+                                case TipoInstrumentos.EntrevistaAlFuncionario:
+                                    logicaEntrevistaConFuncionario.Guardar((EntrevistaFuncionario)instrumento);
+                                    break;
+                                case TipoInstrumentos.EntrevistaAlEncargado:
+                                    logicaEntrevistaConEncargado.Guardar((EntrevistaEncargado)instrumento);
+                                    break;
+                                case TipoInstrumentos.InformeDeVisitaAlHogar:
+                                    logicaInformeVisitaAlHogar.Guardar((InformeVisitaAlHogar)instrumento);
+                                    break;
+                                case TipoInstrumentos.ReferenciaExterna:
+                                    logicaReferenciaExterna.Guardar((Referencia)instrumento);
+                                    break;
 
+                            }
                         }
                         
 
@@ -111,7 +113,8 @@ namespace ProyectoAnaMarinOrientacion
                     
                 }
                 MessageBox.Show("Expediente Guardado Correctamente");
-                
+                CargarInstrumentos();
+
 
 
                 //logicaEstudiante.Guardar(est);
@@ -123,78 +126,20 @@ namespace ProyectoAnaMarinOrientacion
             }
 
         }
-        private void ValidacionDeListas()
-        {
-            if (entrevistasFuncionario.Count == 0)
-            {
-                groupBox1.Visible = false;
-
-            }
-            else
-            {
-                groupBox1.Visible = true;
-            }
-            if (entrevistasEncargado.Count == 0)
-            {
-                groupBox2.Visible = false;
-            }
-            else
-            {
-                groupBox2.Visible = true;
-            }
-            if (entrevistasEstudiante.Count == 0)
-            {
-                groupBox3.Visible = false;
-            }
-            else
-            {
-                groupBox3.Visible = true;
-            }
-            if (visitaAlHogar.Count == 0)
-            {
-                groupBox4.Visible = false;
-            }
-            else
-            {
-                groupBox4.Visible = true;
-            }
-            if (referenciaExterna.Count == 0)
-            {
-                groupBox5.Visible = false;
-            }
-            else
-            {
-                groupBox5.Visible = true;
-            }
-
-
-        }
+        
         private void RefrescarGrids()
 
         {
-            ValidacionDeListas();
+          
             // configuracion de propiedades del grid
-            dgvInstrumentoFuncionario.AutoGenerateColumns = false;
-            dgvEncargado.AutoGenerateColumns = false;
-            dgvEstudiante.AutoGenerateColumns = false;
-            dgvInstrumentoFuncionario.AutoGenerateColumns = false;
-            dgvVisitaAlHogar.AutoGenerateColumns = false;
-            dgvReferenciaExterna.AutoGenerateColumns = false;
+          
             dgvInstrumentos.AutoGenerateColumns = false;
 
             // creacion de binding para los datagrids
-            var listaFuncionario = new BindingList<EntrevistaFuncionario>(entrevistasFuncionario);
-            var listaEncargado = new BindingList<EntrevistaEncargado>(entrevistasEncargado);
-            var listaEstudiante = new BindingList<EntrevistaEstudiante>(entrevistasEstudiante);
-            var listaVisitaAlHogar = new BindingList<InformeVisitaAlHogar>(visitaAlHogar);
-            var listaReferenciaExterna = new BindingList<Referencia>(referenciaExterna);
+            dgvInstrumentos.DataSource = null;
             var listaInstrumentos = new BindingList<ClaseInstrumento>(instrumentos);
             // asignacion de datagrids
-            dgvInstrumentoFuncionario.DataSource = listaFuncionario; 
-            dgvEncargado.DataSource = listaEncargado;
-            dgvEstudiante.DataSource = listaEstudiante;
-            dgvVisitaAlHogar.DataSource = listaVisitaAlHogar;
-            dgvReferenciaExterna.DataSource = listaReferenciaExterna;
+           
             dgvInstrumentos.DataSource = listaInstrumentos;
 
 
@@ -254,6 +199,18 @@ namespace ProyectoAnaMarinOrientacion
 
         }
 
+        private void CargarInstrumentos()
+        {
+            ExpedienteFacade fac = new ExpedienteFacade();
+            fac = logicaExpediente.SeleccionarPorId(est.Identificacion);
+            if (fac != null)
+            {
+                facade = fac;
+                txtNumeroExpediente.Text = facade.Id.ToString();
+                instrumentos = facade.Instrumentos;
+                RefrescarGrids();
+            }
+        }
         private void button2_Click(object sender, EventArgs e)
         {
             if(txtIdentificacionEstudiante.Text == "")
@@ -268,16 +225,11 @@ namespace ProyectoAnaMarinOrientacion
                 return;
             }
             LblEstSeleccionado.Text = est.NombreCompleto;
-            ExpedienteFacade fac = new ExpedienteFacade();
-            fac = logicaExpediente.SeleccionarPorId(est.Identificacion);
-            if(fac != null)
-            {
-                facade = fac;
-                txtNumeroExpediente.Text = facade.Id.ToString();
-            }
-            
 
-            
+            CargarInstrumentos();
+
+
+
 
         }
 

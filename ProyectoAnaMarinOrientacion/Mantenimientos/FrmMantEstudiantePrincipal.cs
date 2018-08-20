@@ -78,7 +78,16 @@ namespace ProyectoAnaMarinOrientacion.Mantenimientos
 
         private void Refrescar()
         {
-            dgvEstudiantes.DataSource = logica.SeleccionarTodos();
+
+            dgvEstudiantes.AutoGenerateColumns = false;
+
+            // creacion de binding para los datagrids
+            dgvEstudiantes.DataSource = null;
+            var listaEstudiantes = new BindingList<Estudiante>(logica.SeleccionarTodos());
+            // asignacion de datagrids
+            
+            dgvEstudiantes.AutoGenerateColumns = false;
+            dgvEstudiantes.DataSource = listaEstudiantes;
 
         }
         private void toolStripButton2_Click(object sender, EventArgs e)

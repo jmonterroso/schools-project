@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using Capa.Entidades.Enumeradores;
 using System.Data;
+using Capa.Datos.Instrumentos;
 
 namespace Capa.Datos
 {
@@ -159,6 +160,8 @@ namespace Capa.Datos
             return lista;
         }
 
+      
+
         //public ExpedienteFacade SeleccionarPorId(int id)
         //{
         //    // SqlConnection requiere el using System.Data.SqlClient;
@@ -213,8 +216,25 @@ namespace Capa.Datos
                     ExpedienteFacade est = new ExpedienteFacade();
                     est.IdEstudiante = reader["IdEstudiante"].ToString();
                     est.Id = Convert.ToInt32(reader["Id"]);
-                         
-                    
+                    List<EntrevistaEstudiante> entEst = new List<EntrevistaEstudiante>();
+                    List<EntrevistaEncargado> entEnc = new List<EntrevistaEncargado>();
+                    List<EntrevistaFuncionario> entFunc = new List<EntrevistaFuncionario>();
+                    List<InformeVisitaAlHogar> informVisita = new List<InformeVisitaAlHogar>();
+                    List<Referencia> refer = new List<Referencia>();
+                    entEst = new EntrevistaEstudianteDatos().SeleccionarPorExpedienteId(est.Id);                    
+                    entEnc = new EntrevistaEncargadoDatos().SeleccionarPorExpedienteId(est.Id);
+                    entFunc = new EntrevistaFuncionarioDatos().SeleccionarPorExpedienteId(est.Id);
+                    informVisita = new InformeVistaHogarDatos().SeleccionarPorExpedienteId(est.Id);
+                    refer = new ReferenciaDatos().SeleccionarPorExpedienteId(est.Id);
+                    est.Instrumentos = new List<ClaseInstrumento>();
+                    est.Instrumentos.AddRange(entEst.Cast<ClaseInstrumento>().ToList());
+                    est.Instrumentos.AddRange(entEnc.Cast<ClaseInstrumento>().ToList());
+                    est.Instrumentos.AddRange(entFunc.Cast<ClaseInstrumento>().ToList());
+                    est.Instrumentos.AddRange(informVisita.Cast<ClaseInstrumento>().ToList());
+                    est.Instrumentos.AddRange(refer.Cast<ClaseInstrumento>().ToList());
+
+
+
                     //nueva linea
 
                     return est;

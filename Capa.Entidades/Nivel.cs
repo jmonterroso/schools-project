@@ -13,5 +13,10 @@ namespace Capa.Entidades
         public string Nombre { get; set; }
         public int IdNivel { get; set; }
         public Ciclo Ciclo { get; set; }
+        public override string ToString()
+        {
+            return Nombre;
+
+        }
     }
 }

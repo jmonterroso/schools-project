@@ -20,7 +20,7 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
         public FrmEntrevistaConFuncionarioCentroEducativo()
         {
             InitializeComponent();
-            txtNombreEstudiante.Text = (FrmExpediente.est != null) ? FrmExpediente.est.NombreCompleto : "";
+            
             logicaFuncionarios = new Capa.Logica.InstrumentosLN.EntrevistaConFuncionarioLN();
             //falta cargar fecha
             //DateTime dt = DateTime.Parse(mskFecha.Text);
@@ -30,7 +30,7 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
         private void FrmEntrevistaConFuncionarioCentroEducativo_Load(object sender, EventArgs e)
         {
             CargarComboMotivos();
-            mskFecha.Text = DateTime.Now.ToShortDateString();
+            
         }
 
 
@@ -132,12 +132,11 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
         private void Limpiar()
         {
             txtAcuerdos.Clear();
-            txtNombreEstudiante.Clear();
             txtNombreFuncionario.Clear();
             txtPuesto.Clear();
             txtRecomendaciones.Clear();
             txtResumen.Clear();
-            mskFecha.Clear();
+            
 
         }
 
@@ -157,6 +156,11 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
             catch
             {
             }
+        }
+
+        private void txtResumen_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

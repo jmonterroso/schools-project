@@ -20,5 +20,6 @@ namespace Capa.Entidades
         public string Nombre { get; set; }
         public TipoInstrumentos TipoInstrumento { get; set; }
 
+     
     }
 }

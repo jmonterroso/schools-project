@@ -61,6 +61,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtIdentificadorEnc = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.cboSeccion = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -68,7 +69,11 @@
             this.txtEncargadoResultado = new System.Windows.Forms.TextBox();
             this.btnBuscarEncargado = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtIdentificadorEnc = new System.Windows.Forms.TextBox();
+            this.Identificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechadeNacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Seccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstudiantes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -147,6 +152,12 @@
             // dgvEstudiantes
             // 
             this.dgvEstudiantes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEstudiantes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Identificacion,
+            this.Sexo,
+            this.FechadeNacimiento,
+            this.Nombre,
+            this.Seccion});
             this.dgvEstudiantes.Location = new System.Drawing.Point(23, 192);
             this.dgvEstudiantes.Name = "dgvEstudiantes";
             this.dgvEstudiantes.Size = new System.Drawing.Size(304, 450);
@@ -426,6 +437,13 @@
             this.groupBox2.TabIndex = 84;
             this.groupBox2.TabStop = false;
             // 
+            // txtIdentificadorEnc
+            // 
+            this.txtIdentificadorEnc.Location = new System.Drawing.Point(213, 274);
+            this.txtIdentificadorEnc.Name = "txtIdentificadorEnc";
+            this.txtIdentificadorEnc.Size = new System.Drawing.Size(100, 20);
+            this.txtIdentificadorEnc.TabIndex = 91;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -492,12 +510,35 @@
             this.label10.TabIndex = 83;
             this.label10.Text = "Id del Encargado";
             // 
-            // txtIdentificadorEnc
+            // Identificacion
             // 
-            this.txtIdentificadorEnc.Location = new System.Drawing.Point(213, 274);
-            this.txtIdentificadorEnc.Name = "txtIdentificadorEnc";
-            this.txtIdentificadorEnc.Size = new System.Drawing.Size(100, 20);
-            this.txtIdentificadorEnc.TabIndex = 91;
+            this.Identificacion.DataPropertyName = "Identificacion";
+            this.Identificacion.HeaderText = "Identificacion";
+            this.Identificacion.Name = "Identificacion";
+            // 
+            // Sexo
+            // 
+            this.Sexo.DataPropertyName = "Sexo";
+            this.Sexo.HeaderText = "Sexo";
+            this.Sexo.Name = "Sexo";
+            // 
+            // FechadeNacimiento
+            // 
+            this.FechadeNacimiento.DataPropertyName = "FechaNacimiento";
+            this.FechadeNacimiento.HeaderText = "Fecha de Nacimiento";
+            this.FechadeNacimiento.Name = "FechadeNacimiento";
+            // 
+            // Nombre
+            // 
+            this.Nombre.DataPropertyName = "NombreCompleto";
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            // 
+            // Seccion
+            // 
+            this.Seccion.DataPropertyName = "Seccion";
+            this.Seccion.HeaderText = "Seccion";
+            this.Seccion.Name = "Seccion";
             // 
             // FrmMantEstudiantePrincipal
             // 
@@ -571,5 +612,10 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cboNivel;
         private System.Windows.Forms.TextBox txtIdentificadorEnc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Identificacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sexo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechadeNacimiento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Seccion;
     }
 }

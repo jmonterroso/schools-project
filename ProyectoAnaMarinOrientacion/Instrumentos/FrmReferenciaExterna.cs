@@ -124,8 +124,7 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
 
         private void FrmReferenciaExterna_Load(object sender, EventArgs e)
         {
-            CargarComboMotivos();
-            mskFecha.Text = DateTime.Now.ToShortDateString();
+            CargarComboMotivos();            
         }
         private void CargarComboMotivos()
         {

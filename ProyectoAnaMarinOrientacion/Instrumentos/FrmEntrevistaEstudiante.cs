@@ -103,11 +103,11 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
         private void Limpiar()
         {
             txtIntervencion.Clear();
-            txtNombreEstudiante.Clear();
+            
             txtProceso.Clear();
             cboMotivos.SelectedIndex = -1;
             txtRecomendaciones.Clear();
-            txtSeccion.Clear();
+            
             txtIntervencion.Clear();
             txtSituacion.Clear();
         }
@@ -132,7 +132,7 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
         private void FrmEntrevistaEstudiante_Load(object sender, EventArgs e)
         {
             CargarComboMotivos();
-            mskFecha.Text = DateTime.Now.ToShortDateString();
+           
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)

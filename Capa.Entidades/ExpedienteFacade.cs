@@ -17,9 +17,10 @@ namespace Capa.Entidades
         private Periodos periodo { get; set; }
         //private Instrumento instrumento { get; set; }
         private MotivoAtencion motivo { get; set; }
-        private List<ClaseInstrumento> instrumento = new List<ClaseInstrumento>();
+        public List<ClaseInstrumento> Instrumentos { get; set; }
         public int Id { get; set; }
         public string IdEstudiante { get; set; }
+        public string MotivoDescripcion { get { return this.motivo.Descripcion; } }
 
 
 
@@ -57,7 +58,7 @@ namespace Capa.Entidades
 
         public void AgregarInstrumento(ClaseInstrumento inst)
         {
-            instrumento.Add(inst);
+            //Instrumento.Add(inst);
 
         }
 
