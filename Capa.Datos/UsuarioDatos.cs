@@ -25,8 +25,8 @@ namespace Capa.Datos
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 // Si el SP requeire parametros se le deben asignar al comando
                 comando.Parameters.AddWithValue("@Identificacion", usu.Identificacion);
-                comando.Parameters.AddWithValue("@TipoUsuario", usu.tipoUsuario);
-                comando.Parameters.AddWithValue("@Contrasenna", usu.contrasenna);
+                comando.Parameters.AddWithValue("@Rol", usu.Rol);
+                comando.Parameters.AddWithValue("@Password", usu.Password);
                 // Finalmente ejecutamos el comando
                 // al ser un insert no requiere retornar un consulta
                 comando.ExecuteNonQuery();
@@ -54,8 +54,8 @@ namespace Capa.Datos
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 // Si el SP requeire parametros se le deben asignar al comando
                 comando.Parameters.AddWithValue("@Identificacion", usu.Identificacion);
-                comando.Parameters.AddWithValue("@TipoUsuario", usu.tipoUsuario);
-                comando.Parameters.AddWithValue("@Contrasenna", usu.contrasenna);
+                comando.Parameters.AddWithValue("@TipoUsuario", usu.Rol);
+                comando.Parameters.AddWithValue("@Contrasenna", usu.Password);
                 // Finalmente ejecutamos el comando
                 // al ser un update no requiere retornar un consulta
                 comando.ExecuteNonQuery();
@@ -119,8 +119,8 @@ namespace Capa.Datos
                 {
                     Usuario u = new Usuario();
                     u.Identificacion = reader["Identificacion"].ToString();
-                    u.contrasenna = reader["Nombre"].ToString();
-                    u.tipoUsuario = ((TipoUsuario)reader["tipoUsuario"]);
+                    u.Password = reader["Password"].ToString();
+                    u.Rol= ((TipoUsuario)reader["Rol"]);
                     lista.Add(u);
 
                 }
@@ -149,7 +149,7 @@ namespace Capa.Datos
                 SqlCommand comando = new SqlCommand("PA_SeleccionarUsuarioPorId", conexion);
                 // Como es en Store Procedure se debe indicar el tipo de comando
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.AddWithValue("@Id", id);
+                comando.Parameters.AddWithValue("@Identificacion", id);
                 // Finalmente ejecutamos el comando
                 // al ser una consulta debemos usar ExecuteReader
                 SqlDataReader reader = comando.ExecuteReader();
@@ -158,8 +158,8 @@ namespace Capa.Datos
                 {
                     Usuario u = new Usuario();
                     u.Identificacion = reader["Identificacion"].ToString();
-                    u.contrasenna = reader["Nombre"].ToString();
-                    u.tipoUsuario = ((TipoUsuario)reader["tipoUsuario"]);
+                    u.Password = reader["Password"].ToString();
+                    u.Rol= ((TipoUsuario)reader["Rol"]);
                     return u;
                 }
 

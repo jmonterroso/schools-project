@@ -9,9 +9,10 @@ namespace Capa.Entidades
 {
     public class Usuario
     {
-        public TipoUsuario tipoUsuario { get; set; }
+        public TipoUsuario Rol { get; set; }
+        static  public Usuario UsuarioActual {get; set;} 
         public string Identificacion { get; set; }
-        public string contrasenna { get; set; }
+        public string Password { get; set; }
 
     }
 }

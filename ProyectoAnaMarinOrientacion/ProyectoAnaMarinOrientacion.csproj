@@ -125,6 +125,12 @@
     <Compile Include="FrmExpediente.Designer.cs">
       <DependentUpon>FrmExpediente.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmRegistro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRegistro.Designer.cs">
+      <DependentUpon>FrmRegistro.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -232,6 +238,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmExpediente.resx">
       <DependentUpon>FrmExpediente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRegistro.resx">
+      <DependentUpon>FrmRegistro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>

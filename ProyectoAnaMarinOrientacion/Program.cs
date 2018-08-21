@@ -22,7 +22,9 @@ namespace ProyectoAnaMarinOrientacion
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmPrincipal());
+            //Application.Run(new FrmPrincipal());
+            Application.Run(new FrmLogin());
+
             log4net.Config.XmlConfigurator.Configure();
         }
             
