@@ -107,7 +107,7 @@ namespace Capa.Datos.Instrumentos
                     entEnc.Intervencion = reader["Intervencion"].ToString();
                     entEnc.Recomendaciones = reader["Recomendaciones"].ToString();
                     entEnc.ConvocadoPorInstitucion = (bool)reader["ConvocadoPorInstitucion"];
-                    entEnc.ConvocadoPorInstitucion = (bool)reader["ConvocadoPorInstitucion"];
+                    entEnc.ConvocadoPorEncargado = (bool)reader["ConvocadoPorEncargado"];
                     entEnc.TipoInstrumento = (TipoInstrumentos)Convert.ToInt32(reader["TipoInstrumento"]);
                     lista.Add(entEnc);
                 }
@@ -214,6 +214,7 @@ namespace Capa.Datos.Instrumentos
                 while (reader.Read()) // cada vez que se llama el Read retorna una tupla
                 {                    
                     EntrevistaEncargado entEnc = new EntrevistaEncargado();
+                    entEnc.Id = Convert.ToInt32(reader["Id"]);
                     entEnc.FechaCreacion = Convert.ToDateTime(reader["FechaCreacion"]);
                     entEnc.Motivo = new MotivoAtencionDatos().SeleccionarporId(Convert.ToInt32(reader["IdMotivo"]));
                     entEnc.Situacion = reader["Situacion"].ToString();

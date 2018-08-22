@@ -46,8 +46,11 @@
             this.Seccion});
             this.dgvEstudiantesEncargado.Location = new System.Drawing.Point(23, 113);
             this.dgvEstudiantesEncargado.Name = "dgvEstudiantesEncargado";
+            this.dgvEstudiantesEncargado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEstudiantesEncargado.Size = new System.Drawing.Size(445, 150);
             this.dgvEstudiantesEncargado.TabIndex = 0;
+            this.dgvEstudiantesEncargado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEstudiantesEncargado_CellContentClick);
+            this.dgvEstudiantesEncargado.DoubleClick += new System.EventHandler(this.dgvEstudiantesEncargado_DoubleClick);
             // 
             // Identificacion
             // 
