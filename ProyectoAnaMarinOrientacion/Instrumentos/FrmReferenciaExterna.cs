@@ -1,4 +1,5 @@
 ﻿using Capa.Entidades;
+using Capa.Entidades.Enumeradores;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,7 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
 {
     public partial class FrmReferenciaExterna : Form
     {
+        static public Referencia referencia;
 
         Capa.Logica.MotivoAtencionLN logicaMotivo;
         public FrmReferenciaExterna()
@@ -122,9 +124,38 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
 
         }
 
+        private void DeshabilitarControles()
+        {
+            foreach (Control child in this.Controls)
+            {
+
+                child.Enabled = false;
+            }
+        }
+        private void ValidarUsuario()
+        {
+            if (Usuario.UsuarioActual.Rol == TipoUsuario.Encargado)
+            {
+                DeshabilitarControles();
+            }
+
+
+        }
         private void FrmReferenciaExterna_Load(object sender, EventArgs e)
         {
-            CargarComboMotivos();            
+            CargarComboMotivos();
+            ValidarUsuario();
+            if (referencia != null)
+            {
+                txtPersonaRefiere.Text = referencia.PersonaRefiere;
+                txtPuesto.Text = referencia.Puesto;
+                txtSitucionObservada.Text = referencia.Situacion;
+                txtAcuerdos.Text = referencia.Acciones;
+                txtRecomendaciones.Text = referencia.Recomendaciones;
+                cboMotivos.SelectedItem = referencia.Motivo.ToString();               
+
+                txtIntituciondondeserefiere.Text = referencia.InstitucionRefiere;
+            }
         }
         private void CargarComboMotivos()
         {
@@ -134,7 +165,7 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
 
             //refe1
             //cboMotivos.ValueMember = "NumeroMotivo";
-            cboMotivos.SelectedIndex = -1;
+            //cboMotivos.SelectedIndex = -1;
 
 
         }

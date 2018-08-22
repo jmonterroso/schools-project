@@ -29,7 +29,13 @@ namespace Capa.Logica.InstrumentosLN
             ReferenciaDatos datos = new ReferenciaDatos();
             return datos.SeleccionarTodos();
         }
-}
+
+        public Referencia SeleccionarPorId(int id)
+        {
+            Datos.Instrumentos.ReferenciaDatos datos = new Datos.Instrumentos.ReferenciaDatos();
+            return datos.SeleccionarPorId(id);
+        }
+    }
 
 
 }

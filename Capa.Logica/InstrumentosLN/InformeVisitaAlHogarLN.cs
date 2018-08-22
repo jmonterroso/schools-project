@@ -30,5 +30,13 @@ namespace Capa.Logica.InstrumentosLN
             InformeVistaHogarDatos datos = new InformeVistaHogarDatos();
             return datos.SeleccionarTodos();
         }
+
+        public InformeVisitaAlHogar SeleccionarPorId(int id)
+        {
+            Datos.Instrumentos.InformeVistaHogarDatos datos = new Datos.Instrumentos.InformeVistaHogarDatos();
+            return datos.SeleccionarPorId(id);
+
+        }
+
+        }
     }
-}

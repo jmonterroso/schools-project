@@ -321,6 +321,33 @@ namespace ProyectoAnaMarinOrientacion
                     Instrumentos.FrmEntrevistaPadre_Madre_Encargado enc = new Instrumentos.FrmEntrevistaPadre_Madre_Encargado();
                     enc.Show();
                     break;
+                case TipoInstrumentos.EntrevistaAlFuncionario:
+                    EntrevistaFuncionario entrevistaFuncionario = new Capa.Logica.InstrumentosLN.EntrevistaConFuncionarioLN().SeleccionarPorId(Convert.ToInt32(Id));
+                    Instrumentos.FrmEntrevistaConFuncionarioCentroEducativo.entrevistaFuncionario= entrevistaFuncionario;
+                    Instrumentos.FrmEntrevistaConFuncionarioCentroEducativo fun = new Instrumentos.FrmEntrevistaConFuncionarioCentroEducativo();
+                    fun.Show();
+                    break;
+                case TipoInstrumentos.EntrevistaEstudiante:
+                    EntrevistaEstudiante entrevistaEstudiante = new Capa.Logica.InstrumentosLN.EntrevistaEstudianteLN().SeleccionarPorId(Convert.ToInt32(Id));
+                    Instrumentos.FrmEntrevistaEstudiante.entrevistaEstudiante = entrevistaEstudiante;
+                    Instrumentos.FrmEntrevistaEstudiante entEst = new Instrumentos.FrmEntrevistaEstudiante();
+                    entEst.Show();
+                    break;
+                case TipoInstrumentos.ReferenciaExterna:
+                    Referencia referencia = new Capa.Logica.InstrumentosLN.ReferenciaLN().SeleccionarPorId(Convert.ToInt32(Id));
+                    Instrumentos.FrmReferenciaExterna.referencia = referencia;
+                    Instrumentos.FrmReferenciaExterna refe = new Instrumentos.FrmReferenciaExterna();
+                    refe.Show();
+                    break;
+                case TipoInstrumentos.InformeDeVisitaAlHogar:
+                    InformeVisitaAlHogar informeVisitAlHogar = new Capa.Logica.InstrumentosLN.InformeVisitaAlHogarLN().SeleccionarPorId(Convert.ToInt32(Id));
+                    Instrumentos.FrmInformeVisitaAlHogar.informeVisitaAlHogar = informeVisitAlHogar;
+                    Instrumentos.FrmInformeVisitaAlHogar visita = new Instrumentos.FrmInformeVisitaAlHogar();
+                    visita.Show();
+                    break;
+
+                
+
             }
 
             

@@ -1,4 +1,5 @@
 ﻿using Capa.Entidades;
+using Capa.Entidades.Enumeradores;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,7 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
 
        Capa.Logica.InstrumentosLN.InformeVisitaAlHogarLN Logica;
         Capa.Logica.MotivoAtencionLN logicaMotivo;
+        static public InformeVisitaAlHogar informeVisitaAlHogar;
 
         public FrmInformeVisitaAlHogar()
         {
@@ -152,14 +154,41 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
 
             //refe1
           //  cboMotivos.ValueMember = "NumeroMotivo";
-            cboMotivos.SelectedIndex = -1;
+            //cboMotivos.SelectedIndex = -1;
+
+
+        }
+        private void DeshabilitarControles()
+        {
+            foreach (Control child in this.Controls)
+            {
+
+                child.Enabled = false;
+            }
+        }
+        private void ValidarUsuario()
+        {
+            if (Usuario.UsuarioActual.Rol == TipoUsuario.Encargado)
+            {
+                DeshabilitarControles();
+            }
 
 
         }
 
         private void FrmInformeVisitaAlHogar_Load(object sender, EventArgs e)
         {
+            ValidarUsuario();
             CargarComboMotivos();
+            if(informeVisitaAlHogar!= null)
+            {
+                txtProfesionalQRealizaLaVisita.Text = informeVisitaAlHogar.NombreFuncionario;
+                txtCargo.Text = informeVisitaAlHogar.Puesto;
+                txtAccionesSeguimiento.Text = informeVisitaAlHogar.Acciones;
+                txtSitucionObservada.Text = informeVisitaAlHogar.Situacion;
+                txtRecomendaciones.Text = informeVisitaAlHogar.Recomendaciones;
+                cboMotivos.SelectedItem = informeVisitaAlHogar.Motivo.ToString();
+            }
             
         }
     }

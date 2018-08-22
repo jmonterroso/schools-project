@@ -1,4 +1,5 @@
 ﻿using Capa.Entidades;
+using Capa.Entidades.Enumeradores;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +17,8 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
 
         Capa.Logica.InstrumentosLN.EntrevistaConFuncionarioLN logicaFuncionarios = new Capa.Logica.InstrumentosLN.EntrevistaConFuncionarioLN();
 
-        Capa.Logica.MotivoAtencionLN logicaMotivo; 
+        Capa.Logica.MotivoAtencionLN logicaMotivo;
+        public static EntrevistaFuncionario entrevistaFuncionario;
         public FrmEntrevistaConFuncionarioCentroEducativo()
         {
             InitializeComponent();
@@ -27,24 +29,53 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
             logicaMotivo= new Capa.Logica.MotivoAtencionLN();
         }
 
+        private void DeshabilitarControles()
+        {
+            foreach (Control child in this.Controls)
+            {
+
+                child.Enabled = false;
+            }
+        }
+        private void ValidarUsuario()
+        {
+            if (Usuario.UsuarioActual.Rol == TipoUsuario.Encargado)
+            {
+                DeshabilitarControles();
+            }
+
+
+        }
         private void FrmEntrevistaConFuncionarioCentroEducativo_Load(object sender, EventArgs e)
         {
             CargarComboMotivos();
-            
+            ValidarUsuario();
+            if (entrevistaFuncionario != null)
+            {
+                txtResumen.Text = entrevistaFuncionario.Situacion;
+                txtRecomendaciones.Text = entrevistaFuncionario.Recomendaciones;
+                txtNombreFuncionario.Text = entrevistaFuncionario.NombreFuncionario;
+                txtPuesto.Text = entrevistaFuncionario.Puesto;
+                cboMotivo.SelectedItem = entrevistaFuncionario.Motivo ;
+                txtAcuerdos.Text = entrevistaFuncionario.Acciones;
+
+
+            }
+
         }
 
 
         private void CargarComboMotivos()
         {
            // cboMotivos.DataSource = 
-            comboBox1.DataSource = logicaMotivo.SeleccionarTodas();
+            cboMotivo.DataSource = logicaMotivo.SeleccionarTodas();
             
 
-            comboBox1.DisplayMember = "Descripcion";
+            cboMotivo.DisplayMember = "Descripcion";
 
             //refe1
            // comboBox1.ValueMember = "NumeroMotivo";
-            comboBox1.SelectedIndex = -1;
+            //cboMotivo.SelectedIndex = -1;
 
 
         }
@@ -67,10 +98,10 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
             }
 
 
-            if (comboBox1.SelectedIndex == -1)
+            if (cboMotivo.SelectedIndex == -1)
             {
                 MessageBox.Show("Debe seleccionar un motivo de atencion ");
-                comboBox1.Focus();
+                cboMotivo.Focus();
                 return;
             }
 
@@ -108,7 +139,7 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
                 entrevista.Intervencion = "";
                 entrevista.Recomendaciones = txtRecomendaciones.Text;
                 entrevista.Situacion = txtResumen.Text;
-                entrevista.Motivo = (MotivoAtencion)comboBox1.SelectedItem;
+                entrevista.Motivo = (MotivoAtencion)cboMotivo.SelectedItem;
                 entrevista.Nombre = "Entrevista con Funcionario";
                 entrevista.TipoInstrumento = Capa.Entidades.Enumeradores.TipoInstrumentos.EntrevistaAlFuncionario;
 
