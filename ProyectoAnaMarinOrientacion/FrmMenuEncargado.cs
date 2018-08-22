@@ -31,8 +31,14 @@ namespace ProyectoAnaMarinOrientacion
             dgvEstudiantesEncargado.DataSource = null;
             if (encargado.ListaEstudiantes.Count > 0)
             {
+                MessageBox.Show("Cargando la lista de estudiantes por la identificacion del encargadado");
                 var listaEstudiantes = new BindingList<Estudiante>(encargado.ListaEstudiantes);
                 dgvEstudiantesEncargado.DataSource = listaEstudiantes;
+            }
+            else
+            {
+                MessageBox.Show("No hay estudiantes para la identificacion del encargado");
+                return;
             }
             // asignacion de datagrids
 
