@@ -31,13 +31,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtIdentificacion = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnBuscarEstudiante = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.txtEncargado = new System.Windows.Forms.TextBox();
+            this.rdEstudiante = new System.Windows.Forms.RadioButton();
+            this.rdEncargado = new System.Windows.Forms.RadioButton();
             this.dgvExpedientes = new System.Windows.Forms.DataGridView();
             this.btnBuscarEncargado = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.IdExpediente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estudiante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rdNumeroExpediente = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExpedientes)).BeginInit();
             this.SuspendLayout();
@@ -54,11 +56,12 @@
             // 
             // txtIdentificacion
             // 
-            this.txtIdentificacion.Location = new System.Drawing.Point(185, 137);
+            this.txtIdentificacion.Location = new System.Drawing.Point(147, 140);
             this.txtIdentificacion.Name = "txtIdentificacion";
             this.txtIdentificacion.Size = new System.Drawing.Size(246, 20);
             this.txtIdentificacion.TabIndex = 1;
             this.txtIdentificacion.Visible = false;
+            this.txtIdentificacion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtIdentificacion_KeyDown);
             // 
             // pictureBox1
             // 
@@ -70,19 +73,9 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
-            // btnBuscarEstudiante
-            // 
-            this.btnBuscarEstudiante.Location = new System.Drawing.Point(185, 277);
-            this.btnBuscarEstudiante.Name = "btnBuscarEstudiante";
-            this.btnBuscarEstudiante.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscarEstudiante.TabIndex = 10;
-            this.btnBuscarEstudiante.Text = "Buscar";
-            this.btnBuscarEstudiante.UseVisualStyleBackColor = true;
-            this.btnBuscarEstudiante.Click += new System.EventHandler(this.btnBuscar_Click_1);
-            // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(356, 277);
+            this.btnCancelar.Location = new System.Drawing.Point(230, 180);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 11;
@@ -90,53 +83,84 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // radioButton1
+            // rdEstudiante
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(26, 137);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(94, 17);
-            this.radioButton1.TabIndex = 13;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Por Estudiante";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rdEstudiante.AutoSize = true;
+            this.rdEstudiante.Checked = true;
+            this.rdEstudiante.Location = new System.Drawing.Point(147, 82);
+            this.rdEstudiante.Name = "rdEstudiante";
+            this.rdEstudiante.Size = new System.Drawing.Size(94, 17);
+            this.rdEstudiante.TabIndex = 13;
+            this.rdEstudiante.TabStop = true;
+            this.rdEstudiante.Text = "Por Estudiante";
+            this.rdEstudiante.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rdEncargado
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(26, 214);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(95, 17);
-            this.radioButton2.TabIndex = 14;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Por encargado";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
-            // 
-            // txtEncargado
-            // 
-            this.txtEncargado.Location = new System.Drawing.Point(185, 206);
-            this.txtEncargado.Name = "txtEncargado";
-            this.txtEncargado.Size = new System.Drawing.Size(246, 20);
-            this.txtEncargado.TabIndex = 15;
-            this.txtEncargado.Visible = false;
+            this.rdEncargado.AutoSize = true;
+            this.rdEncargado.Location = new System.Drawing.Point(247, 82);
+            this.rdEncargado.Name = "rdEncargado";
+            this.rdEncargado.Size = new System.Drawing.Size(95, 17);
+            this.rdEncargado.TabIndex = 14;
+            this.rdEncargado.Text = "Por encargado";
+            this.rdEncargado.UseVisualStyleBackColor = true;
+            this.rdEncargado.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // dgvExpedientes
             // 
             this.dgvExpedientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvExpedientes.Location = new System.Drawing.Point(479, 64);
+            this.dgvExpedientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IdExpediente,
+            this.Estudiante});
+            this.dgvExpedientes.Location = new System.Drawing.Point(515, 65);
             this.dgvExpedientes.Name = "dgvExpedientes";
-            this.dgvExpedientes.Size = new System.Drawing.Size(253, 261);
+            this.dgvExpedientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvExpedientes.Size = new System.Drawing.Size(244, 261);
             this.dgvExpedientes.TabIndex = 16;
+            this.dgvExpedientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvExpedientes_CellContentClick);
+            this.dgvExpedientes.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvExpedientes_CellContentDoubleClick);
             // 
             // btnBuscarEncargado
             // 
-            this.btnBuscarEncargado.Location = new System.Drawing.Point(266, 277);
+            this.btnBuscarEncargado.Location = new System.Drawing.Point(149, 180);
             this.btnBuscarEncargado.Name = "btnBuscarEncargado";
             this.btnBuscarEncargado.Size = new System.Drawing.Size(75, 23);
             this.btnBuscarEncargado.TabIndex = 17;
             this.btnBuscarEncargado.Text = "Buscar";
             this.btnBuscarEncargado.UseVisualStyleBackColor = true;
+            this.btnBuscarEncargado.Click += new System.EventHandler(this.btnBuscarEncargado_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(144, 115);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(47, 13);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Criterio";
+            // 
+            // IdExpediente
+            // 
+            this.IdExpediente.DataPropertyName = "Id";
+            this.IdExpediente.HeaderText = "Numero de Expediente";
+            this.IdExpediente.Name = "IdExpediente";
+            // 
+            // Estudiante
+            // 
+            this.Estudiante.DataPropertyName = "estudiante";
+            this.Estudiante.HeaderText = "Estudiante";
+            this.Estudiante.Name = "Estudiante";
+            // 
+            // rdNumeroExpediente
+            // 
+            this.rdNumeroExpediente.AutoSize = true;
+            this.rdNumeroExpediente.Location = new System.Drawing.Point(348, 82);
+            this.rdNumeroExpediente.Name = "rdNumeroExpediente";
+            this.rdNumeroExpediente.Size = new System.Drawing.Size(132, 17);
+            this.rdNumeroExpediente.TabIndex = 19;
+            this.rdNumeroExpediente.Text = "Numero de expediente";
+            this.rdNumeroExpediente.UseVisualStyleBackColor = true;
             // 
             // FrmBusquedaExpedientes
             // 
@@ -144,13 +168,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(834, 511);
+            this.Controls.Add(this.rdNumeroExpediente);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnBuscarEncargado);
             this.Controls.Add(this.dgvExpedientes);
-            this.Controls.Add(this.txtEncargado);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.rdEncargado);
+            this.Controls.Add(this.rdEstudiante);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnBuscarEstudiante);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtIdentificacion);
             this.Controls.Add(this.label1);
@@ -170,12 +194,14 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtIdentificacion;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnBuscarEstudiante;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.TextBox txtEncargado;
+        private System.Windows.Forms.RadioButton rdEstudiante;
+        private System.Windows.Forms.RadioButton rdEncargado;
         private System.Windows.Forms.DataGridView dgvExpedientes;
         private System.Windows.Forms.Button btnBuscarEncargado;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdExpediente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estudiante;
+        private System.Windows.Forms.RadioButton rdNumeroExpediente;
     }
 }

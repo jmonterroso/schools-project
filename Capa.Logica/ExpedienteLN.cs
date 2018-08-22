@@ -49,6 +49,17 @@ namespace Capa.Logica
             Datos.ExpedienteDatos datos = new Datos.ExpedienteDatos();
             return datos.SeleccionarPorId(id);
         }
+         public ExpedienteFacade SeleccionarPorIdExpediente(int id)
+        {
+            Datos.ExpedienteDatos datos = new Datos.ExpedienteDatos();
+            return datos.SeleccionarPorIdExpediente(id);
+        }
+        public List<ExpedienteFacade> SeleccionarPorFiltro(string Id, bool EsEstudiante)
+        {
+            ExpedienteDatos datos = new ExpedienteDatos();
+            return datos.SeleccionarPorFiltro(Id, EsEstudiante);
+        }
+
 
     }
 }

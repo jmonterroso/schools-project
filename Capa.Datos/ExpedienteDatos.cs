@@ -244,8 +244,53 @@ namespace Capa.Datos
             return null;
 
         }
+          public ExpedienteFacade SeleccionarPorIdExpediente(int Id)
+        {
 
-        public List<ExpedienteFacade> SeleccionarPorFiltro(string Identificacion, string NombreCompleto, string Seccion, DateTime FechaNacimiento, string Direccion, byte Foto)
+            using (SqlConnection conn = new SqlConnection(Conexion.Cadena))
+            {
+
+                conn.Open();
+                SqlCommand comando = new SqlCommand("PA_SeleccionarExpedientePorIdExpediente", conn);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@Id", Id);
+                SqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    ExpedienteFacade est = new ExpedienteFacade();
+                    est.IdEstudiante = reader["IdEstudiante"].ToString();
+                    est.estudiante = new Capa.Datos.EstudianteDatos().SeleccionarPorId(est.IdEstudiante);
+                    est.Id = Convert.ToInt32(reader["Id"]);
+                    List<EntrevistaEstudiante> entEst = new List<EntrevistaEstudiante>();
+                    List<EntrevistaEncargado> entEnc = new List<EntrevistaEncargado>();
+                    List<EntrevistaFuncionario> entFunc = new List<EntrevistaFuncionario>();
+                    List<InformeVisitaAlHogar> informVisita = new List<InformeVisitaAlHogar>();
+                    List<Referencia> refer = new List<Referencia>();
+                    entEst = new EntrevistaEstudianteDatos().SeleccionarPorExpedienteId(est.Id);                    
+                    entEnc = new EntrevistaEncargadoDatos().SeleccionarPorExpedienteId(est.Id);
+                    entFunc = new EntrevistaFuncionarioDatos().SeleccionarPorExpedienteId(est.Id);
+                    informVisita = new InformeVistaHogarDatos().SeleccionarPorExpedienteId(est.Id);
+                    refer = new ReferenciaDatos().SeleccionarPorExpedienteId(est.Id);
+                    est.Instrumentos = new List<ClaseInstrumento>();
+                    est.Instrumentos.AddRange(entEst.Cast<ClaseInstrumento>().ToList());
+                    est.Instrumentos.AddRange(entEnc.Cast<ClaseInstrumento>().ToList());
+                    est.Instrumentos.AddRange(entFunc.Cast<ClaseInstrumento>().ToList());
+                    est.Instrumentos.AddRange(informVisita.Cast<ClaseInstrumento>().ToList());
+                    est.Instrumentos.AddRange(refer.Cast<ClaseInstrumento>().ToList());
+
+
+
+                    //nueva linea
+
+                    return est;
+
+                }
+            }
+            return null;
+
+        }
+
+        public List<ExpedienteFacade> SeleccionarPorFiltro(string Identificacion, bool EsEstudiante)
         {
             List<ExpedienteFacade> lista = new List<ExpedienteFacade>();
             using (SqlConnection conn = new SqlConnection(Conexion.Cadena))
@@ -253,29 +298,50 @@ namespace Capa.Datos
             {
 
                 conn.Open();
-                SqlCommand comando = new SqlCommand("PA_SeleccionarProductosConFiltros", conn);
-                comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.AddWithValue("@Identificacion", Identificacion);
-                comando.Parameters.AddWithValue("@NombreCompleto", NombreCompleto);
-                comando.Parameters.AddWithValue("@Seccion", Seccion);
-                comando.Parameters.AddWithValue("@FechaNacimiento", FechaNacimiento);
-                comando.Parameters.AddWithValue("@Direccion", Direccion);
-                comando.Parameters.AddWithValue("@Foto", Foto);
-
+                SqlCommand comando;
+                if (EsEstudiante)
+                {
+                    comando = new SqlCommand("PA_SeleccionarExpedientePorNombreEstudiante", conn);
+                    comando.CommandType = System.Data.CommandType.StoredProcedure;
+                    comando.Parameters.AddWithValue("@Nombre", Identificacion);
+                   
+                }
+                else
+                {
+                    comando = new SqlCommand("PA_SeleccionarExpedientePorIdEncargado", conn);
+                    comando.CommandType = System.Data.CommandType.StoredProcedure;
+                    comando.Parameters.AddWithValue("@IdEncargado", Identificacion);
+                    
+                }
 
 
                 SqlDataReader reader = comando.ExecuteReader();
 
+
                 while (reader.Read())
                 {
-                    ExpedienteFacade e = new ExpedienteFacade();
-                    //e.Identificacion = reader["Identificacion"].ToString();
-                    //e.NombreCompleto = reader["NombreCompleto"].ToString();
-                    //e.Seccion = (Secciones)reader["Seccion"];
-                    //e.FechaNacimiento = Convert.ToDateTime(reader["FechaNacimiento"].ToString());
-                    //e.Direccion = reader["Direccion"].ToString();
-                    //e.Foto = (byte[])reader["Foto"];
-                    lista.Add(e);
+                    ExpedienteFacade est = new ExpedienteFacade();
+                    est.IdEstudiante = reader["IdEstudiante"].ToString();
+                    est.estudiante = new Capa.Datos.EstudianteDatos().SeleccionarPorId(est.IdEstudiante);
+                    est.Id = Convert.ToInt32(reader["Id"]);
+                    List<EntrevistaEstudiante> entEst = new List<EntrevistaEstudiante>();
+                    List<EntrevistaEncargado> entEnc = new List<EntrevistaEncargado>();
+                    List<EntrevistaFuncionario> entFunc = new List<EntrevistaFuncionario>();
+                    List<InformeVisitaAlHogar> informVisita = new List<InformeVisitaAlHogar>();
+                    List<Referencia> refer = new List<Referencia>();
+                    entEst = new EntrevistaEstudianteDatos().SeleccionarPorExpedienteId(est.Id);
+                    entEnc = new EntrevistaEncargadoDatos().SeleccionarPorExpedienteId(est.Id);
+                    entFunc = new EntrevistaFuncionarioDatos().SeleccionarPorExpedienteId(est.Id);
+                    informVisita = new InformeVistaHogarDatos().SeleccionarPorExpedienteId(est.Id);
+                    refer = new ReferenciaDatos().SeleccionarPorExpedienteId(est.Id);
+                    est.Instrumentos = new List<ClaseInstrumento>();
+                    est.Instrumentos.AddRange(entEst.Cast<ClaseInstrumento>().ToList());
+                    est.Instrumentos.AddRange(entEnc.Cast<ClaseInstrumento>().ToList());
+                    est.Instrumentos.AddRange(entFunc.Cast<ClaseInstrumento>().ToList());
+                    est.Instrumentos.AddRange(informVisita.Cast<ClaseInstrumento>().ToList());
+                    est.Instrumentos.AddRange(refer.Cast<ClaseInstrumento>().ToList());
+
+                    lista.Add(est);
 
 
 

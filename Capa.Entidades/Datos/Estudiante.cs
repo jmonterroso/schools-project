@@ -17,5 +17,9 @@ namespace Capa.Entidades
        public string Direccion { get; set; }
        public  byte[] Foto { get; set; }
        public string IdEncargado { get; set; }
+        public override string ToString()
+        {
+            return this.Identificacion +" - " + this.NombreCompleto; 
+        }
     }
 }

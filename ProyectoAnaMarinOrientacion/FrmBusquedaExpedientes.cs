@@ -45,12 +45,11 @@ namespace ProyectoAnaMarinOrientacion
         private void FrmBusquedaExpedientes_Load(object sender, EventArgs e)
         {
             txtIdentificacion.Visible = false;
-            txtEncargado.Visible = false;
-            if (radioButton1.Checked)
+            
+            if (rdEstudiante.Checked)
                 txtIdentificacion.Visible = true;
 
-            if (radioButton2.Checked)
-                txtEncargado.Visible = true;
+            
         }
 
         private void btnBuscar_Click_1(object sender, EventArgs e)
@@ -70,6 +69,67 @@ namespace ProyectoAnaMarinOrientacion
                 return;
             }
            
+        }
+        private void RefrescarGrid(List<ExpedienteFacade> expedientes)
+        {
+
+            dgvExpedientes.AutoGenerateColumns = false;
+
+            // creacion de binding para los datagrids
+            dgvExpedientes.DataSource = null;
+            var listaInstrumentos = new BindingList<ExpedienteFacade>(expedientes);
+            // asignacion de datagrids
+
+            dgvExpedientes.DataSource = listaInstrumentos;
+        }
+        private void btnBuscarEncargado_Click(object sender, EventArgs e)
+        {
+
+            if (rdEstudiante.Checked)
+            {
+                List<ExpedienteFacade> expedientesEstudiante = new Capa.Logica.ExpedienteLN().SeleccionarPorFiltro(txtIdentificacion.Text, true);
+                RefrescarGrid(expedientesEstudiante);
+            }
+            if (rdEncargado.Checked)
+            {
+
+                List<ExpedienteFacade> expedientesEncargado = new Capa.Logica.ExpedienteLN().SeleccionarPorFiltro(txtIdentificacion.Text, false);
+                RefrescarGrid(expedientesEncargado);
+                
+            }
+
+            if (rdNumeroExpediente.Checked)
+            {
+
+                ExpedienteFacade expedientesEncargado = new Capa.Logica.ExpedienteLN().SeleccionarPorIdExpediente(Convert.ToInt32(txtIdentificacion.Text));
+                List<ExpedienteFacade> exp = new List <ExpedienteFacade>();
+                exp.Add(expedientesEncargado);
+                RefrescarGrid(exp);
+            }
+        }
+
+
+        private void dgvExpedientes_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+            ExpedienteFacade currExp = (ExpedienteFacade)dgvExpedientes.CurrentRow.DataBoundItem;
+
+            FrmExpediente frmExpediente = new FrmExpediente();
+            FrmExpediente.est = new Capa.Logica.EstudianteLN().SeleccionarPorId(currExp.IdEstudiante);
+            frmExpediente.Show();
+        }
+
+        private void dgvExpedientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtIdentificacion_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Return)
+            {
+                btnBuscarEncargado_Click(null, null);
+            }
         }
     }
 }
