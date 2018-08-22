@@ -171,6 +171,7 @@ namespace Capa.Datos.Instrumentos
                     EntrevistaFuncionario entFun = new EntrevistaFuncionario();
                     entFun.FechaCreacion = Convert.ToDateTime(reader["FechaCreacion"]);
                     entFun.Motivo = new MotivoAtencionDatos().SeleccionarporId(Convert.ToInt32(reader["IdMotivo"]));
+                    entFun.Id = Convert.ToInt32(reader["Id"]);
                     entFun.Situacion = reader["Situacion"].ToString();
                     entFun.Acciones = reader["Acciones"].ToString();
                     entFun.Intervencion = reader["Intervencion"].ToString();
@@ -240,5 +241,6 @@ namespace Capa.Datos.Instrumentos
 
             return lista;
         }
+       
     }
 }

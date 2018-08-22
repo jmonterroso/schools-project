@@ -27,5 +27,10 @@ namespace Capa.Logica.InstrumentosLN
             EntrevistaEstudianteDatos datos = new EntrevistaEstudianteDatos();
             return datos.SeleccionarTodos();
         }
+        public EntrevistaEstudiante SeleccionarPorId(int id)
+        {
+            Datos.Instrumentos.EntrevistaEstudianteDatos datos = new Datos.Instrumentos.EntrevistaEstudianteDatos();
+            return datos.SeleccionarPorId(id);
+        }
     }
 }

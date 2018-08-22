@@ -17,6 +17,7 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
     {
 
         Capa.Logica.MotivoAtencionLN logicaMotivo;
+        public static EntrevistaEstudiante entrevistaEstudiante;
         public FrmEntrevistaEstudiante()
         {
             InitializeComponent();
@@ -124,15 +125,49 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
 
             //refe1
            // cboMotivos.ValueMember = "NumeroMotivo";
-            cboMotivos.SelectedIndex = -1;
+            //cboMotivos.SelectedIndex = -1;
 
 
         }
 
+
+        private void DeshabilitarControles()
+        {
+            foreach (Control child in this.Controls)
+            {
+
+                child.Enabled = false;
+            }
+        }
+        private void ValidarUsuario()
+        {
+            if(Usuario.UsuarioActual.Rol == TipoUsuario.Encargado)
+            {
+                DeshabilitarControles();
+            }
+
+
+        }
         private void FrmEntrevistaEstudiante_Load(object sender, EventArgs e)
         {
             CargarComboMotivos();
-           
+            ValidarUsuario();
+            if (entrevistaEstudiante != null)
+            {
+                txtIntervencion.Text = entrevistaEstudiante.Intervencion;
+                txtSituacion.Text = entrevistaEstudiante.Situacion;
+                txtProceso.Text = entrevistaEstudiante.Acciones;
+                txtRecomendaciones.Text = entrevistaEstudiante.Recomendaciones;
+                cboMotivos.SelectedItem = entrevistaEstudiante.Motivo.ToString() ;
+                ckcDeteccionProfesional.Checked = entrevistaEstudiante.DetecciondelProfesional;
+                ckcReferencia.Checked = entrevistaEstudiante.Referencia;
+                ckcReferencia.Checked = entrevistaEstudiante.Solicitud;
+                ckcOtro.Checked = entrevistaEstudiante.Otros;
+                txtOtro.Text = entrevistaEstudiante.OtrosExplicacion;
+
+
+            }
+
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)

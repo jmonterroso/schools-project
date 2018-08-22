@@ -173,6 +173,7 @@ namespace Capa.Datos.Instrumentos
                     EntrevistaEstudiante entEst = new EntrevistaEstudiante();
                     entEst.Id = Convert.ToInt32(reader["Id"]);
                     entEst.FechaCreacion = Convert.ToDateTime(reader["FechaCreacion"]);
+                    entEst.TipoInstrumento = TipoInstrumentos.EntrevistaEstudiante;
                     entEst.Motivo = new MotivoAtencionDatos().SeleccionarporId(Convert.ToInt32(reader["IdMotivo"]));
                     entEst.Situacion = reader["Situacion"].ToString();
                     entEst.Acciones = reader["Acciones"].ToString();
@@ -228,7 +229,7 @@ namespace Capa.Datos.Instrumentos
                     entEst.Referencia = (bool)reader["Referencia"];
                     entEst.Otros = (bool)reader["Otros"];
                     entEst.OtrosExplicacion = reader["OtrosExplicacion"].ToString();
-                    entEst.TipoInstrumento = (TipoInstrumentos)Convert.ToInt32(reader["TipoInstrumento"]);
+                    entEst.TipoInstrumento = TipoInstrumentos.EntrevistaEstudiante;
 
                     return entEst;
                 }

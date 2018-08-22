@@ -170,6 +170,7 @@ namespace Capa.Datos.Instrumentos
                     Referencia refe = new Referencia();
                     refe.FechaCreacion = Convert.ToDateTime(reader["FechaCreacion"]);
                     refe.Motivo = new MotivoAtencionDatos().SeleccionarporId(Convert.ToInt32(reader["IdMotivo"]));
+                    refe.Id = Convert.ToInt32(reader["Id"]);
                     refe.Situacion = reader["Situacion"].ToString();
                     refe.Acciones = reader["Acciones"].ToString();
                     refe.Intervencion = reader["Intervencion"].ToString();

@@ -1,4 +1,5 @@
 ﻿using Capa.Entidades;
+using Capa.Entidades.Enumeradores;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -33,15 +34,33 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
         {
 
         }
+        private void DeshabilitarControles()
+        {
+            foreach (Control child in this.Controls)
+            {
+
+                child.Enabled = false;
+            }
+        }
+        private void ValidarUsuario()
+        {
+            if (Usuario.UsuarioActual.Rol == TipoUsuario.Encargado)
+            {
+                DeshabilitarControles();
+            }
+
+
+        }
 
         private void FrmEntrevistaPadre_Madre_Encargado_Load(object sender, EventArgs e)
         {
             CargarComboMotivos();
+            ValidarUsuario();
             if(entrevistaEncargado != null)
             {
                 txtResumen.Text = entrevistaEncargado.Situacion;
                 txtRecomendaciones.Text = entrevistaEncargado.Recomendaciones;
-                cboMotivos.SelectedItem = entrevistaEncargado.Motivo;
+                cboMotivos.SelectedItem = entrevistaEncargado.Motivo.ToString();
                 ckConvocadoPorEncargado.Checked = entrevistaEncargado.ConvocadoPorEncargado;
                 ckConvocadoPorInstitucion.Checked = entrevistaEncargado.ConvocadoPorInstitucion;
 
@@ -118,7 +137,7 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
 
             //refe1
             //cboMotivos.ValueMember = "NumeroMotivo";
-            cboMotivos.SelectedIndex = -1;
+            //cboMotivos.SelectedIndex = -1;
 
 
         }

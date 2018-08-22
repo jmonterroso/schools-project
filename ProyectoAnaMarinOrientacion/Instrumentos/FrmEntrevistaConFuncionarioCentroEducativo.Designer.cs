@@ -41,7 +41,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.BtnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboMotivo = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtNombreFuncionario
@@ -159,14 +159,14 @@
             this.btnAceptar.UseVisualStyleBackColor = false;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
-            // comboBox1
+            // cboMotivo
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(246, 149);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(216, 21);
-            this.comboBox1.TabIndex = 4;
+            this.cboMotivo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboMotivo.FormattingEnabled = true;
+            this.cboMotivo.Location = new System.Drawing.Point(246, 149);
+            this.cboMotivo.Name = "cboMotivo";
+            this.cboMotivo.Size = new System.Drawing.Size(216, 21);
+            this.cboMotivo.TabIndex = 4;
             // 
             // FrmEntrevistaConFuncionarioCentroEducativo
             // 
@@ -174,7 +174,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(834, 511);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cboMotivo);
             this.Controls.Add(this.BtnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.txtRecomendaciones);
@@ -211,6 +211,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button BtnCancelar;
         private System.Windows.Forms.Button btnAceptar;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboMotivo;
     }
 }

@@ -184,6 +184,7 @@ namespace Capa.Datos.Instrumentos
                     InformeVisitaAlHogar entEnc = new InformeVisitaAlHogar();
                     entEnc.FechaCreacion = Convert.ToDateTime(reader["FechaCreacion"]);
                     entEnc.Motivo = new MotivoAtencionDatos().SeleccionarporId(Convert.ToInt32(reader["IdMotivo"]));
+                    entEnc.Id = Convert.ToInt32(reader["Id"]);
                     entEnc.Situacion = reader["Situacion"].ToString();
                     entEnc.Acciones = reader["Acciones"].ToString();
                     entEnc.Intervencion = reader["Intervencion"].ToString();
