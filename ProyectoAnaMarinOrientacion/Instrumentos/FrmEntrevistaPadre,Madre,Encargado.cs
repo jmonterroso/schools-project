@@ -16,6 +16,7 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
 
         Capa.Logica.MotivoAtencionLN logicaMotivo;
 
+        public static EntrevistaEncargado entrevistaEncargado;
         public FrmEntrevistaPadre_Madre_Encargado()
         {
             InitializeComponent();
@@ -36,6 +37,15 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
         private void FrmEntrevistaPadre_Madre_Encargado_Load(object sender, EventArgs e)
         {
             CargarComboMotivos();
+            if(entrevistaEncargado != null)
+            {
+                txtResumen.Text = entrevistaEncargado.Situacion;
+                txtRecomendaciones.Text = entrevistaEncargado.Recomendaciones;
+                cboMotivos.SelectedItem = entrevistaEncargado.Motivo;
+                ckConvocadoPorEncargado.Checked = entrevistaEncargado.ConvocadoPorEncargado;
+                ckConvocadoPorInstitucion.Checked = entrevistaEncargado.ConvocadoPorInstitucion;
+
+            }
             
 
         }

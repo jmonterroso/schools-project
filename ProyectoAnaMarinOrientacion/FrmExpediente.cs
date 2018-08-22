@@ -145,9 +145,31 @@ namespace ProyectoAnaMarinOrientacion
 
         }
 
+        private void ValidarControles()
+        {
+            switch (Usuario.UsuarioActual.Rol) {
+                case TipoUsuario.Encargado:
+                    gpboxAgregarInstrumento.Visible = false;
+                    btnComprobante.Visible = false;
+                    btnGuardarExpediente.Visible = false;
+                    //btnCancelar.Visible = false;
+                    break;
+
+            }
+
+        }
+
         private void FrmExpediente_Load(object sender, EventArgs e)
         {
             RefrescarGrids();
+            if(est != null)
+            {
+                txtIdentificacionEstudiante.Text = est.Identificacion;
+                LblEstSeleccionado.Text = est.NombreCompleto;
+                CargarInstrumentos();
+            }
+            ValidarControles();
+
 
         }
 
@@ -277,6 +299,37 @@ namespace ProyectoAnaMarinOrientacion
         }
 
         private void pbQRCODE_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvInstrumentos_DoubleClick(object sender, EventArgs e)
+        {
+            var Id = dgvInstrumentos.CurrentRow.Cells[0].Value;            
+
+            TipoInstrumentos tipoInstrumentos = (TipoInstrumentos)Enum.Parse(typeof(TipoInstrumentos), dgvInstrumentos.CurrentRow.Cells[2].Value.ToString());
+            switch (tipoInstrumentos)
+            {
+                case TipoInstrumentos.EntrevistaAlEncargado:
+                    EntrevistaEncargado entrevistaEncargado = new Capa.Logica.InstrumentosLN.EntrevistaEncargadoLN().SeleccionarPorId(Convert.ToInt32(Id));
+                    Instrumentos.FrmEntrevistaPadre_Madre_Encargado.entrevistaEncargado = entrevistaEncargado;
+                    Instrumentos.FrmEntrevistaPadre_Madre_Encargado enc = new Instrumentos.FrmEntrevistaPadre_Madre_Encargado();
+                    enc.Show();
+                    break;
+            }
+
+            
+
+            //FrmExpediente.est = new Capa.Logica.InstrumentosLN.EntrevistaEncargadoLN()
+            
+        }
+
+        private void dgvInstrumentos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

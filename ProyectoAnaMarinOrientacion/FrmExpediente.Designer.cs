@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnGuardarExpediente = new System.Windows.Forms.Button();
+            this.btnComprobante = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.pbQRCODE = new System.Windows.Forms.PictureBox();
             this.btnQRCode = new System.Windows.Forms.Button();
             this.txtNumeroExpediente = new System.Windows.Forms.TextBox();
@@ -44,56 +44,58 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.dgvInstrumentos = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Acciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Motivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gpboxAgregarInstrumento = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbQRCODE)).BeginInit();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInstrumentos)).BeginInit();
+            this.gpboxAgregarInstrumento.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // btnGuardarExpediente
             // 
-            this.button1.BackColor = System.Drawing.Color.YellowGreen;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.ImageIndex = 0;
-            this.button1.Location = new System.Drawing.Point(645, 540);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(134, 58);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Guardar Expediente";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnGuardarExpediente.BackColor = System.Drawing.Color.YellowGreen;
+            this.btnGuardarExpediente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarExpediente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuardarExpediente.ImageIndex = 0;
+            this.btnGuardarExpediente.Location = new System.Drawing.Point(645, 540);
+            this.btnGuardarExpediente.Name = "btnGuardarExpediente";
+            this.btnGuardarExpediente.Size = new System.Drawing.Size(134, 58);
+            this.btnGuardarExpediente.TabIndex = 0;
+            this.btnGuardarExpediente.Text = "Guardar Expediente";
+            this.btnGuardarExpediente.UseVisualStyleBackColor = false;
+            this.btnGuardarExpediente.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button5
+            // btnComprobante
             // 
-            this.button5.BackColor = System.Drawing.Color.YellowGreen;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(958, 139);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(181, 36);
-            this.button5.TabIndex = 21;
-            this.button5.Text = "Crear comprobante de asistencia";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.btnComprobante.BackColor = System.Drawing.Color.YellowGreen;
+            this.btnComprobante.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnComprobante.Location = new System.Drawing.Point(958, 139);
+            this.btnComprobante.Name = "btnComprobante";
+            this.btnComprobante.Size = new System.Drawing.Size(181, 36);
+            this.btnComprobante.TabIndex = 21;
+            this.btnComprobante.Text = "Crear comprobante de asistencia";
+            this.btnComprobante.UseVisualStyleBackColor = false;
+            this.btnComprobante.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button6
+            // btnCancelar
             // 
-            this.button6.BackColor = System.Drawing.Color.Red;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(799, 540);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(108, 58);
-            this.button6.TabIndex = 25;
-            this.button6.Text = "Cancelar";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.btnCancelar.BackColor = System.Drawing.Color.Red;
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(799, 540);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(108, 58);
+            this.btnCancelar.TabIndex = 25;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.button6_Click);
             // 
             // pbQRCODE
             // 
@@ -183,7 +185,7 @@
             // 
             this.button4.BackColor = System.Drawing.Color.LightSkyBlue;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(38, 208);
+            this.button4.Location = new System.Drawing.Point(12, 41);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(94, 72);
             this.button4.TabIndex = 40;
@@ -195,7 +197,7 @@
             // 
             this.button7.BackColor = System.Drawing.Color.SkyBlue;
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(138, 208);
+            this.button7.Location = new System.Drawing.Point(112, 41);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(94, 72);
             this.button7.TabIndex = 41;
@@ -207,7 +209,7 @@
             // 
             this.button8.BackColor = System.Drawing.Color.PowderBlue;
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(238, 208);
+            this.button8.Location = new System.Drawing.Point(212, 41);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(94, 72);
             this.button8.TabIndex = 42;
@@ -219,7 +221,7 @@
             // 
             this.button9.BackColor = System.Drawing.Color.DarkTurquoise;
             this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Location = new System.Drawing.Point(338, 208);
+            this.button9.Location = new System.Drawing.Point(312, 41);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(94, 72);
             this.button9.TabIndex = 43;
@@ -227,21 +229,11 @@
             this.button9.UseVisualStyleBackColor = false;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(38, 176);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(156, 20);
-            this.label3.TabIndex = 44;
-            this.label3.Text = "Agregar Instrumento";
-            // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.LightCyan;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(438, 208);
+            this.button3.Location = new System.Drawing.Point(412, 41);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(94, 72);
             this.button3.TabIndex = 52;
@@ -266,16 +258,26 @@
             this.dgvInstrumentos.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvInstrumentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInstrumentos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
             this.dataGridViewTextBoxColumn8,
             this.Nombre,
             this.Acciones,
             this.Motivo});
-            this.dgvInstrumentos.Location = new System.Drawing.Point(12, 29);
+            this.dgvInstrumentos.Location = new System.Drawing.Point(11, 29);
             this.dgvInstrumentos.Name = "dgvInstrumentos";
             this.dgvInstrumentos.ReadOnly = true;
             this.dgvInstrumentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvInstrumentos.Size = new System.Drawing.Size(494, 262);
             this.dgvInstrumentos.TabIndex = 32;
+            this.dgvInstrumentos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInstrumentos_CellContentClick);
+            this.dgvInstrumentos.DoubleClick += new System.EventHandler(this.dgvInstrumentos_DoubleClick);
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn8
             // 
@@ -306,19 +308,28 @@
             this.Motivo.Name = "Motivo";
             this.Motivo.ReadOnly = true;
             // 
+            // gpboxAgregarInstrumento
+            // 
+            this.gpboxAgregarInstrumento.Controls.Add(this.button7);
+            this.gpboxAgregarInstrumento.Controls.Add(this.button4);
+            this.gpboxAgregarInstrumento.Controls.Add(this.button3);
+            this.gpboxAgregarInstrumento.Controls.Add(this.button8);
+            this.gpboxAgregarInstrumento.Controls.Add(this.button9);
+            this.gpboxAgregarInstrumento.Location = new System.Drawing.Point(34, 128);
+            this.gpboxAgregarInstrumento.Name = "gpboxAgregarInstrumento";
+            this.gpboxAgregarInstrumento.Size = new System.Drawing.Size(535, 133);
+            this.gpboxAgregarInstrumento.TabIndex = 53;
+            this.gpboxAgregarInstrumento.TabStop = false;
+            this.gpboxAgregarInstrumento.Text = "Agregar Instrumento";
+            // 
             // FrmExpediente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(1187, 648);
+            this.Controls.Add(this.gpboxAgregarInstrumento);
             this.Controls.Add(this.groupBox6);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.LblEstSeleccionado);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
@@ -328,9 +339,9 @@
             this.Controls.Add(this.txtNumeroExpediente);
             this.Controls.Add(this.btnQRCode);
             this.Controls.Add(this.pbQRCODE);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnComprobante);
+            this.Controls.Add(this.btnGuardarExpediente);
             this.Name = "FrmExpediente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Expediente de Estudiantes";
@@ -339,6 +350,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbQRCODE)).EndInit();
             this.groupBox6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInstrumentos)).EndInit();
+            this.gpboxAgregarInstrumento.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -346,9 +358,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnGuardarExpediente;
+        private System.Windows.Forms.Button btnComprobante;
+        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.PictureBox pbQRCODE;
         private System.Windows.Forms.Button btnQRCode;
         private System.Windows.Forms.TextBox txtNumeroExpediente;
@@ -362,10 +374,11 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.DataGridView dgvInstrumentos;
+        private System.Windows.Forms.GroupBox gpboxAgregarInstrumento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Acciones;

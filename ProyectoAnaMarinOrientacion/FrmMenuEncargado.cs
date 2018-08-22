@@ -34,5 +34,18 @@ namespace ProyectoAnaMarinOrientacion
 
             dgvEstudiantesEncargado.DataSource = listaEstudiantes;
         }
+
+        private void dgvEstudiantesEncargado_DoubleClick(object sender, EventArgs e)
+        {
+            var Identificacion = dgvEstudiantesEncargado.CurrentRow.Cells[0].Value;
+            FrmExpediente frmExpediente = new FrmExpediente();
+            FrmExpediente.est = new Capa.Logica.EstudianteLN().SeleccionarPorId(Identificacion.ToString());
+            frmExpediente.Show();
+        }
+
+        private void dgvEstudiantesEncargado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
