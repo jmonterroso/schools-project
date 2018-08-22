@@ -29,10 +29,14 @@ namespace ProyectoAnaMarinOrientacion
 
             // creacion de binding para los datagrids
             dgvEstudiantesEncargado.DataSource = null;
-            var listaEstudiantes = new BindingList<Estudiante>(encargado.ListaEstudiantes);
+            if (encargado.ListaEstudiantes.Count > 0)
+            {
+                var listaEstudiantes = new BindingList<Estudiante>(encargado.ListaEstudiantes);
+                dgvEstudiantesEncargado.DataSource = listaEstudiantes;
+            }
             // asignacion de datagrids
 
-            dgvEstudiantesEncargado.DataSource = listaEstudiantes;
+            
         }
 
         private void dgvEstudiantesEncargado_DoubleClick(object sender, EventArgs e)

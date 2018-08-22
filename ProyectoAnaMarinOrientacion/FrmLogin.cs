@@ -21,8 +21,8 @@ namespace ProyectoAnaMarinOrientacion
             InitializeComponent();
             ttMensaje.SetToolTip(txtIdentificacion, "Digite una identificacion");
             ttMensaje.SetToolTip(txtContasena, "Digite una contrasena");
-           
-    } 
+
+        }
 
         private void BtnIngresar_Click(object sender, EventArgs e)
         {
@@ -39,16 +39,16 @@ namespace ProyectoAnaMarinOrientacion
 
             }
             string Identificacion = txtIdentificacion.Text;
-                string Password = txtContasena.Text.ToString();
-                Usuario usuario = new Usuario
-                {
-                    Identificacion = Identificacion,
-                    Password = Password
-                };
-                Usuario.UsuarioActual = logicaUsuario.Login(usuario);
-            
-                if(Usuario.UsuarioActual != null)
-                 {
+            string Password = txtContasena.Text.ToString();
+            Usuario usuario = new Usuario
+            {
+                Identificacion = Identificacion,
+                Password = Password
+            };
+            Usuario.UsuarioActual = logicaUsuario.Login(usuario);
+
+            if (Usuario.UsuarioActual != null)
+            {
                 MessageBox.Show("Bienvenido", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 ////Menus
@@ -64,37 +64,37 @@ namespace ProyectoAnaMarinOrientacion
                     if (Usuario.UsuarioActual.Rol == Capa.Entidades.Enumeradores.TipoUsuario.Docente)
                     {
                         //this.Hide();
-                       // Dispose();
+                        // Dispose();
                         FrmMenuDocente menu = new FrmMenuDocente();
                         menu.Show();
-                        
+
 
                     }
                     else
                     {
-                       // Hide();
+                        // Hide();
 
                         FrmPrincipal principal = new FrmPrincipal();
                         principal.Show();
-                        
-                        
 
-                     
+
+
+
                     }
                 }
             }
             else
             {
-                MessageBox.Show( "Vuelva a intentarlo", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Vuelva a intentarlo", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-           
+
 
 
 
             this.txtIdentificacion.Clear();
             this.txtContasena.Clear();
-            
+
         }
 
         private void lblCopyRight_Click(object sender, EventArgs e)
@@ -128,7 +128,7 @@ namespace ProyectoAnaMarinOrientacion
             if (dialogo == DialogResult.Yes)
             {
                 Dispose();
-               
+
             }
             else
             {
@@ -136,6 +136,8 @@ namespace ProyectoAnaMarinOrientacion
                 {
                     FrmLogin login = new FrmLogin();
                     login.Show(); ;
+                }
+            }
         }
     }
 }

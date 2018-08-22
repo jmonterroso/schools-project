@@ -339,7 +339,7 @@ namespace Capa.Datos
                     Encargado e = new Encargado();
                     e.NombreCompleto = reader["Nombre"].ToString();
 
-                    lista.Add(e);
+                    //lista.Add(e);
 
                 }
             }

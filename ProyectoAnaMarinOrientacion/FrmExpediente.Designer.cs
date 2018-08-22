@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnGuardarExpediente = new System.Windows.Forms.Button();
             this.btnComprobante = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.pbQRCODE = new System.Windows.Forms.PictureBox();
@@ -52,24 +52,27 @@
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Acciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Motivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.gpboxAgregarInstrumento = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbQRCODE)).BeginInit();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInstrumentos)).BeginInit();
+            this.gpboxAgregarInstrumento.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // btnGuardarExpediente
             // 
-            this.button1.BackColor = System.Drawing.Color.YellowGreen;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.ImageIndex = 0;
-            this.button1.Location = new System.Drawing.Point(645, 540);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(134, 58);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Guardar Expediente";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnGuardarExpediente.BackColor = System.Drawing.Color.YellowGreen;
+            this.btnGuardarExpediente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarExpediente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuardarExpediente.ImageIndex = 0;
+            this.btnGuardarExpediente.Location = new System.Drawing.Point(645, 540);
+            this.btnGuardarExpediente.Name = "btnGuardarExpediente";
+            this.btnGuardarExpediente.Size = new System.Drawing.Size(134, 58);
+            this.btnGuardarExpediente.TabIndex = 0;
+            this.btnGuardarExpediente.Text = "Guardar Expediente";
+            this.btnGuardarExpediente.UseVisualStyleBackColor = false;
+            this.btnGuardarExpediente.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnComprobante
             // 
@@ -183,7 +186,7 @@
             // 
             this.button4.BackColor = System.Drawing.Color.LightSkyBlue;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(38, 208);
+            this.button4.Location = new System.Drawing.Point(10, 47);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(94, 72);
             this.button4.TabIndex = 40;
@@ -195,7 +198,7 @@
             // 
             this.button7.BackColor = System.Drawing.Color.SkyBlue;
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(138, 208);
+            this.button7.Location = new System.Drawing.Point(110, 47);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(94, 72);
             this.button7.TabIndex = 41;
@@ -207,7 +210,7 @@
             // 
             this.button8.BackColor = System.Drawing.Color.PowderBlue;
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(238, 208);
+            this.button8.Location = new System.Drawing.Point(210, 47);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(94, 72);
             this.button8.TabIndex = 42;
@@ -219,7 +222,7 @@
             // 
             this.button9.BackColor = System.Drawing.Color.DarkTurquoise;
             this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Location = new System.Drawing.Point(338, 208);
+            this.button9.Location = new System.Drawing.Point(310, 47);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(94, 72);
             this.button9.TabIndex = 43;
@@ -231,7 +234,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(38, 176);
+            this.label3.Location = new System.Drawing.Point(10, 15);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(156, 20);
             this.label3.TabIndex = 44;
@@ -241,7 +244,7 @@
             // 
             this.button3.BackColor = System.Drawing.Color.LightCyan;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(438, 208);
+            this.button3.Location = new System.Drawing.Point(410, 47);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(94, 72);
             this.button3.TabIndex = 52;
@@ -306,6 +309,21 @@
             this.Motivo.Name = "Motivo";
             this.Motivo.ReadOnly = true;
             // 
+            // gpboxAgregarInstrumento
+            // 
+            this.gpboxAgregarInstrumento.Controls.Add(this.button7);
+            this.gpboxAgregarInstrumento.Controls.Add(this.button3);
+            this.gpboxAgregarInstrumento.Controls.Add(this.button4);
+            this.gpboxAgregarInstrumento.Controls.Add(this.label3);
+            this.gpboxAgregarInstrumento.Controls.Add(this.button8);
+            this.gpboxAgregarInstrumento.Controls.Add(this.button9);
+            this.gpboxAgregarInstrumento.Location = new System.Drawing.Point(34, 139);
+            this.gpboxAgregarInstrumento.Name = "gpboxAgregarInstrumento";
+            this.gpboxAgregarInstrumento.Size = new System.Drawing.Size(528, 147);
+            this.gpboxAgregarInstrumento.TabIndex = 53;
+            this.gpboxAgregarInstrumento.TabStop = false;
+            this.gpboxAgregarInstrumento.Text = "groupBox1";
+            // 
             // FrmExpediente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -313,12 +331,6 @@
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(1187, 648);
             this.Controls.Add(this.groupBox6);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.LblEstSeleccionado);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
@@ -330,7 +342,8 @@
             this.Controls.Add(this.pbQRCODE);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.btnComprobante);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnGuardarExpediente);
+            this.Controls.Add(this.gpboxAgregarInstrumento);
             this.Name = "FrmExpediente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Expediente de Estudiantes";
@@ -339,6 +352,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbQRCODE)).EndInit();
             this.groupBox6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInstrumentos)).EndInit();
+            this.gpboxAgregarInstrumento.ResumeLayout(false);
+            this.gpboxAgregarInstrumento.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -346,7 +361,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnGuardarExpediente;
         private System.Windows.Forms.Button btnComprobante;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.PictureBox pbQRCODE;
@@ -370,5 +385,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Acciones;
         private System.Windows.Forms.DataGridViewTextBoxColumn Motivo;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.GroupBox gpboxAgregarInstrumento;
     }
 }

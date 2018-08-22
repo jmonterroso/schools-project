@@ -61,7 +61,8 @@ namespace ProyectoAnaMarinOrientacion
             var estudianteNombre = estLogica.SeleccionarEstudiantePorNombre(txtIdentificacion.Text);
             if (estudianteId!= null)
             {
-                dgvExpedientes.DataSource=  
+                //dgvExpedientes.DataSource=  
+                //dgvExpedientes.DataSource=  
             }
             else
             {
