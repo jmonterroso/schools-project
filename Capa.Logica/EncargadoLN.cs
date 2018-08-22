@@ -64,5 +64,23 @@ namespace Capa.Logica
         }
 
 
+        public List<Encargado> BuscarEncargado(string valor)
+        {
+            if (valor.Length == 0)
+                throw new ApplicationException("Debe digitar una opcion");
+
+            List<Encargado> lista = new List<Encargado>();
+            EncargadoDatos datos = new EncargadoDatos();
+
+           
+
+            lista = datos.SeleccionarEncargadoPorNombre(valor);
+
+         
+
+            
+
+            return lista;
+        }
     }
 }

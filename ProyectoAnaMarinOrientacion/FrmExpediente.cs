@@ -148,6 +148,7 @@ namespace ProyectoAnaMarinOrientacion
         private void FrmExpediente_Load(object sender, EventArgs e)
         {
             RefrescarGrids();
+            btnComprobante.Hide();
 
         }
 
@@ -188,9 +189,16 @@ namespace ProyectoAnaMarinOrientacion
         
         private void button5_Click(object sender, EventArgs e)
         {   
+            
             //boton para crear un comprobante de asistencia
             FrmComprobanteAsistencia comproAsistencia = new FrmComprobanteAsistencia();
+            FrmComprobanteAsistencia.est = est;
+            FrmComprobanteAsistencia.encargado = encar;
+            FrmComprobanteAsistencia.expediente = facade;
+
+           
             comproAsistencia.Show();
+            
         }
 
 
@@ -227,6 +235,7 @@ namespace ProyectoAnaMarinOrientacion
             LblEstSeleccionado.Text = est.NombreCompleto;
 
             CargarInstrumentos();
+            //btnComprobante.Show();
 
 
 

@@ -163,6 +163,16 @@ namespace ProyectoAnaMarinOrientacion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ALE_Cropped {
+            get {
+                object obj = ResourceManager.GetObject("ALE_Cropped", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Background_texture_11 {
             get {
                 object obj = ResourceManager.GetObject("Background-texture-11", resourceCulture);
@@ -336,6 +346,16 @@ namespace ProyectoAnaMarinOrientacion.Properties {
         internal static System.Drawing.Bitmap Imprimir1 {
             get {
                 object obj = ResourceManager.GetObject("Imprimir1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap imprimirrr {
+            get {
+                object obj = ResourceManager.GetObject("imprimirrr", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

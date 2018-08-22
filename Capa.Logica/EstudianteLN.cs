@@ -47,6 +47,25 @@ namespace Capa.Logica
             Datos.EstudianteDatos datos = new Datos.EstudianteDatos();
             return datos.SeleccionarPorId(id);
         }
+        public List<Estudiante> SeleccionarEstudiantePorNombre(string nombre)
+        {
+            if (nombre.Length == 0)
+                throw new ApplicationException("Debe digitar una opcion");
+
+            List<Estudiante> lista = new List<Estudiante>();
+            EstudianteDatos datos = new EstudianteDatos();
+
+
+
+            lista = datos.SeleccionarEstudiantePorNombre(nombre);
+
+           
+
+
+
+
+            return lista;
+        }
 
     }
 }

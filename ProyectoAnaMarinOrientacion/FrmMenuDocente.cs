@@ -16,5 +16,15 @@ namespace ProyectoAnaMarinOrientacion
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //boton de cambiar usuario. 
+            //sale del menu y va al login 
+            //debe volver a digitar una nueva identificaciion y contrasena
+          Dispose();
+          FrmLogin login = new FrmLogin();
+          login.Show();
+        }
     }
 }

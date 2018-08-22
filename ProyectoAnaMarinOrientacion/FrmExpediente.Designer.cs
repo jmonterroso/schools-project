@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnComprobante = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.pbQRCODE = new System.Windows.Forms.PictureBox();
             this.btnQRCode = new System.Windows.Forms.Button();
@@ -71,17 +71,17 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button5
+            // btnComprobante
             // 
-            this.button5.BackColor = System.Drawing.Color.YellowGreen;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(958, 139);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(181, 36);
-            this.button5.TabIndex = 21;
-            this.button5.Text = "Crear comprobante de asistencia";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.btnComprobante.BackColor = System.Drawing.Color.YellowGreen;
+            this.btnComprobante.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnComprobante.Location = new System.Drawing.Point(958, 139);
+            this.btnComprobante.Name = "btnComprobante";
+            this.btnComprobante.Size = new System.Drawing.Size(181, 36);
+            this.btnComprobante.TabIndex = 21;
+            this.btnComprobante.Text = "Crear comprobante de asistencia";
+            this.btnComprobante.UseVisualStyleBackColor = false;
+            this.btnComprobante.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -329,7 +329,7 @@
             this.Controls.Add(this.btnQRCode);
             this.Controls.Add(this.pbQRCODE);
             this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btnComprobante);
             this.Controls.Add(this.button1);
             this.Name = "FrmExpediente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -347,7 +347,7 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnComprobante;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.PictureBox pbQRCODE;
         private System.Windows.Forms.Button btnQRCode;

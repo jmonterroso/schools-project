@@ -31,12 +31,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtIdentificacion = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnBuscarEstudiante = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.txtEncargado = new System.Windows.Forms.TextBox();
             this.dgvExpedientes = new System.Windows.Forms.DataGridView();
+            this.btnBuscarEncargado = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExpedientes)).BeginInit();
             this.SuspendLayout();
@@ -69,18 +70,19 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
-            // btnBuscar
+            // btnBuscarEstudiante
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(222, 277);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 10;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscarEstudiante.Location = new System.Drawing.Point(185, 277);
+            this.btnBuscarEstudiante.Name = "btnBuscarEstudiante";
+            this.btnBuscarEstudiante.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscarEstudiante.TabIndex = 10;
+            this.btnBuscarEstudiante.Text = "Buscar";
+            this.btnBuscarEstudiante.UseVisualStyleBackColor = true;
+            this.btnBuscarEstudiante.Click += new System.EventHandler(this.btnBuscar_Click_1);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(316, 277);
+            this.btnCancelar.Location = new System.Drawing.Point(356, 277);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 11;
@@ -127,18 +129,28 @@
             this.dgvExpedientes.Size = new System.Drawing.Size(253, 261);
             this.dgvExpedientes.TabIndex = 16;
             // 
+            // btnBuscarEncargado
+            // 
+            this.btnBuscarEncargado.Location = new System.Drawing.Point(266, 277);
+            this.btnBuscarEncargado.Name = "btnBuscarEncargado";
+            this.btnBuscarEncargado.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscarEncargado.TabIndex = 17;
+            this.btnBuscarEncargado.Text = "Buscar";
+            this.btnBuscarEncargado.UseVisualStyleBackColor = true;
+            // 
             // FrmBusquedaExpedientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(834, 511);
+            this.Controls.Add(this.btnBuscarEncargado);
             this.Controls.Add(this.dgvExpedientes);
             this.Controls.Add(this.txtEncargado);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.btnBuscarEstudiante);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtIdentificacion);
             this.Controls.Add(this.label1);
@@ -158,11 +170,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtIdentificacion;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnBuscarEstudiante;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.TextBox txtEncargado;
         private System.Windows.Forms.DataGridView dgvExpedientes;
+        private System.Windows.Forms.Button btnBuscarEncargado;
     }
 }

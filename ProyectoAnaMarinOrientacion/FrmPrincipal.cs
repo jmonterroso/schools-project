@@ -152,5 +152,58 @@ namespace ProyectoAnaMarinOrientacion
             FrmRegistro registro = new FrmRegistro();
             registro.Show();
         }
+
+        private void cambiarDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cambiarDeUsuarioToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Dispose();
+            FrmLogin login = new FrmLogin();
+            login.Show();
+        }
+
+        private void FrmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                DialogResult dialogo = MessageBox.Show("Desea cerrar el menu del administrador", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                if (dialogo == DialogResult.Yes)
+                {
+                    Dispose();
+
+                }
+                else
+                {
+                    FrmLogin login = new FrmLogin();
+                    login.Show();
+                }
+            }
+            catch { }
+        }
+
+        private void FrmPrincipal_FormClosed(object sender, FormClosedEventArgs e)
+        {
+        //    try
+        //    {
+        //        DialogResult dialogo = MessageBox.Show("Desea cerrar el menu del administrador", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+        //        if (dialogo == DialogResult.Yes)
+        //        {
+        //            Dispose();
+        //            FrmLogin login = new FrmLogin();
+        //            login.Show();
+        //        }
+        //        else
+        //            return;
+        //    }
+        //    catch { }
+        }
+
+        private void FrmPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
