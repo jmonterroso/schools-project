@@ -316,9 +316,20 @@ namespace ProyectoAnaMarinOrientacion
 
         }
 
+      
+        private void dgvInstrumentos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvInstrumentos_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
         private void dgvInstrumentos_DoubleClick(object sender, EventArgs e)
         {
-            var Id = dgvInstrumentos.CurrentRow.Cells[0].Value;            
+            var Id = dgvInstrumentos.CurrentRow.Cells[0].Value;
 
             TipoInstrumentos tipoInstrumentos = (TipoInstrumentos)Enum.Parse(typeof(TipoInstrumentos), dgvInstrumentos.CurrentRow.Cells[2].Value.ToString());
             switch (tipoInstrumentos)
@@ -331,7 +342,7 @@ namespace ProyectoAnaMarinOrientacion
                     break;
                 case TipoInstrumentos.EntrevistaAlFuncionario:
                     EntrevistaFuncionario entrevistaFuncionario = new Capa.Logica.InstrumentosLN.EntrevistaConFuncionarioLN().SeleccionarPorId(Convert.ToInt32(Id));
-                    Instrumentos.FrmEntrevistaConFuncionarioCentroEducativo.entrevistaFuncionario= entrevistaFuncionario;
+                    Instrumentos.FrmEntrevistaConFuncionarioCentroEducativo.entrevistaFuncionario = entrevistaFuncionario;
                     Instrumentos.FrmEntrevistaConFuncionarioCentroEducativo fun = new Instrumentos.FrmEntrevistaConFuncionarioCentroEducativo();
                     fun.Show();
                     break;
@@ -354,18 +365,9 @@ namespace ProyectoAnaMarinOrientacion
                     visita.Show();
                     break;
 
-                
+
 
             }
-
-            
-
-            //FrmExpediente.est = new Capa.Logica.InstrumentosLN.EntrevistaEncargadoLN()
-            
-        }
-
-        private void dgvInstrumentos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
         }
     }
