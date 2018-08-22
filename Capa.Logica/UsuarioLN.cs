@@ -28,7 +28,7 @@ namespace Capa.Logica
         }
         public Usuario Login(Usuario usu)
         {
-            if (usu.Identificacion.Length == 0)
+            if (usu.Identificacion =="")
                 throw new ApplicationException("Debe digitar su identificacion");
 
             UsuarioDatos datos = new UsuarioDatos();

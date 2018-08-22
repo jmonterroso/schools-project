@@ -86,8 +86,6 @@ namespace ProyectoAnaMarinOrientacion
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Mantenimientos.FrmUsuarios usu = new Mantenimientos.FrmUsuarios();
-            usu.Show();
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -142,6 +140,17 @@ namespace ProyectoAnaMarinOrientacion
         {
             Mantenimientos.FrmManNivel nivel = new Mantenimientos.FrmManNivel();
             nivel.Show();
+        }
+
+        private void usuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmRegistro registro = new FrmRegistro();
+            registro.Show();
         }
     }
 }

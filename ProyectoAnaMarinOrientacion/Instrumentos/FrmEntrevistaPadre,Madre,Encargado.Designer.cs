@@ -44,9 +44,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.MenuBar;
             this.groupBox1.Controls.Add(this.ckConvocadoPorEncargado);
             this.groupBox1.Controls.Add(this.ckConvocadoPorInstitucion);
-            this.groupBox1.Location = new System.Drawing.Point(525, 12);
+            this.groupBox1.Location = new System.Drawing.Point(584, 114);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(201, 192);
             this.groupBox1.TabIndex = 12;
@@ -77,7 +78,8 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(32, 31);
+            this.label4.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.label4.Location = new System.Drawing.Point(62, 133);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(114, 13);
             this.label4.TabIndex = 17;
@@ -86,7 +88,8 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(30, 90);
+            this.label5.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.label5.Location = new System.Drawing.Point(60, 192);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(123, 13);
             this.label5.TabIndex = 19;
@@ -94,7 +97,8 @@
             // 
             // txtResumen
             // 
-            this.txtResumen.Location = new System.Drawing.Point(165, 83);
+            this.txtResumen.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.txtResumen.Location = new System.Drawing.Point(195, 185);
             this.txtResumen.Multiline = true;
             this.txtResumen.Name = "txtResumen";
             this.txtResumen.Size = new System.Drawing.Size(314, 20);
@@ -103,7 +107,8 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(32, 143);
+            this.label6.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.label6.Location = new System.Drawing.Point(62, 245);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(96, 13);
             this.label6.TabIndex = 21;
@@ -111,7 +116,8 @@
             // 
             // txtRecomendaciones
             // 
-            this.txtRecomendaciones.Location = new System.Drawing.Point(165, 136);
+            this.txtRecomendaciones.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.txtRecomendaciones.Location = new System.Drawing.Point(195, 238);
             this.txtRecomendaciones.Multiline = true;
             this.txtRecomendaciones.Name = "txtRecomendaciones";
             this.txtRecomendaciones.Size = new System.Drawing.Size(314, 20);
@@ -120,28 +126,31 @@
             // 
             // BtnCancelar
             // 
-            this.BtnCancelar.Location = new System.Drawing.Point(318, 181);
+            this.BtnCancelar.BackColor = System.Drawing.Color.Red;
+            this.BtnCancelar.Location = new System.Drawing.Point(382, 332);
             this.BtnCancelar.Name = "BtnCancelar";
-            this.BtnCancelar.Size = new System.Drawing.Size(102, 23);
+            this.BtnCancelar.Size = new System.Drawing.Size(108, 39);
             this.BtnCancelar.TabIndex = 26;
             this.BtnCancelar.Text = "Cancelar";
-            this.BtnCancelar.UseVisualStyleBackColor = true;
+            this.BtnCancelar.UseVisualStyleBackColor = false;
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(165, 181);
+            this.btnAceptar.BackColor = System.Drawing.Color.YellowGreen;
+            this.btnAceptar.Location = new System.Drawing.Point(229, 332);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(102, 23);
+            this.btnAceptar.Size = new System.Drawing.Size(108, 39);
             this.btnAceptar.TabIndex = 25;
             this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.UseVisualStyleBackColor = false;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // cboMotivos
             // 
+            this.cboMotivos.BackColor = System.Drawing.SystemColors.MenuBar;
             this.cboMotivos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMotivos.FormattingEnabled = true;
-            this.cboMotivos.Location = new System.Drawing.Point(165, 31);
+            this.cboMotivos.Location = new System.Drawing.Point(195, 133);
             this.cboMotivos.Name = "cboMotivos";
             this.cboMotivos.Size = new System.Drawing.Size(169, 21);
             this.cboMotivos.TabIndex = 1;
@@ -150,7 +159,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(737, 226);
+            this.BackColor = System.Drawing.SystemColors.Info;
+            this.ClientSize = new System.Drawing.Size(834, 511);
             this.Controls.Add(this.cboMotivos);
             this.Controls.Add(this.BtnCancelar);
             this.Controls.Add(this.btnAceptar);

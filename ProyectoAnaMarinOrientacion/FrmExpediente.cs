@@ -275,5 +275,10 @@ namespace ProyectoAnaMarinOrientacion
             Instrumentos.FrmReferenciaExterna inf = new Instrumentos.FrmReferenciaExterna();
             inf.Show();
         }
+
+        private void pbQRCODE_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

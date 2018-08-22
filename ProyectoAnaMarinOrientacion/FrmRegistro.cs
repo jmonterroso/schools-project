@@ -30,6 +30,29 @@ namespace ProyectoAnaMarinOrientacion
         private void BtnIngresar_Click(object sender, EventArgs e)
         {
             Logger.Info("usuario dio click en boton");
+            //inicio validaciones
+            if (txtIdentificacion.Text == "")
+            {
+                MessageBox.Show("Debe digitar una identificacion");
+                return;
+            }
+            if (txtContasena.Text == "")
+            {
+                MessageBox.Show("Debe digitar una contrasena");
+                return;
+            }
+            if (txtConfirmarContrasena.Text == "")
+            {
+                MessageBox.Show("Debe confirmar una contrasena");
+                return;
+             }
+            if (cboRolUsuario.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe selecionar un rol de usuario");
+                return;
+
+            }
+            
 
             if (txtContasena.Text.ToString().Trim().ToLower() == txtConfirmarContrasena.Text.ToString().Trim().ToLower())
             {
@@ -44,17 +67,25 @@ namespace ProyectoAnaMarinOrientacion
             }
             else
             {
-                MessageBox.Show("¡La contraseña y la contraseña de confirmación no coinciden! Por favor, compruebe ...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);  
+                MessageBox.Show("¡La contraseña y la contraseña de confirmación no coinciden! Por favor, compruebe ...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
             
             this.txtIdentificacion.Clear();
             this.txtContasena.Clear();
+            txtConfirmarContrasena.Clear();
+            cboRolUsuario.SelectedIndex = -1;
             MessageBox.Show("Usuario Guardado Satisfactoriamente!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void lblCopyRight_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void FrmRegistro_Load(object sender, EventArgs e)
+        {
+            cboRolUsuario.SelectedIndex = -1;
         }
     }
 }

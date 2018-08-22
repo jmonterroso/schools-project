@@ -188,22 +188,24 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(239, 378);
+            this.btnAceptar.BackColor = System.Drawing.Color.YellowGreen;
+            this.btnAceptar.Location = new System.Drawing.Point(370, 412);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(102, 23);
+            this.btnAceptar.Size = new System.Drawing.Size(108, 39);
             this.btnAceptar.TabIndex = 11;
             this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.UseVisualStyleBackColor = false;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // BtnCancelar
             // 
-            this.BtnCancelar.Location = new System.Drawing.Point(389, 378);
+            this.BtnCancelar.BackColor = System.Drawing.Color.Red;
+            this.BtnCancelar.Location = new System.Drawing.Point(520, 412);
             this.BtnCancelar.Name = "BtnCancelar";
-            this.BtnCancelar.Size = new System.Drawing.Size(102, 23);
+            this.BtnCancelar.Size = new System.Drawing.Size(108, 39);
             this.BtnCancelar.TabIndex = 12;
             this.BtnCancelar.Text = "Cancelar";
-            this.BtnCancelar.UseVisualStyleBackColor = true;
+            this.BtnCancelar.UseVisualStyleBackColor = false;
             this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // cboMotivos
@@ -220,7 +222,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(755, 426);
+            this.BackColor = System.Drawing.SystemColors.Info;
+            this.ClientSize = new System.Drawing.Size(834, 511);
             this.Controls.Add(this.cboMotivos);
             this.Controls.Add(this.BtnCancelar);
             this.Controls.Add(this.btnAceptar);

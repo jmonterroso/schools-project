@@ -50,7 +50,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 34);
+            this.label2.Location = new System.Drawing.Point(76, 39);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(134, 13);
             this.label2.TabIndex = 0;
@@ -58,7 +58,7 @@
             // 
             // txtIntituciondondeserefiere
             // 
-            this.txtIntituciondondeserefiere.Location = new System.Drawing.Point(186, 33);
+            this.txtIntituciondondeserefiere.Location = new System.Drawing.Point(258, 38);
             this.txtIntituciondondeserefiere.Name = "txtIntituciondondeserefiere";
             this.txtIntituciondondeserefiere.Size = new System.Drawing.Size(225, 20);
             this.txtIntituciondondeserefiere.TabIndex = 1;
@@ -66,7 +66,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(29, 75);
+            this.label17.Location = new System.Drawing.Point(76, 80);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(99, 13);
             this.label17.TabIndex = 18;
@@ -74,7 +74,7 @@
             // 
             // txtPersonaRefiere
             // 
-            this.txtPersonaRefiere.Location = new System.Drawing.Point(186, 72);
+            this.txtPersonaRefiere.Location = new System.Drawing.Point(258, 77);
             this.txtPersonaRefiere.Name = "txtPersonaRefiere";
             this.txtPersonaRefiere.Size = new System.Drawing.Size(225, 20);
             this.txtPersonaRefiere.TabIndex = 2;
@@ -82,7 +82,7 @@
             // 
             // txtPuesto
             // 
-            this.txtPuesto.Location = new System.Drawing.Point(491, 72);
+            this.txtPuesto.Location = new System.Drawing.Point(563, 77);
             this.txtPuesto.Name = "txtPuesto";
             this.txtPuesto.Size = new System.Drawing.Size(191, 20);
             this.txtPuesto.TabIndex = 3;
@@ -90,7 +90,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(445, 75);
+            this.label18.Location = new System.Drawing.Point(517, 80);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(40, 13);
             this.label18.TabIndex = 23;
@@ -98,7 +98,7 @@
             // 
             // txtRecomendaciones
             // 
-            this.txtRecomendaciones.Location = new System.Drawing.Point(188, 280);
+            this.txtRecomendaciones.Location = new System.Drawing.Point(260, 285);
             this.txtRecomendaciones.Multiline = true;
             this.txtRecomendaciones.Name = "txtRecomendaciones";
             this.txtRecomendaciones.Size = new System.Drawing.Size(494, 20);
@@ -107,7 +107,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(4, 283);
+            this.label19.Location = new System.Drawing.Point(76, 288);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(178, 13);
             this.label19.TabIndex = 37;
@@ -115,7 +115,7 @@
             // 
             // txtAcuerdos
             // 
-            this.txtAcuerdos.Location = new System.Drawing.Point(186, 233);
+            this.txtAcuerdos.Location = new System.Drawing.Point(258, 238);
             this.txtAcuerdos.Multiline = true;
             this.txtAcuerdos.Name = "txtAcuerdos";
             this.txtAcuerdos.Size = new System.Drawing.Size(496, 20);
@@ -125,7 +125,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(4, 233);
+            this.label20.Location = new System.Drawing.Point(76, 238);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(180, 13);
             this.label20.TabIndex = 35;
@@ -133,7 +133,7 @@
             // 
             // txtSitucionObservada
             // 
-            this.txtSitucionObservada.Location = new System.Drawing.Point(186, 178);
+            this.txtSitucionObservada.Location = new System.Drawing.Point(258, 183);
             this.txtSitucionObservada.Multiline = true;
             this.txtSitucionObservada.Name = "txtSitucionObservada";
             this.txtSitucionObservada.Size = new System.Drawing.Size(496, 20);
@@ -142,7 +142,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(18, 185);
+            this.label21.Location = new System.Drawing.Point(76, 190);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(107, 13);
             this.label21.TabIndex = 33;
@@ -151,7 +151,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(29, 136);
+            this.label22.Location = new System.Drawing.Point(76, 141);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(104, 13);
             this.label22.TabIndex = 31;
@@ -160,7 +160,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(4, 246);
+            this.label23.Location = new System.Drawing.Point(76, 251);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(176, 13);
             this.label23.TabIndex = 39;
@@ -170,29 +170,31 @@
             // 
             // BtnCancelar
             // 
-            this.BtnCancelar.Location = new System.Drawing.Point(343, 321);
+            this.BtnCancelar.BackColor = System.Drawing.Color.Red;
+            this.BtnCancelar.Location = new System.Drawing.Point(535, 363);
             this.BtnCancelar.Name = "BtnCancelar";
-            this.BtnCancelar.Size = new System.Drawing.Size(102, 23);
+            this.BtnCancelar.Size = new System.Drawing.Size(108, 39);
             this.BtnCancelar.TabIndex = 9;
             this.BtnCancelar.Text = "Cancelar";
-            this.BtnCancelar.UseVisualStyleBackColor = true;
+            this.BtnCancelar.UseVisualStyleBackColor = false;
             this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(189, 321);
+            this.btnAceptar.BackColor = System.Drawing.Color.YellowGreen;
+            this.btnAceptar.Location = new System.Drawing.Point(384, 363);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(102, 23);
+            this.btnAceptar.Size = new System.Drawing.Size(108, 39);
             this.btnAceptar.TabIndex = 8;
             this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.UseVisualStyleBackColor = false;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // cboMotivos
             // 
             this.cboMotivos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMotivos.FormattingEnabled = true;
-            this.cboMotivos.Location = new System.Drawing.Point(186, 128);
+            this.cboMotivos.Location = new System.Drawing.Point(258, 133);
             this.cboMotivos.Name = "cboMotivos";
             this.cboMotivos.Size = new System.Drawing.Size(225, 21);
             this.cboMotivos.TabIndex = 4;
@@ -201,7 +203,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(690, 358);
+            this.BackColor = System.Drawing.SystemColors.Info;
+            this.ClientSize = new System.Drawing.Size(834, 511);
             this.Controls.Add(this.cboMotivos);
             this.Controls.Add(this.BtnCancelar);
             this.Controls.Add(this.btnAceptar);

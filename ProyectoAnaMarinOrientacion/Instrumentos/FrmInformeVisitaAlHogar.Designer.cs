@@ -47,7 +47,8 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(18, 25);
+            this.label7.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.label7.Location = new System.Drawing.Point(40, 149);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(151, 13);
             this.label7.TabIndex = 31;
@@ -56,7 +57,8 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(467, 24);
+            this.label8.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.label8.Location = new System.Drawing.Point(539, 147);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(35, 13);
             this.label8.TabIndex = 32;
@@ -64,14 +66,16 @@
             // 
             // txtProfesionalQRealizaLaVisita
             // 
-            this.txtProfesionalQRealizaLaVisita.Location = new System.Drawing.Point(175, 23);
+            this.txtProfesionalQRealizaLaVisita.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.txtProfesionalQRealizaLaVisita.Location = new System.Drawing.Point(247, 146);
             this.txtProfesionalQRealizaLaVisita.Name = "txtProfesionalQRealizaLaVisita";
             this.txtProfesionalQRealizaLaVisita.Size = new System.Drawing.Size(237, 20);
             this.txtProfesionalQRealizaLaVisita.TabIndex = 1;
             // 
             // txtCargo
             // 
-            this.txtCargo.Location = new System.Drawing.Point(508, 22);
+            this.txtCargo.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.txtCargo.Location = new System.Drawing.Point(580, 145);
             this.txtCargo.Name = "txtCargo";
             this.txtCargo.Size = new System.Drawing.Size(162, 20);
             this.txtCargo.TabIndex = 2;
@@ -79,7 +83,8 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(18, 58);
+            this.label9.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.label9.Location = new System.Drawing.Point(40, 182);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(92, 13);
             this.label9.TabIndex = 35;
@@ -87,7 +92,8 @@
             // 
             // txtSitucionObservada
             // 
-            this.txtSitucionObservada.Location = new System.Drawing.Point(175, 90);
+            this.txtSitucionObservada.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.txtSitucionObservada.Location = new System.Drawing.Point(247, 213);
             this.txtSitucionObservada.Multiline = true;
             this.txtSitucionObservada.Name = "txtSitucionObservada";
             this.txtSitucionObservada.Size = new System.Drawing.Size(495, 20);
@@ -96,7 +102,8 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(15, 93);
+            this.label21.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.label21.Location = new System.Drawing.Point(37, 217);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(120, 13);
             this.label21.TabIndex = 37;
@@ -104,7 +111,8 @@
             // 
             // txtRecomendaciones
             // 
-            this.txtRecomendaciones.Location = new System.Drawing.Point(175, 127);
+            this.txtRecomendaciones.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.txtRecomendaciones.Location = new System.Drawing.Point(247, 250);
             this.txtRecomendaciones.Multiline = true;
             this.txtRecomendaciones.Name = "txtRecomendaciones";
             this.txtRecomendaciones.Size = new System.Drawing.Size(495, 20);
@@ -113,7 +121,8 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(18, 134);
+            this.label10.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.label10.Location = new System.Drawing.Point(40, 258);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(96, 13);
             this.label10.TabIndex = 39;
@@ -122,7 +131,8 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(18, 166);
+            this.label11.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.label11.Location = new System.Drawing.Point(40, 290);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(121, 13);
             this.label11.TabIndex = 41;
@@ -130,36 +140,40 @@
             // 
             // txtAccionesSeguimiento
             // 
-            this.txtAccionesSeguimiento.Location = new System.Drawing.Point(175, 161);
+            this.txtAccionesSeguimiento.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.txtAccionesSeguimiento.Location = new System.Drawing.Point(247, 284);
             this.txtAccionesSeguimiento.Name = "txtAccionesSeguimiento";
             this.txtAccionesSeguimiento.Size = new System.Drawing.Size(495, 20);
             this.txtAccionesSeguimiento.TabIndex = 6;
             // 
             // BtnCancelar
             // 
-            this.BtnCancelar.Location = new System.Drawing.Point(331, 202);
+            this.BtnCancelar.BackColor = System.Drawing.Color.Red;
+            this.BtnCancelar.Location = new System.Drawing.Point(564, 355);
             this.BtnCancelar.Name = "BtnCancelar";
-            this.BtnCancelar.Size = new System.Drawing.Size(102, 23);
+            this.BtnCancelar.Size = new System.Drawing.Size(108, 39);
             this.BtnCancelar.TabIndex = 8;
             this.BtnCancelar.Text = "Cancelar";
-            this.BtnCancelar.UseVisualStyleBackColor = true;
+            this.BtnCancelar.UseVisualStyleBackColor = false;
             this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(178, 202);
+            this.btnAceptar.BackColor = System.Drawing.Color.YellowGreen;
+            this.btnAceptar.Location = new System.Drawing.Point(411, 355);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(102, 23);
+            this.btnAceptar.Size = new System.Drawing.Size(108, 39);
             this.btnAceptar.TabIndex = 7;
             this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.UseVisualStyleBackColor = false;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // cboMotivos
             // 
+            this.cboMotivos.BackColor = System.Drawing.SystemColors.MenuBar;
             this.cboMotivos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMotivos.FormattingEnabled = true;
-            this.cboMotivos.Location = new System.Drawing.Point(175, 58);
+            this.cboMotivos.Location = new System.Drawing.Point(247, 181);
             this.cboMotivos.Name = "cboMotivos";
             this.cboMotivos.Size = new System.Drawing.Size(237, 21);
             this.cboMotivos.TabIndex = 3;
@@ -168,7 +182,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(682, 275);
+            this.BackColor = System.Drawing.SystemColors.Info;
+            this.ClientSize = new System.Drawing.Size(834, 511);
             this.Controls.Add(this.cboMotivos);
             this.Controls.Add(this.BtnCancelar);
             this.Controls.Add(this.btnAceptar);

@@ -90,7 +90,8 @@ namespace ProyectoAnaMarinOrientacion.Mantenimientos
                 
                 logica.Guardar(mot);
                 MessageBox.Show("  Datos guardados con exito ");
-                bindingSource1.Add(mot);
+                DgvMotivos.AutoGenerateColumns = false;
+                bindingSource1.Add(mot.Descripcion);
                 DgvMotivos.DataSource = bindingSource1;
                 Refrescar();
                 Limpiar();
@@ -105,6 +106,7 @@ namespace ProyectoAnaMarinOrientacion.Mantenimientos
 
         private void Refrescar()
         {
+            DgvMotivos.AutoGenerateColumns = false;
             DgvMotivos.DataSource = logica.SeleccionarTodas();
         }
 
@@ -115,6 +117,8 @@ namespace ProyectoAnaMarinOrientacion.Mantenimientos
 
         private void DgvMotivos_SelectionChanged(object sender, EventArgs e)
         {
+            DgvMotivos.AutoGenerateColumns = false;
+
             if (DgvMotivos.SelectedRows.Count > 0)
             {
                 //databounditem retorna el objeto que asigno en datasource
@@ -261,6 +265,17 @@ namespace ProyectoAnaMarinOrientacion.Mantenimientos
         {
             //consultar
 
+            Refrescar();
+            groupBox2.Visible = true;
+            groupBox1.Visible = false; ;
+            DgvMotivos.ReadOnly = true;
+            btnCancelarMotivo.Enabled = true;
+            btnGuardarMotivo.Enabled = true;
+            txtCodigoMotivo.Enabled = true;
+            txtCodigoMotivo.ReadOnly = false;
+            txtCodigoMotivo.Clear();
+            txtDescripcionMotivo.Clear();
+            DgvMotivos.ClearSelection();
         }
     }
     }

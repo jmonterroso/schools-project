@@ -35,8 +35,9 @@ namespace ProyectoAnaMarinOrientacion.Mantenimientos
             ///
             groupBox1.Visible = true;
             //Actualizar
-          //  Refrescar();
-
+            //  Refrescar();
+            //txtCodigo.ReadOnly = true;
+            //txtCodigo.Enabled = false;
             dgvPeriodos.Visible = true;
             btnCancelar.Enabled = true;
             btnGuardar.Enabled = true;
@@ -44,7 +45,9 @@ namespace ProyectoAnaMarinOrientacion.Mantenimientos
             if (dgvPeriodos.SelectedRows.Count > 0)
             {
                 var periodos = (Periodos)dgvPeriodos.SelectedRows[0].DataBoundItem;
-                txtCodigo.Text = periodos.Codigo.ToString();
+               // txtCodigo.Text = periodos.Codigo.ToString();
+               // txtCodigo.ReadOnly = true;
+               // txtCodigo.Enabled = false;
                 txtNombre.Text = periodos.Nombre;
                 dtpInicio.Value = periodos.FechaInicio;
                 dtpFinal.Value = periodos.FechaFinal;
@@ -175,7 +178,9 @@ namespace ProyectoAnaMarinOrientacion.Mantenimientos
             {
                 //databounditem retorna el objeto que asigno en datasource
                 var peri = (Periodos)dgvPeriodos.SelectedRows[0].DataBoundItem;
-                txtCodigo.Text = peri.Codigo.ToString();
+             //   txtCodigo.Text = peri.Codigo.ToString();
+                txtCodigo.ReadOnly = true;
+                txtCodigo.Enabled = false;
                 txtNombre.Text = peri.Nombre;
                 dtpInicio.Value = peri.FechaInicio;
                 dtpFinal.Value = peri.FechaFinal;
@@ -186,6 +191,17 @@ namespace ProyectoAnaMarinOrientacion.Mantenimientos
         private void dgvPeriodos_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             dgvPeriodos.SelectionMode= DataGridViewSelectionMode.FullRowSelect;
+
+        }
+
+        private void FrmMantPeriodos_Load(object sender, EventArgs e)
+        {
+            label1.Visible = false;
+            txtCodigo.Visible = false;
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
 
         }
     }

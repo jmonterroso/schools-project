@@ -19,13 +19,26 @@ namespace ProyectoAnaMarinOrientacion
         {
             logicaUsuario = new Capa.Logica.UsuarioLN();
             InitializeComponent();
+            ttMensaje.SetToolTip(txtIdentificacion, "Digite una identificacion");
+            ttMensaje.SetToolTip(txtContasena, "Digite una contrasena");
            
     } 
 
         private void BtnIngresar_Click(object sender, EventArgs e)
         {
-           
-                string Identificacion = txtIdentificacion.Text;
+            //validacion
+            if (txtIdentificacion.Text == "")
+            {
+                MessageBox.Show("Debe digitar un usuario");
+                return;
+            }
+            if (txtContasena.Text == "")
+            {
+                MessageBox.Show("Debe digitar una contrasena");
+                return;
+
+            }
+            string Identificacion = txtIdentificacion.Text;
                 string Password = txtContasena.Text.ToString();
                 Usuario usuario = new Usuario
                 {
@@ -35,9 +48,16 @@ namespace ProyectoAnaMarinOrientacion
                 Usuario.UsuarioActual = logicaUsuario.Login(usuario);
             
                 if(Usuario.UsuarioActual != null)
-            {
+                 {
                 MessageBox.Show("Bienvenido", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                FrmPrincipal principal = new FrmPrincipal();
+                principal.Show();
+
+            }else
+            {
+                MessageBox.Show( "Vuelva a intentarlo", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+           
 
 
 
@@ -47,6 +67,11 @@ namespace ProyectoAnaMarinOrientacion
         }
 
         private void lblCopyRight_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
         {
 
         }

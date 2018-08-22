@@ -59,61 +59,66 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.YellowGreen;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.ImageIndex = 0;
-            this.button1.Location = new System.Drawing.Point(728, 139);
+            this.button1.Location = new System.Drawing.Point(645, 540);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(131, 36);
+            this.button1.Size = new System.Drawing.Size(134, 58);
             this.button1.TabIndex = 0;
             this.button1.Text = "Guardar Expediente";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button5
             // 
+            this.button5.BackColor = System.Drawing.Color.YellowGreen;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.Location = new System.Drawing.Point(958, 139);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(181, 36);
             this.button5.TabIndex = 21;
             this.button5.Text = "Crear comprobante de asistencia";
-            this.button5.UseVisualStyleBackColor = true;
+            this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
+            this.button6.BackColor = System.Drawing.Color.Red;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(877, 139);
+            this.button6.Location = new System.Drawing.Point(799, 540);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 36);
+            this.button6.Size = new System.Drawing.Size(108, 58);
             this.button6.TabIndex = 25;
             this.button6.Text = "Cancelar";
-            this.button6.UseVisualStyleBackColor = true;
+            this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // pbQRCODE
             // 
             this.pbQRCODE.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pbQRCODE.Location = new System.Drawing.Point(462, 12);
+            this.pbQRCODE.Location = new System.Drawing.Point(712, 12);
             this.pbQRCODE.Name = "pbQRCODE";
-            this.pbQRCODE.Size = new System.Drawing.Size(209, 139);
+            this.pbQRCODE.Size = new System.Drawing.Size(211, 163);
             this.pbQRCODE.TabIndex = 26;
             this.pbQRCODE.TabStop = false;
+            this.pbQRCODE.Click += new System.EventHandler(this.pbQRCODE_Click);
             // 
             // btnQRCode
             // 
-            this.btnQRCode.Location = new System.Drawing.Point(785, 40);
+            this.btnQRCode.BackColor = System.Drawing.Color.YellowGreen;
+            this.btnQRCode.Location = new System.Drawing.Point(823, 204);
             this.btnQRCode.Name = "btnQRCode";
-            this.btnQRCode.Size = new System.Drawing.Size(100, 23);
+            this.btnQRCode.Size = new System.Drawing.Size(100, 37);
             this.btnQRCode.TabIndex = 27;
             this.btnQRCode.Text = "Generar QRCode";
-            this.btnQRCode.UseVisualStyleBackColor = true;
+            this.btnQRCode.UseVisualStyleBackColor = false;
             this.btnQRCode.Click += new System.EventHandler(this.btnQRCode_Click);
             // 
             // txtNumeroExpediente
             // 
-            this.txtNumeroExpediente.Location = new System.Drawing.Point(679, 42);
+            this.txtNumeroExpediente.Location = new System.Drawing.Point(717, 213);
             this.txtNumeroExpediente.Name = "txtNumeroExpediente";
             this.txtNumeroExpediente.Size = new System.Drawing.Size(100, 20);
             this.txtNumeroExpediente.TabIndex = 28;
@@ -121,7 +126,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(677, 12);
+            this.label9.Location = new System.Drawing.Point(715, 183);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(114, 13);
             this.label9.TabIndex = 29;
@@ -147,12 +152,13 @@
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.YellowGreen;
             this.button2.Location = new System.Drawing.Point(285, 48);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 36;
             this.button2.Text = "Buscar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label2
@@ -175,53 +181,57 @@
             // 
             // button4
             // 
+            this.button4.BackColor = System.Drawing.Color.LightSkyBlue;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(34, 171);
+            this.button4.Location = new System.Drawing.Point(38, 208);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(94, 72);
             this.button4.TabIndex = 40;
             this.button4.Text = "Entrevista con funcionario";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click_1);
             // 
             // button7
             // 
+            this.button7.BackColor = System.Drawing.Color.SkyBlue;
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(151, 171);
+            this.button7.Location = new System.Drawing.Point(138, 208);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(94, 72);
             this.button7.TabIndex = 41;
             this.button7.Text = "Entrevista con encargado";
-            this.button7.UseVisualStyleBackColor = true;
+            this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button8
             // 
+            this.button8.BackColor = System.Drawing.Color.PowderBlue;
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(262, 171);
+            this.button8.Location = new System.Drawing.Point(238, 208);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(94, 72);
             this.button8.TabIndex = 42;
             this.button8.Text = "Entrevista con Estudiante";
-            this.button8.UseVisualStyleBackColor = true;
+            this.button8.UseVisualStyleBackColor = false;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button9
             // 
+            this.button9.BackColor = System.Drawing.Color.DarkTurquoise;
             this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Location = new System.Drawing.Point(362, 171);
+            this.button9.Location = new System.Drawing.Point(338, 208);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(94, 72);
             this.button9.TabIndex = 43;
             this.button9.Text = "Informe de Visita al Hogar";
-            this.button9.UseVisualStyleBackColor = true;
+            this.button9.UseVisualStyleBackColor = false;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(38, 131);
+            this.label3.Location = new System.Drawing.Point(38, 176);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(156, 20);
             this.label3.TabIndex = 44;
@@ -229,21 +239,22 @@
             // 
             // button3
             // 
+            this.button3.BackColor = System.Drawing.Color.LightCyan;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(462, 171);
+            this.button3.Location = new System.Drawing.Point(438, 208);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(94, 72);
             this.button3.TabIndex = 52;
             this.button3.Text = "Referencia Externa";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.dgvInstrumentos);
-            this.groupBox6.Location = new System.Drawing.Point(34, 281);
+            this.groupBox6.Location = new System.Drawing.Point(34, 307);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(774, 326);
+            this.groupBox6.Size = new System.Drawing.Size(570, 329);
             this.groupBox6.TabIndex = 50;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "TipoInstrumentos";
@@ -252,6 +263,7 @@
             // 
             this.dgvInstrumentos.AllowUserToAddRows = false;
             this.dgvInstrumentos.AllowUserToDeleteRows = false;
+            this.dgvInstrumentos.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvInstrumentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInstrumentos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn8,
@@ -262,7 +274,7 @@
             this.dgvInstrumentos.Name = "dgvInstrumentos";
             this.dgvInstrumentos.ReadOnly = true;
             this.dgvInstrumentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvInstrumentos.Size = new System.Drawing.Size(733, 269);
+            this.dgvInstrumentos.Size = new System.Drawing.Size(494, 262);
             this.dgvInstrumentos.TabIndex = 32;
             // 
             // dataGridViewTextBoxColumn8
@@ -285,6 +297,7 @@
             this.Acciones.HeaderText = "Acciones";
             this.Acciones.Name = "Acciones";
             this.Acciones.ReadOnly = true;
+            this.Acciones.Width = 150;
             // 
             // Motivo
             // 

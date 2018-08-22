@@ -63,7 +63,7 @@ namespace ProyectoAnaMarinOrientacion.Mantenimientos
 
                 logica.Guardar(sec);
                 MessageBox.Show("  Datos guardados con exito ");
-                bindingSource1.Add(sec);
+                bindingSource1.Add(sec.Nombre);
                 dgvSecciones.DataSource = bindingSource1;
                 Refrescar();
                 Limpiar();
@@ -131,7 +131,7 @@ namespace ProyectoAnaMarinOrientacion.Mantenimientos
             groupBox1.Visible = true;
             //Actualizar
 
-
+            
             btnCancelar.Enabled = true;
             btnGuardar.Enabled = true;
             //Obtener el id de la fila seleccionada
