@@ -162,6 +162,52 @@ namespace Capa.Datos
             return lista;
         }
 
+        public List<Estudiante> SeleccionarEstudiantePorEncargado(string Identificacion)
+        {
+            // SqlConnection requiere el using System.Data.SqlClient;
+            SqlConnection conexion = new SqlConnection(Conexion.Cadena);
+            List<Estudiante> lista = new List<Estudiante>();
+            try
+            {
+                conexion.Open(); // un error aca: revisar cadena de conexion
+                // El command permite ejecutar un comando en la conexion establecida
+                SqlCommand comando = new SqlCommand("PA_SeleccionarEstudiantePorEncargado", conexion);
+                // Como es en Store Procedure se debe indicar el tipo de comando
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@Identificacion", Identificacion);
+                // NO recibe parametros
+                // Finalmente ejecutamos el comando
+                // al ser una consulta debemos usar ExecuteReader
+                SqlDataReader reader = comando.ExecuteReader();
+                // es necesario recorrer el reader para extraer todos los registros
+                while (reader.Read()) // cada vez que se llama el Read retorna una tupla
+                {
+                    Estudiante est = new Estudiante();
+                    est.Identificacion = reader["Identificacion"].ToString();
+                    est.NombreCompleto = reader["NombreCompleto"].ToString();
+
+                    est.Seccion = new SeccionesDatos().SeleccionarPorId(Convert.ToInt32(reader["IdSeccion"]));
+                    est.Sexo = (Sexo)Enum.Parse(typeof(Sexo), reader["Sexo"].ToString());
+                    est.Direccion = reader["Direccion"].ToString();
+                    est.Direccion = reader["IdEncargado"].ToString();
+                    est.FechaNacimiento = (DateTime)reader["FechaNacimiento"];
+                    est.Foto = (byte[])reader["Foto"];
+                    lista.Add(est);
+                }
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+
+            return lista;
+        }
+
         //public Estudiante SeleccionarPorId(int id)
         //{
         //    // SqlConnection requiere el using System.Data.SqlClient;
@@ -183,8 +229,8 @@ namespace Capa.Datos
         //            Estudiante est = new Estudiante();
         //            est.Identificacion = reader["Id"].ToString();
         //            est.NombreCompleto = reader["Nombre"].ToString();
-                    
-                  
+
+
         //            return est;
         //        }
 

@@ -178,6 +178,7 @@ namespace Capa.Datos
                     enc.CorreoElectronico = reader["CorreoElectronico"].ToString();
                     enc.Ocupacion = reader["Ocupacion"].ToString();
                     enc.Parentesco = reader["Parentesco"].ToString();
+                    enc.ListaEstudiantes = new EstudianteDatos().SeleccionarEstudiantePorEncargado(enc.Identificacion);
 
 
                     return enc;

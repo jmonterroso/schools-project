@@ -16,7 +16,8 @@ namespace Capa.Entidades
         public string Ocupacion { get; set; }
         public string Parentesco { get; set; }
         public List<Telefono> listaTelefonos { get; set; }
-       
+        public List<Estudiante> ListaEstudiantes { get; set; }
+        
 
         
 
