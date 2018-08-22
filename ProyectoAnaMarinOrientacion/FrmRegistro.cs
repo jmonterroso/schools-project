@@ -61,7 +61,8 @@ namespace ProyectoAnaMarinOrientacion
                 Usuario usuario = new Usuario
                 {
                     Identificacion = Identificacion,
-                    Password = Password
+                    Password = Password,
+                    Rol= (TipoUsuario)cboRolUsuario.SelectedItem
                 };
                 logicaUsuario.Guardar(usuario);
             }

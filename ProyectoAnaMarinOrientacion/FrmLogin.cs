@@ -50,10 +50,28 @@ namespace ProyectoAnaMarinOrientacion
                 if(Usuario.UsuarioActual != null)
                  {
                 MessageBox.Show("Bienvenido", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                FrmPrincipal principal = new FrmPrincipal();
-                principal.Show();
 
-            }else
+                ////Menus
+                if (Usuario.UsuarioActual.Rol == Capa.Entidades.Enumeradores.TipoUsuario.Encargado)
+                {
+                    FrmMenuEncargado enc = new FrmMenuEncargado();
+                    enc.Show();
+                }
+                else
+                {
+                    if (Usuario.UsuarioActual.Rol == Capa.Entidades.Enumeradores.TipoUsuario.Docente)
+                    {
+                        FrmMenuDocente menu = new FrmMenuDocente();
+                        menu.Show();
+                    }
+                    else
+                    {
+                        FrmPrincipal principal = new FrmPrincipal();
+                        principal.Show();
+                    }
+                }
+            }
+            else
             {
                 MessageBox.Show( "Vuelva a intentarlo", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
