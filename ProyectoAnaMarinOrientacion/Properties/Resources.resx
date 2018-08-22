@@ -121,6 +121,9 @@
   <data name="cANCE" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\cANCE.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ALE_Cropped" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ALE_Cropped.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="expediente" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\expediente.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -135,6 +138,9 @@
   </data>
   <data name="descargatelefono" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\descargatelefono.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="insertar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\insertar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="aCEPTARC" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\aCEPTARC.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -172,8 +178,8 @@
   <data name="Login" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\Login.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="consulta" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\consulta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="flat-style-circle-add_icon-icons2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\flat-style-circle-add_icon-icons.com_66944.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="19820-blue-vintage-wallpaper-background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\19820-blue-vintage-wallpaper-background.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,14 +190,11 @@
   <data name="44516307-botón-de-la-cruz-icono-agregar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\44516307-botón-de-la-cruz-icono-agregar.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="insertar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\insertar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="consulta" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\consulta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="eliminarrr" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\eliminarrr.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="flat-style-circle-add_icon-icons2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\flat-style-circle-add_icon-icons.com_66944.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="lupa_e_tablet_318_39283" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\lupa-e-tablet_318-39283.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -207,6 +210,9 @@
   </data>
   <data name="refresh-525698_960_7201" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\refresh-525698_960_720.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ninos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\ninos.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="19820-blue-vintage-wallpaper-background1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\19820-blue-vintage-wallpaper-background.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -238,7 +244,7 @@
   <data name="uea-flat-calendar-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\uea-flat-calendar-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ninos" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\ninos.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="imprimirrr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\imprimirrr.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

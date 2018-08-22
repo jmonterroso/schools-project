@@ -65,7 +65,9 @@
             this.txtIdentificacion.Location = new System.Drawing.Point(325, 180);
             this.txtIdentificacion.Name = "txtIdentificacion";
             this.txtIdentificacion.Size = new System.Drawing.Size(179, 20);
-            this.txtIdentificacion.TabIndex = 2;
+            this.txtIdentificacion.TabIndex = 0;
+            this.txtIdentificacion.TabIndexChanged += new System.EventHandler(this.txtIdentificacion_TabIndexChanged);
+            this.txtIdentificacion.Enter += new System.EventHandler(this.txtIdentificacion_Enter);
             // 
             // BtnIngresar
             // 
@@ -74,7 +76,7 @@
             this.BtnIngresar.Location = new System.Drawing.Point(359, 258);
             this.BtnIngresar.Name = "BtnIngresar";
             this.BtnIngresar.Size = new System.Drawing.Size(109, 42);
-            this.BtnIngresar.TabIndex = 4;
+            this.BtnIngresar.TabIndex = 3;
             this.BtnIngresar.Text = "Ingresar";
             this.BtnIngresar.UseVisualStyleBackColor = false;
             this.BtnIngresar.Click += new System.EventHandler(this.BtnIngresar_Click);
@@ -84,7 +86,8 @@
             this.txtContasena.Location = new System.Drawing.Point(325, 221);
             this.txtContasena.Name = "txtContasena";
             this.txtContasena.Size = new System.Drawing.Size(179, 20);
-            this.txtContasena.TabIndex = 5;
+            this.txtContasena.TabIndex = 1;
+            this.txtContasena.Enter += new System.EventHandler(this.txtContasena_Enter);
             // 
             // lblCopyRight
             // 
@@ -124,6 +127,7 @@
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmLogin_FormClosed);
             this.Load += new System.EventHandler(this.FrmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

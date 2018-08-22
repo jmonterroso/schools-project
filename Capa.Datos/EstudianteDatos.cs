@@ -318,6 +318,34 @@ namespace Capa.Datos
             return lista;
 
         }
+
+        //nuevo
+        public List<Estudiante> SeleccionarEstudiantePorNombre(string nombre)
+        {
+            List<Estudiante> lista = new List<Estudiante>();
+            using (SqlConnection conn = new SqlConnection(Conexion.Cadena))
+
+            {
+
+                conn.Open();
+                SqlCommand comando = new SqlCommand("PA_SeleccionarEstudiantePorNombre", conn);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@NombreCompleto", nombre);
+
+                SqlDataReader reader = comando.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Encargado e = new Encargado();
+                    e.NombreCompleto = reader["Nombre"].ToString();
+
+                    lista.Add(e);
+
+                }
+            }
+            return lista;
+
+        }
     }
 }
 

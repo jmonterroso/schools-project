@@ -196,6 +196,34 @@ namespace Capa.Datos
 
             return null;
         }
+
+
+        public List<Encargado> SeleccionarEncargadoPorNombre(string nombre)
+        {
+            List<Encargado> lista = new List<Encargado>();
+            using (SqlConnection conn = new SqlConnection(Conexion.Cadena))
+
+            {
+
+                conn.Open();
+                SqlCommand comando = new SqlCommand("PA_SeleccionarEncargadoPorNombre", conn);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@NombreCompleto", nombre);
+            
+                SqlDataReader reader = comando.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Encargado e = new Encargado();
+                    e.NombreCompleto = reader["Nombre"].ToString();
+                  
+                    lista.Add(e);
+
+                }
+            }
+            return lista;
+
+        }
     }
 }
 

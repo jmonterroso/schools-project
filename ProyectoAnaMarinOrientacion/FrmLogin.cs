@@ -54,6 +54,8 @@ namespace ProyectoAnaMarinOrientacion
                 ////Menus
                 if (Usuario.UsuarioActual.Rol == Capa.Entidades.Enumeradores.TipoUsuario.Encargado)
                 {
+                    Hide();
+
                     FrmMenuEncargado enc = new FrmMenuEncargado();
                     enc.Show();
                 }
@@ -61,19 +63,30 @@ namespace ProyectoAnaMarinOrientacion
                 {
                     if (Usuario.UsuarioActual.Rol == Capa.Entidades.Enumeradores.TipoUsuario.Docente)
                     {
+                        //this.Hide();
+                       // Dispose();
                         FrmMenuDocente menu = new FrmMenuDocente();
                         menu.Show();
+                        
+
                     }
                     else
                     {
+                       // Hide();
+
                         FrmPrincipal principal = new FrmPrincipal();
                         principal.Show();
+                        
+                        
+
+                     
                     }
                 }
             }
             else
             {
                 MessageBox.Show( "Vuelva a intentarlo", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
            
 
@@ -91,7 +104,38 @@ namespace ProyectoAnaMarinOrientacion
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
+            txtIdentificacion.Focus();
+        }
 
+        private void txtIdentificacion_TabIndexChanged(object sender, EventArgs e)
+        {
+            txtContasena.Focus();
+        }
+
+        private void txtIdentificacion_Enter(object sender, EventArgs e)
+        {
+            //txtContasena.Focus();
+        }
+
+        private void txtContasena_Enter(object sender, EventArgs e)
+        {
+            //BtnIngresar.Focus();
+        }
+
+        private void FrmLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            DialogResult dialogo = MessageBox.Show("Desea cerrar el menu del administrador", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+            if (dialogo == DialogResult.Yes)
+            {
+                Dispose();
+               
+            }
+            else
+            {
+                if (dialogo == DialogResult.No)
+                {
+                    FrmLogin login = new FrmLogin();
+                    login.Show(); ;
         }
     }
 }

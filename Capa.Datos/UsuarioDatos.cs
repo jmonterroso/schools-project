@@ -151,7 +151,7 @@ namespace Capa.Datos
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 comando.Parameters.AddWithValue("@Identificacion", id);
                 // Finalmente ejecutamos el comando
-                // al ser una consulta debemos usar ExecuteReader
+                // al ser una consulta debemos usar ExecuteReader 
                 SqlDataReader reader = comando.ExecuteReader();
                 // es necesario recorrer el reader para extraer todos los registros
                 while (reader.Read()) // cada vez que se llama el Read retorna una tupla

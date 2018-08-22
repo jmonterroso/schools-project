@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Capa.Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,8 +11,11 @@ using System.Windows.Forms;
 
 namespace ProyectoAnaMarinOrientacion
 {
+
     public partial class FrmBusquedaExpedientes : Form
     {
+        public static Estudiante est;
+        public static ExpedienteFacade exp;
 
         Capa.Logica.EstudianteLN estLogica;
         Capa.Logica.EncargadoLN encLogica;
@@ -42,6 +46,29 @@ namespace ProyectoAnaMarinOrientacion
         {
             txtIdentificacion.Visible = false;
             txtEncargado.Visible = false;
+            if (radioButton1.Checked)
+                txtIdentificacion.Visible = true;
+
+            if (radioButton2.Checked)
+                txtEncargado.Visible = true;
+        }
+
+        private void btnBuscar_Click_1(object sender, EventArgs e)
+        {
+            //buscar por estudiante
+           
+            var estudianteId= estLogica.SeleccionarPorId(txtIdentificacion.Text);
+            var estudianteNombre = estLogica.SeleccionarEstudiantePorNombre(txtIdentificacion.Text);
+            if (estudianteId!= null)
+            {
+                dgvExpedientes.DataSource=  
+            }
+            else
+            {
+                MessageBox.Show("Estudiante no encontrado");
+                return;
+            }
+           
         }
     }
 }
