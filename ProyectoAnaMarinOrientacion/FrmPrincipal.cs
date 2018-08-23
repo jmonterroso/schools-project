@@ -208,8 +208,7 @@ namespace ProyectoAnaMarinOrientacion
 
         private void porFechaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Reportes.FrmReportesMenu menu = new Reportes.FrmReportesMenu();
-            menu.Show();
+           
         }
 
         private void enviadosPorCorreoElectronicoToolStripMenuItem_Click(object sender, EventArgs e)

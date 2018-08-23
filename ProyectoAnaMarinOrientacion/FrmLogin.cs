@@ -105,6 +105,8 @@ namespace ProyectoAnaMarinOrientacion
         private void FrmLogin_Load(object sender, EventArgs e)
         {
             txtIdentificacion.Focus();
+            txtContasena.PasswordChar = '*';
+
         }
 
         private void txtIdentificacion_TabIndexChanged(object sender, EventArgs e)

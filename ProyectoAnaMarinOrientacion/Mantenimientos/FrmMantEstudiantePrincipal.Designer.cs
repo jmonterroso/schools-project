@@ -36,6 +36,11 @@
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.dgvEstudiantes = new System.Windows.Forms.DataGridView();
+            this.Identificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechadeNacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Seccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox1 = new AForge.Controls.PictureBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -69,11 +74,6 @@
             this.txtEncargadoResultado = new System.Windows.Forms.TextBox();
             this.btnBuscarEncargado = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
-            this.Identificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechadeNacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Seccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstudiantes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -163,6 +163,36 @@
             this.dgvEstudiantes.Size = new System.Drawing.Size(304, 450);
             this.dgvEstudiantes.TabIndex = 17;
             this.dgvEstudiantes.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvEstudiantes_RowHeaderMouseClick);
+            // 
+            // Identificacion
+            // 
+            this.Identificacion.DataPropertyName = "Identificacion";
+            this.Identificacion.HeaderText = "Identificacion";
+            this.Identificacion.Name = "Identificacion";
+            // 
+            // Sexo
+            // 
+            this.Sexo.DataPropertyName = "Sexo";
+            this.Sexo.HeaderText = "Sexo";
+            this.Sexo.Name = "Sexo";
+            // 
+            // FechadeNacimiento
+            // 
+            this.FechadeNacimiento.DataPropertyName = "FechaNacimiento";
+            this.FechadeNacimiento.HeaderText = "Fecha de Nacimiento";
+            this.FechadeNacimiento.Name = "FechadeNacimiento";
+            // 
+            // Nombre
+            // 
+            this.Nombre.DataPropertyName = "NombreCompleto";
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            // 
+            // Seccion
+            // 
+            this.Seccion.DataPropertyName = "Seccion";
+            this.Seccion.HeaderText = "Seccion";
+            this.Seccion.Name = "Seccion";
             // 
             // pictureBox1
             // 
@@ -285,6 +315,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 70;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // txtDireccion
             // 
@@ -509,36 +540,6 @@
             this.label10.Size = new System.Drawing.Size(88, 13);
             this.label10.TabIndex = 83;
             this.label10.Text = "Id del Encargado";
-            // 
-            // Identificacion
-            // 
-            this.Identificacion.DataPropertyName = "Identificacion";
-            this.Identificacion.HeaderText = "Identificacion";
-            this.Identificacion.Name = "Identificacion";
-            // 
-            // Sexo
-            // 
-            this.Sexo.DataPropertyName = "Sexo";
-            this.Sexo.HeaderText = "Sexo";
-            this.Sexo.Name = "Sexo";
-            // 
-            // FechadeNacimiento
-            // 
-            this.FechadeNacimiento.DataPropertyName = "FechaNacimiento";
-            this.FechadeNacimiento.HeaderText = "Fecha de Nacimiento";
-            this.FechadeNacimiento.Name = "FechadeNacimiento";
-            // 
-            // Nombre
-            // 
-            this.Nombre.DataPropertyName = "NombreCompleto";
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            // 
-            // Seccion
-            // 
-            this.Seccion.DataPropertyName = "Seccion";
-            this.Seccion.HeaderText = "Seccion";
-            this.Seccion.Name = "Seccion";
             // 
             // FrmMantEstudiantePrincipal
             // 

@@ -57,11 +57,11 @@ namespace ProyectoAnaMarinOrientacion.Mantenimientos
             cboSeccion.DisplayMember = "Nombre";
             cboSeccion.ValueMember = "Id";
             cboSeccion.SelectedIndex = -1;
-            
+
 
         }
 
-       
+
         private void toolStripButton1_Click(object sender, EventArgs e)
         {//boton para insertar
 
@@ -85,7 +85,7 @@ namespace ProyectoAnaMarinOrientacion.Mantenimientos
             dgvEstudiantes.DataSource = null;
             var listaEstudiantes = new BindingList<Estudiante>(logica.SeleccionarTodos());
             // asignacion de datagrids
-            
+
             dgvEstudiantes.AutoGenerateColumns = false;
             dgvEstudiantes.DataSource = listaEstudiantes;
 
@@ -149,7 +149,20 @@ namespace ProyectoAnaMarinOrientacion.Mantenimientos
             {
                 comboBox1.Items.Add(x.Name);
             }
-            //comboBox1.SelectedIndex = 0;
+            if(Dispositivos.Count> 0)
+            {
+                comboBox1.SelectedIndex = 0;
+                FuenteDeVideo = new VideoCaptureDevice(Dispositivos[comboBox1.SelectedIndex].MonikerString);
+                //INICIALIZAR EL CONTROL
+                videoSourcePlayer1.VideoSource = FuenteDeVideo;
+                //INICIAR LA RECEPCIÓN DE IMAGENES
+                videoSourcePlayer1.Start();
+            }
+            else
+            {
+                MessageBox.Show("No es posible tomar fotos en esta computadora");
+            }
+
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -192,7 +205,7 @@ namespace ProyectoAnaMarinOrientacion.Mantenimientos
                 return;
             }
 
-            if (mskFechaNacimiento.Text == "") { 
+            if (mskFechaNacimiento.Text == "") {
                 MessageBox.Show("Debe digitar la fecha de nacimiento del estudiante");
             return;
              }
@@ -205,6 +218,12 @@ namespace ProyectoAnaMarinOrientacion.Mantenimientos
             if (txtIdentificadorEnc.Text == "")
             {
                 MessageBox.Show("Debe digitar la identificacion del encargado del estudiante");
+                return;
+            }
+
+            if (btnSubirFot == null)
+            {
+                MessageBox.Show("Debe  agregar una foto estudiante");
                 return;
             }
 
@@ -242,6 +261,8 @@ namespace ProyectoAnaMarinOrientacion.Mantenimientos
                 };
                 logica.Guardar(est);
                 MessageBox.Show("  Datos guardados con exito ");
+                Limpiar();
+                Refrescar();
 
 
             }
@@ -305,6 +326,10 @@ namespace ProyectoAnaMarinOrientacion.Mantenimientos
             //    return;
             //}
                 //ESTABLECER EL DISPOSITIVO SELECCIONADO COMO FUENTE DE VIDEO
+                if(FuenteDeVideo!= null)
+            {
+                return;
+            }
             FuenteDeVideo = new VideoCaptureDevice(Dispositivos[comboBox1.SelectedIndex].MonikerString);
             //INICIALIZAR EL CONTROL
             videoSourcePlayer1.VideoSource = FuenteDeVideo;
@@ -322,6 +347,7 @@ namespace ProyectoAnaMarinOrientacion.Mantenimientos
             //}
             //DETENER LA RECEPCIÓN DE IMAGENES
             videoSourcePlayer1.SignalToStop();
+            FuenteDeVideo = null;
         }
 
         private void btnSubirFot_Click(object sender, EventArgs e)
@@ -349,7 +375,20 @@ namespace ProyectoAnaMarinOrientacion.Mantenimientos
                 }
             }
         }
-
+        private void Limpiar()
+        {
+            txtIdentificacion.Clear();
+            txtNombreCompleto.Clear();
+            cboCiclo.SelectedIndex = -1;
+            cboNivel.SelectedIndex = -1;
+            cboSeccion.SelectedIndex = -1;
+            cboSexo.SelectedIndex = -1;
+            mskFechaNacimiento.Clear();
+            txtDireccion.Clear();
+            txtIdentificadorEnc.Clear();
+            txtEncargadoResultado.Clear();
+            pictureBox4.Image = null;
+        }
         private void toolStripButton3_Click(object sender, EventArgs e)
         {//boton para eliminar
             btnCancelar.Enabled = false;
@@ -366,6 +405,7 @@ namespace ProyectoAnaMarinOrientacion.Mantenimientos
                     var est = (Estudiante)dgvEstudiantes.SelectedRows[0].DataBoundItem;
                     logica.Eliminar(est);
                     Refrescar();
+                    Limpiar();
 
                 }
             }
@@ -424,7 +464,7 @@ namespace ProyectoAnaMarinOrientacion.Mantenimientos
 
 
             cboCiclo.DataSource = logicaCiclo.SeleccionarTodos();
-            
+
         }
         private void CargarComboNivel()
         {
@@ -449,6 +489,11 @@ namespace ProyectoAnaMarinOrientacion.Mantenimientos
                 cboSeccion.SelectedItem = null;
                 cboNivel.SelectedIndex = -1;
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -255,31 +255,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reportes\DataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\DataSet2.cs">
-      <DependentUpon>DataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\DataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\FrmReporteInstrumentos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reportes\FrmReporteInstrumentos.Designer.cs">
-      <DependentUpon>FrmReporteInstrumentos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\FrmReportesMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reportes\FrmReportesMenu.Designer.cs">
-      <DependentUpon>FrmReportesMenu.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="FrmBusquedaExpedientes.resx">
       <DependentUpon>FrmBusquedaExpedientes.cs</DependentUpon>
     </EmbeddedResource>
@@ -356,13 +331,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Reportes\FrmReporteInstrumentos.resx">
-      <DependentUpon>FrmReporteInstrumentos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\FrmReportesMenu.resx">
-      <DependentUpon>FrmReportesMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\Report2.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -388,28 +356,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Reportes\DataSet1.xsc">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="Reportes\DataSet1.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Reportes\DataSet1.xss">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="Reportes\DataSet2.xsc">
-      <DependentUpon>DataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="Reportes\DataSet2.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet2.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Reportes\DataSet2.xss">
-      <DependentUpon>DataSet2.xsd</DependentUpon>
-    </None>
     <None Include="Resources\Imprimir.png" />
   </ItemGroup>
   <ItemGroup>
