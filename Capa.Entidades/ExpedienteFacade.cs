@@ -10,8 +10,8 @@ namespace Capa.Entidades
     public class ExpedienteFacade
     {
 
-        private Estudiante estudiante { get; set; }
-        private Encargado encargado { get; set; }
+        public Estudiante estudiante { get; set; }
+        public Encargado encargado { get; set; }
         private Ciclo ciclo { get; set; }
         private Nivel nivel { get; set; }
         private Periodos periodo { get; set; }
@@ -20,7 +20,7 @@ namespace Capa.Entidades
         public List<ClaseInstrumento> Instrumentos { get; set; }
         public int Id { get; set; }
         public string IdEstudiante { get; set; }
-        public string MotivoDescripcion { get { return this.motivo.Descripcion; } }
+        //public string MotivoDescripcion { get { return this.motivo.Descripcion; } }
 
 
 
