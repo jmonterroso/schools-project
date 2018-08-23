@@ -24,6 +24,33 @@ namespace ProyectoAnaMarinOrientacion.Mantenimientos
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+
+            if (txtIdentificacion.Text == "")
+            {
+                MessageBox.Show("Debe digitar la identificacion del encargado");
+                return;
+            }
+
+            if (txtNombreCompleto.Text == "")
+            {
+                MessageBox.Show("Debe digitar el nombre del encargado");
+                return;
+            }
+            if (txtCorreoElectronico.Text == "")
+            {
+                MessageBox.Show("Debe digitar el correo electronico del encargado");
+                return;
+            }
+            if (txtParentesco.Text == "")
+            {
+                MessageBox.Show("Debe digitar el parentesco del encargado");
+                return;
+            }
+            if (txtOcupacion.Text == "")
+            {
+                MessageBox.Show("Debe digitar la ocupacion del encargado");
+                return;
+            }
             //boton de guardar
             try
             {
@@ -39,7 +66,11 @@ namespace ProyectoAnaMarinOrientacion.Mantenimientos
                 };
                 logica.Guardar(est);
                 MessageBox.Show("  Datos guardados con exito ");
-
+                txtIdentificacion.Clear();
+                txtNombreCompleto.Clear();
+                txtOcupacion.Clear();
+                txtCorreoElectronico.Clear();
+                txtParentesco.Clear();
 
             }
             catch (Exception ex)
@@ -142,9 +173,42 @@ namespace ProyectoAnaMarinOrientacion.Mantenimientos
             ///Metodo para actualizar un encardado
             ///sumary
             ///
+
+            //validaciones
+            //if (txtIdentificacion.Text == "")
+            //{
+            //    MessageBox.Show("Debe digitar la identificacion del estudiante");
+            //    return;
+            //}
+
+            txtIdentificacion.ReadOnly = true;
+            txtIdentificacion.Enabled = true;
+            if (txtNombreCompleto.Text == "")
+            {
+                MessageBox.Show("Debe digitar el nombre del encargado");
+                return;
+            }
+            if (txtCorreoElectronico.Text == "")
+            {
+                MessageBox.Show("Debe digitar el correo electronico del encargado");
+                return;
+            }
+            if (txtParentesco.Text == "")
+            {
+                MessageBox.Show("Debe digitar el parentesco del encargado");
+                return;
+            }
+            if (txtOcupacion.Text == "")
+            {
+                MessageBox.Show("Debe digitar la ocupacion del encargado");
+                return;
+            }
+
+
             groupBox1.Visible = true;
             //Actualizar
             Refrescar();
+            groupBox1.Visible = false;
             txtIdentificacion.ReadOnly = true;
             dgvEncargado.Visible = true;
             btnCancelar.Enabled = true;

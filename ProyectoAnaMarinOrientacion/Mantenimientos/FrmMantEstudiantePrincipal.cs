@@ -154,6 +154,71 @@ namespace ProyectoAnaMarinOrientacion.Mantenimientos
 
         private void button4_Click(object sender, EventArgs e)
         {
+
+            // validaciones
+            if (txtIdentificacion.Text == "")
+            {
+                MessageBox.Show("Debe digitar la identificacion del estudiante");
+                return;
+            }
+
+            if (txtNombreCompleto.Text == "")
+            {
+                MessageBox.Show("Debe digitar el nombre del estudiante");
+                return;
+            }
+
+            if (cboCiclo.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe digitar el nivel del estudiante");
+                return;
+            }
+
+            if (cboNivel.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe digitar el ciclo del estudiante");
+                return;
+            }
+
+            if (cboSeccion.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe digitar la seccion del estudiante");
+                return;
+            }
+
+            if (cboSexo.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe digitar el sexo del estudiante");
+                return;
+            }
+
+            if (mskFechaNacimiento.Text == "") { 
+                MessageBox.Show("Debe digitar la fecha de nacimiento del estudiante");
+            return;
+             }
+
+            if (txtDireccion.Text == "")
+            {
+                MessageBox.Show("Debe digitar la direccion del estudiante");
+                return;
+            }
+            if (txtIdentificadorEnc.Text == "")
+            {
+                MessageBox.Show("Debe digitar la identificacion del encargado del estudiante");
+                return;
+            }
+
+            if (btnSubirFot == null)
+            {
+                MessageBox.Show("Debe  agregar una foto estudiante");
+                return;
+            }
+            if(comboBox1.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe  seleccionar una camara para la foto estudiante");
+                return;
+            }
+
             //boton de aceptar
 
             try
@@ -210,8 +275,14 @@ namespace ProyectoAnaMarinOrientacion.Mantenimientos
 
         private void button3_Click(object sender, EventArgs e)
         {
-            // DIALOGO PARA SELECCIONAR LA RUTA PARA GUARDAR
-            SaveFileDialog sf = new SaveFileDialog();
+            //boton de capturar
+            //if (FuenteDeVideo == null)
+            //{
+            //    MessageBox.Show("Debe seleccionar una camara para tomar la foto ");
+            //    return;
+            //}
+                // DIALOGO PARA SELECCIONAR LA RUTA PARA GUARDAR
+                SaveFileDialog sf = new SaveFileDialog();
             //FILTO DE IMAGENES JPG
             sf.Filter = "Imagenes JPG | *.jpg";
             //MOSTRAR DIALOGO
@@ -226,7 +297,14 @@ namespace ProyectoAnaMarinOrientacion.Mantenimientos
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //ESTABLECER EL DISPOSITIVO SELECCIONADO COMO FUENTE DE VIDEO
+            //boton de enceder camara
+            if (FuenteDeVideo == null)
+             //   if (comboBox1.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe seleccionar una camara para tomar la foto ");
+                return;
+            }
+                //ESTABLECER EL DISPOSITIVO SELECCIONADO COMO FUENTE DE VIDEO
             FuenteDeVideo = new VideoCaptureDevice(Dispositivos[comboBox1.SelectedIndex].MonikerString);
             //INICIALIZAR EL CONTROL
             videoSourcePlayer1.VideoSource = FuenteDeVideo;
@@ -235,7 +313,13 @@ namespace ProyectoAnaMarinOrientacion.Mantenimientos
         }
 
         private void button2_Click(object sender, EventArgs e)
-        {
+        {//boton de detener camara
+            //if(FuenteDeVideo == null)
+            ////if (button1.Text == null)
+            //{
+            //    MessageBox.Show("Debe encender la camara primero");
+            //    return;
+            //}
             //DETENER LA RECEPCIÓN DE IMAGENES
             videoSourcePlayer1.SignalToStop();
         }
