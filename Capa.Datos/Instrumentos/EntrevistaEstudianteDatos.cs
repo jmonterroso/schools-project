@@ -11,6 +11,40 @@ namespace Capa.Datos.Instrumentos
 {
     public class EntrevistaEstudianteDatos
     {
+
+        public void InsertarArchivos(int Id, Archivo archivo)
+        {
+            // SqlConnection requiere el using System.Data.SqlClient;
+            SqlConnection conexion = new SqlConnection(Conexion.Cadena);
+            try
+            {
+                conexion.Open(); // un error aca: revisar cadena de conexion
+                // El command permite ejecutar un comando en la conexion establecida
+                SqlCommand comando = new SqlCommand("PA_InsertarEntrevistaEstudianteArchivos", conexion);
+                // Como es en Store Procedure se debe indicar el tipo de comando
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                // Si el SP requeire parametros se le deben asignar al comando
+
+                comando.Parameters.AddWithValue("@IdEntrevista", Id);
+                comando.Parameters.AddWithValue("@Archivo", archivo.ArchivoBytes);
+                comando.Parameters.AddWithValue("@Nombre", archivo.Nombre);
+
+
+                // Finalmente ejecutamos el comando
+                // al ser un insert no requiere retornar un consulta
+
+                comando.ExecuteNonQuery();
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        }
         public void Insertar(EntrevistaEstudiante entEst)
         {
             // SqlConnection requiere el using System.Data.SqlClient;
@@ -38,7 +72,15 @@ namespace Capa.Datos.Instrumentos
                 comando.Parameters.AddWithValue("@TipoInstrumento", entEst.TipoInstrumento);
                 // Finalmente ejecutamos el comando
                 // al ser un insert no requiere retornar un consulta
-                comando.ExecuteNonQuery();
+                int Id = Convert.ToInt32(comando.ExecuteScalar());
+                if(entEst.Archivos.Count > 0)
+                {
+                    foreach (var archivo in entEst.Archivos)
+                    {
+                        InsertarArchivos(Id, archivo);
+                    }
+                }
+
             }
             catch (Exception)
             {
@@ -150,6 +192,47 @@ namespace Capa.Datos.Instrumentos
 
             return lista;
         }
+
+        public List<Archivo> SeleccionarArchivosPorId(int Id)
+        {
+            // SqlConnection requiere el using System.Data.SqlClient;
+            SqlConnection conexion = new SqlConnection(Conexion.Cadena);
+            List<Archivo> lista = new List<Archivo>();
+            try
+            {
+                conexion.Open(); // un error aca: revisar cadena de conexion
+                // El command permite ejecutar un comando en la conexion establecida
+                SqlCommand comando = new SqlCommand("PA_SeleccionarEntrevistaEstudianteArchivosPorId", conexion);
+                // Como es en Store Procedure se debe indicar el tipo de comando
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@IdEntrevista", Id);
+                // NO recibe parametros
+
+                // Finalmente ejecutamos el comando
+                // al ser una consulta debemos usar ExecuteReader
+                SqlDataReader reader = comando.ExecuteReader();
+                // es necesario recorrer el reader para extraer todos los registros
+                while (reader.Read()) // cada vez que se llama el Read retorna una tupla
+                {
+                    Archivo ar = new Archivo();
+                    ar.Id = Convert.ToInt32(reader["Id"]);
+                    ar.Nombre = reader["Nombre"].ToString();
+                    ar.ArchivoBytes = (byte[]) reader["Archivo"];
+                    lista.Add(ar);
+                }
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+
+            return lista;
+        }
         public List<EntrevistaEstudiante> SeleccionarPorExpedienteId(int IdExpediente)
         {
             // SqlConnection requiere el using System.Data.SqlClient;
@@ -230,6 +313,7 @@ namespace Capa.Datos.Instrumentos
                     entEst.Otros = (bool)reader["Otros"];
                     entEst.OtrosExplicacion = reader["OtrosExplicacion"].ToString();
                     entEst.TipoInstrumento = TipoInstrumentos.EntrevistaEstudiante;
+                    entEst.Archivos = SeleccionarArchivosPorId(entEst.Id);
 
                     return entEst;
                 }

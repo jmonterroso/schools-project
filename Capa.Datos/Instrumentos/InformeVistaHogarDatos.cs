@@ -35,14 +35,21 @@ namespace Capa.Datos.Instrumentos
                 comando.Parameters.AddWithValue("@IdMotivo", ent.Motivo.IdMotivo);
                 comando.Parameters.AddWithValue("@IdExpediente", ent.IdExpediente);
                 comando.Parameters.AddWithValue("@TipoInstrumento", ent.TipoInstrumento);
-
+                int Id = Convert.ToInt32(comando.ExecuteScalar());
+                if (ent.Archivos.Count > 0)
+                {
+                    foreach (var archivo in ent.Archivos)
+                    {
+                        InsertarArchivos(Id, archivo);
+                    }
+                }
 
 
 
 
                 // Finalmente ejecutamos el comando
                 // al ser un insert no requiere retornar un consulta
-                comando.ExecuteNonQuery();  
+                //comando.ExecuteNonQuery();  
             }
             catch (Exception)
             {
@@ -53,6 +60,81 @@ namespace Capa.Datos.Instrumentos
                 conexion.Close();
             }
         }
+
+        public void InsertarArchivos(int Id, Archivo archivo)
+        {
+            // SqlConnection requiere el using System.Data.SqlClient;
+            SqlConnection conexion = new SqlConnection(Conexion.Cadena);
+            try
+            {
+                conexion.Open(); // un error aca: revisar cadena de conexion
+                // El command permite ejecutar un comando en la conexion establecida
+                SqlCommand comando = new SqlCommand("PA_InsertarInformeArchivos", conexion);
+                // Como es en Store Procedure se debe indicar el tipo de comando
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                // Si el SP requeire parametros se le deben asignar al comando
+
+                comando.Parameters.AddWithValue("@IdEntrevista", Id);
+                comando.Parameters.AddWithValue("@Archivo", archivo.ArchivoBytes);
+                comando.Parameters.AddWithValue("@Nombre", archivo.Nombre);
+
+
+                // Finalmente ejecutamos el comando
+                // al ser un insert no requiere retornar un consulta
+
+                comando.ExecuteNonQuery();
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        }
+        public List<Archivo> SeleccionarArchivosPorId(int Id)
+        {
+            // SqlConnection requiere el using System.Data.SqlClient;
+            SqlConnection conexion = new SqlConnection(Conexion.Cadena);
+            List<Archivo> lista = new List<Archivo>();
+            try
+            {
+                conexion.Open(); // un error aca: revisar cadena de conexion
+                // El command permite ejecutar un comando en la conexion establecida
+                SqlCommand comando = new SqlCommand("PA_SeleccionarInformeArchivosPorId", conexion);
+                // Como es en Store Procedure se debe indicar el tipo de comando
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@IdEntrevista", Id);
+                // NO recibe parametros
+
+                // Finalmente ejecutamos el comando
+                // al ser una consulta debemos usar ExecuteReader
+                SqlDataReader reader = comando.ExecuteReader();
+                // es necesario recorrer el reader para extraer todos los registros
+                while (reader.Read()) // cada vez que se llama el Read retorna una tupla
+                {
+                    Archivo ar = new Archivo();
+                    ar.Id = Convert.ToInt32(reader["Id"]);
+                    ar.Nombre = reader["Nombre"].ToString();
+                    ar.ArchivoBytes = (byte[])reader["Archivo"];
+                    lista.Add(ar);
+                }
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+
+            return lista;
+        }
+
 
         public void Actualizar(InformeVisitaAlHogar ent)
         {
@@ -191,6 +273,7 @@ namespace Capa.Datos.Instrumentos
                     entEnc.Recomendaciones = reader["Recomendaciones"].ToString();
                     entEnc.NombreFuncionario = reader["NombreFuncionario"].ToString();
                     entEnc.Puesto = reader["Puesto"].ToString();
+                    entEnc.Archivos = SeleccionarArchivosPorId(entEnc.Id);
                     return entEnc;
                 }
 
@@ -238,7 +321,7 @@ namespace Capa.Datos.Instrumentos
                     ent.NombreFuncionario = reader["NombreFuncionario"].ToString();
                     ent.Puesto = reader["Puesto"].ToString();
                     ent.TipoInstrumento = (TipoInstrumentos)Convert.ToInt32(reader["TipoInstrumento"]);
-
+                    ent.Archivos = SeleccionarArchivosPorId(ent.Id);
                     lista.Add(ent);
                 }
 

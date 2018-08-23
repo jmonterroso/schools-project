@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
 {
     public partial class FrmEntrevistaConFuncionarioCentroEducativo : Form
     {
-
+        private List<Archivo> Archivos;
         Capa.Logica.InstrumentosLN.EntrevistaConFuncionarioLN logicaFuncionarios = new Capa.Logica.InstrumentosLN.EntrevistaConFuncionarioLN();
 
         Capa.Logica.MotivoAtencionLN logicaMotivo;
@@ -48,6 +49,7 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
         }
         private void FrmEntrevistaConFuncionarioCentroEducativo_Load(object sender, EventArgs e)
         {
+            Archivos = new List<Archivo>();
             CargarComboMotivos();
             ValidarUsuario();
             if (entrevistaFuncionario != null)
@@ -60,7 +62,13 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
                 txtAcuerdos.Text = entrevistaFuncionario.Acciones;
 
 
+
+
             }
+            RefrescarListBox();
+
+
+
 
         }
 
@@ -142,6 +150,7 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
                 entrevista.Motivo = (MotivoAtencion)cboMotivo.SelectedItem;
                 entrevista.Nombre = "Entrevista con Funcionario";
                 entrevista.TipoInstrumento = Capa.Entidades.Enumeradores.TipoInstrumentos.EntrevistaAlFuncionario;
+                entrevista.Archivos = Archivos;
 
                 MessageBox.Show("  Datos guardados con exito ");
                 //logicaFuncionarios.Guardar(entrevista);
@@ -192,6 +201,88 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
         private void txtResumen_TextChanged(object sender, EventArgs e)
         {
 
+        }
+        private void DescargarArchivo()
+        {
+            Archivo currArchivo = (Archivo)listBox1.SelectedItem;
+            SaveFileDialog folderBrowser = new SaveFileDialog();
+
+            folderBrowser.FileName = currArchivo.Nombre;
+            folderBrowser.ShowDialog();
+
+            if (folderBrowser.FileName != "")
+            {
+
+                File.WriteAllBytes(folderBrowser.FileName, currArchivo.ArchivoBytes);
+                MessageBox.Show("Archivo descargado");
+            }
+
+        }
+        private void RefrescarListBox()
+        {
+            listBox1.DataSource = null;
+            if (entrevistaFuncionario!= null)
+            {
+                Archivos = entrevistaFuncionario.Archivos;
+            }
+            
+            listBox1.DataSource = Archivos;
+        }
+
+        private void AgregarArchivo()
+        {
+            System.IO.Stream myStream;
+
+            OpenFileDialog thisDialog = new OpenFileDialog();
+
+            thisDialog.InitialDirectory = "c:\\";
+            thisDialog.Filter = "All files (*.*)|*.*";
+            thisDialog.FilterIndex = 2;
+            thisDialog.RestoreDirectory = true;
+            thisDialog.Multiselect = true;
+            thisDialog.Title = "Please Select Source File(s) for Conversion";
+
+            if (thisDialog.ShowDialog() == DialogResult.OK)
+            {               
+                foreach (String file in thisDialog.FileNames)
+                {
+                    try
+                    {
+                        if ((myStream = thisDialog.OpenFile()) != null)
+                        {
+                            using (myStream)
+                            {
+
+                                Archivo archivo = new Archivo();
+                                archivo.Nombre = thisDialog.SafeFileName;
+                                archivo.ArchivoBytes = File.ReadAllBytes(file);                                
+                                Archivos.Add(archivo);
+                                RefrescarListBox();
+                            }
+                        }
+                    }
+
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AgregarArchivo();
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_DoubleClick(object sender, EventArgs e)
+        {
+            DescargarArchivo();
         }
     }
 }

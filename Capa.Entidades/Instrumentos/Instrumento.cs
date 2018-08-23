@@ -7,18 +7,19 @@ using System.Threading.Tasks;
 
 namespace Capa.Entidades
 {
-     public abstract class ClaseInstrumento 
-        {
+    public abstract class ClaseInstrumento
+    {
         public int Id { get; set; }
         public int IdExpediente { get; set; }
-        public  DateTime FechaCreacion { get; set; }
-        public  MotivoAtencion Motivo {get; set;}        
+        public DateTime FechaCreacion { get; set; }
+        public MotivoAtencion Motivo { get; set; }
         public string Situacion { get; set; }
         public string Acciones { get; set; }
         public string Intervencion { get; set; }
         public string Recomendaciones { get; set; }
         public string Nombre { get; set; }
         public TipoInstrumentos TipoInstrumento { get; set; }
+        public List<Archivo> Archivos { get; set; }
 
      
     }
