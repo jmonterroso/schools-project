@@ -124,7 +124,7 @@ namespace ProyectoAnaMarinOrientacion
 
         private void FrmLogin_FormClosed(object sender, FormClosedEventArgs e)
         {
-            DialogResult dialogo = MessageBox.Show("Desea cerrar el menu del administrador", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+            DialogResult dialogo = MessageBox.Show("Desea cerrar la aplicacion", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
             if (dialogo == DialogResult.Yes)
             {
                 Dispose();

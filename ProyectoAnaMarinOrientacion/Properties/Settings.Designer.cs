@@ -32,5 +32,16 @@ namespace ProyectoAnaMarinOrientacion.Properties {
                 return ((string)(this["Setting"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-VVC1FLB\\SQLEXPRESS;Initial Catalog=ProyectoAna;Integrated Sec" +
+            "urity=True")]
+        public string ProyectoAnaConnectionString {
+            get {
+                return ((string)(this["ProyectoAnaConnectionString"]));
+            }
+        }
     }
 }

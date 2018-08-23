@@ -57,6 +57,9 @@
             this.cambiarDeUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cambiarDeUsuarioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.porFechaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.enviadosPorCorreoElectronicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,7 +70,8 @@
             this.mantenimientosToolStripMenuItem,
             this.instrumentosToolStripMenuItem1,
             this.usuarioToolStripMenuItem,
-            this.cambiarDeUsuarioToolStripMenuItem});
+            this.cambiarDeUsuarioToolStripMenuItem,
+            this.reportesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(834, 24);
@@ -288,6 +292,29 @@
             this.cambiarDeUsuarioToolStripMenuItem1.Text = "Cambiar de usuario";
             this.cambiarDeUsuarioToolStripMenuItem1.Click += new System.EventHandler(this.cambiarDeUsuarioToolStripMenuItem1_Click);
             // 
+            // reportesToolStripMenuItem
+            // 
+            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.porFechaToolStripMenuItem,
+            this.enviadosPorCorreoElectronicoToolStripMenuItem});
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.reportesToolStripMenuItem.Text = "Reportes";
+            // 
+            // porFechaToolStripMenuItem
+            // 
+            this.porFechaToolStripMenuItem.Name = "porFechaToolStripMenuItem";
+            this.porFechaToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
+            this.porFechaToolStripMenuItem.Text = "Crear Reporte";
+            this.porFechaToolStripMenuItem.Click += new System.EventHandler(this.porFechaToolStripMenuItem_Click);
+            // 
+            // enviadosPorCorreoElectronicoToolStripMenuItem
+            // 
+            this.enviadosPorCorreoElectronicoToolStripMenuItem.Name = "enviadosPorCorreoElectronicoToolStripMenuItem";
+            this.enviadosPorCorreoElectronicoToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
+            this.enviadosPorCorreoElectronicoToolStripMenuItem.Text = "Enviados por correo electronico";
+            this.enviadosPorCorreoElectronicoToolStripMenuItem.Click += new System.EventHandler(this.enviadosPorCorreoElectronicoToolStripMenuItem_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -341,6 +368,9 @@
         private System.Windows.Forms.ToolStripMenuItem agregarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cambiarDeUsuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cambiarDeUsuarioToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem porFechaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem enviadosPorCorreoElectronicoToolStripMenuItem;
     }
 }
 
