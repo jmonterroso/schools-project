@@ -66,6 +66,7 @@ namespace ProyectoAnaMarinOrientacion.Mantenimientos
                 };
                 logica.Guardar(est);
                 MessageBox.Show("  Datos guardados con exito ");
+                Refrescar();
                 txtIdentificacion.Clear();
                 txtNombreCompleto.Clear();
                 txtOcupacion.Clear();
