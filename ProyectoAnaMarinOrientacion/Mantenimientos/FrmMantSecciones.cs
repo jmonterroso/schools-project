@@ -60,11 +60,8 @@ namespace ProyectoAnaMarinOrientacion.Mantenimientos
                     Nivel = (Capa.Entidades.Nivel)cboNivel.SelectedItem
                 };
                 dgvSecciones.DataSource = sec;
-
                 logica.Guardar(sec);
-                MessageBox.Show("  Datos guardados con exito ");
-                bindingSource1.Add(sec.Nombre);
-                dgvSecciones.DataSource = bindingSource1;
+                MessageBox.Show("  Datos guardados con exito ");               
                 Refrescar();
                 Limpiar();
 
@@ -78,9 +75,19 @@ namespace ProyectoAnaMarinOrientacion.Mantenimientos
 
         private void Refrescar()
         {
-            dgvSecciones.DataSource = logica.SeleccionarTodos();
-        
-            
+            dgvSecciones.AutoGenerateColumns = false;
+
+            // creacion de binding para los datagrids
+            dgvSecciones.DataSource = null;
+            List<Secciones>  secciones = logica.SeleccionarTodos();
+            var listaSecciones = new BindingList<Secciones>(secciones);
+            // asignacion de datagrids
+
+
+            dgvSecciones.DataSource = listaSecciones;
+
+
+
         }
 
         private void Limpiar()
@@ -219,6 +226,7 @@ namespace ProyectoAnaMarinOrientacion.Mantenimientos
         private void FrmMantSecciones_Load(object sender, EventArgs e)
         {
             CargarCiclo();
+            Refrescar();
         }
 
         private void cboNivel_SelectedIndexChanged(object sender, EventArgs e)
