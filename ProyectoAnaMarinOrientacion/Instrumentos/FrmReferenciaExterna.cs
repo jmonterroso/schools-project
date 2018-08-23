@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
     public partial class FrmReferenciaExterna : Form
     {
         static public Referencia referencia;
-
+        private List<Archivo> Archivos;
         Capa.Logica.MotivoAtencionLN logicaMotivo;
         public FrmReferenciaExterna()
         {
@@ -102,7 +103,9 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
                     InstitucionRefiere = txtIntituciondondeserefiere.Text,
                     Nombre = "Referencia Externa",
                     Intervencion="",
-                    TipoInstrumento = Capa.Entidades.Enumeradores.TipoInstrumentos.ReferenciaExterna
+                    TipoInstrumento = Capa.Entidades.Enumeradores.TipoInstrumentos.ReferenciaExterna,
+                    Archivos= Archivos
+
                 };
                 //FrmExpediente.referenciaExterna.Add(entre);
                 FrmExpediente.instrumentos.Add(entre);
@@ -143,6 +146,7 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
         }
         private void FrmReferenciaExterna_Load(object sender, EventArgs e)
         {
+            Archivos = new List<Archivo>();
             CargarComboMotivos();
             ValidarUsuario();
             if (referencia != null)
@@ -156,6 +160,7 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
 
                 txtIntituciondondeserefiere.Text = referencia.InstitucionRefiere;
             }
+            RefrescarListBox();
         }
         private void CargarComboMotivos()
         {
@@ -207,6 +212,90 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
         private void groupEncargado_Enter(object sender, EventArgs e)
         {
 
+        }
+        private void DescargarArchivo()
+        {
+            Archivo currArchivo = (Archivo)listBox1.SelectedItem;
+            SaveFileDialog folderBrowser = new SaveFileDialog();
+
+            folderBrowser.FileName = currArchivo.Nombre;
+            folderBrowser.ShowDialog();
+
+            if (folderBrowser.FileName != "")
+            {
+
+                File.WriteAllBytes(folderBrowser.FileName, currArchivo.ArchivoBytes);
+                MessageBox.Show("Archivo descargado");
+            }
+
+        }
+        private void RefrescarListBox()
+        {
+            listBox1.DataSource = null;
+            if (referencia != null)
+            {
+                Archivos = referencia.Archivos;
+            }
+
+            listBox1.DataSource = Archivos;
+        }
+
+        private void AgregarArchivo()
+        {
+            System.IO.Stream myStream;
+
+            OpenFileDialog thisDialog = new OpenFileDialog();
+
+            thisDialog.InitialDirectory = "c:\\";
+            thisDialog.Filter = "All files (*.*)|*.*";
+            thisDialog.FilterIndex = 2;
+            thisDialog.RestoreDirectory = true;
+            thisDialog.Multiselect = true;
+            thisDialog.Title = "Please Select Source File(s) for Conversion";
+
+            if (thisDialog.ShowDialog() == DialogResult.OK)
+            {
+                foreach (String file in thisDialog.FileNames)
+                {
+                    try
+                    {
+                        if ((myStream = thisDialog.OpenFile()) != null)
+                        {
+                            using (myStream)
+                            {
+
+                                Archivo archivo = new Archivo();
+                                archivo.Nombre = thisDialog.SafeFileName;
+                                archivo.ArchivoBytes = File.ReadAllBytes(file);
+                                Archivos.Add(archivo);
+                                RefrescarListBox();
+                            }
+                        }
+                    }
+
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+      
+
+        private void listBox1_DoubleClick(object sender, EventArgs e)
+        {
+            DescargarArchivo();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            AgregarArchivo();
+        }
+
+        private void listBox1_DoubleClick_1(object sender, EventArgs e)
+        {
+            DescargarArchivo();
         }
     }
 }

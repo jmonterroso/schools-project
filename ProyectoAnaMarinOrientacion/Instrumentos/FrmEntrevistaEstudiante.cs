@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,7 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
 
         Capa.Logica.MotivoAtencionLN logicaMotivo;
         public static EntrevistaEstudiante entrevistaEstudiante;
+        private List<Archivo> Archivos;
         public FrmEntrevistaEstudiante()
         {
             InitializeComponent();
@@ -81,8 +83,8 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
                 entrevista.Otros = ckcOtro.Checked;
                 entrevista.OtrosExplicacion = txtOtro.Text;
                 entrevista.TipoInstrumento = TipoInstrumentos.EntrevistaEstudiante;
-
-                
+                // Agregar Entrevista
+                entrevista.Archivos = Archivos;
                 FrmExpediente.instrumentos.Add(entrevista);
                 MessageBox.Show("  Datos guardados con exito ");
                 Limpiar();
@@ -152,6 +154,7 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
         {
             CargarComboMotivos();
             ValidarUsuario();
+            Archivos = new List<Archivo>();
             if (entrevistaEstudiante != null)
             {
                 txtIntervencion.Text = entrevistaEstudiante.Intervencion;
@@ -164,9 +167,12 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
                 ckcReferencia.Checked = entrevistaEstudiante.Solicitud;
                 ckcOtro.Checked = entrevistaEstudiante.Otros;
                 txtOtro.Text = entrevistaEstudiante.OtrosExplicacion;
-
-
+                List<Archivo> listaArchivos = new List<Archivo>();
+                listaArchivos = entrevistaEstudiante.Archivos;
+                listBox1.DataSource = listaArchivos;
+                
             }
+            RefrescarListBox();
 
         }
 
@@ -186,6 +192,90 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
             catch
             {
             }
+
+        }
+
+        private void DescargarArchivo()
+        {
+            Archivo currArchivo = (Archivo)listBox1.SelectedItem;
+            SaveFileDialog folderBrowser = new SaveFileDialog();
+
+            folderBrowser.FileName = currArchivo.Nombre;
+            folderBrowser.ShowDialog();
+
+            if (folderBrowser.FileName != "")
+            {
+
+                File.WriteAllBytes(folderBrowser.FileName, currArchivo.ArchivoBytes);
+                MessageBox.Show("Archivo descargado");
+            }
+
+        }
+        private void RefrescarListBox()
+        {
+            listBox1.DataSource = null;
+            if (entrevistaEstudiante != null)
+            {
+                Archivos = entrevistaEstudiante.Archivos;
+            }
+
+            listBox1.DataSource = Archivos;
+        }
+
+
+        private void AgregarArchivo()
+        {
+            System.IO.Stream myStream;
+
+            OpenFileDialog thisDialog = new OpenFileDialog();
+
+            thisDialog.InitialDirectory = "c:\\";
+            thisDialog.Filter = "All files (*.*)|*.*";
+            thisDialog.FilterIndex = 2;
+            thisDialog.RestoreDirectory = true;
+            thisDialog.Multiselect = true;
+            thisDialog.Title = "Please Select Source File(s) for Conversion";
+
+            if (thisDialog.ShowDialog() == DialogResult.OK)
+            {
+                foreach (String file in thisDialog.FileNames)
+                {
+                    try
+                    {
+                        if ((myStream = thisDialog.OpenFile()) != null)
+                        {
+                            using (myStream)
+                            {
+
+                                Archivo archivo = new Archivo();
+                                archivo.Nombre = thisDialog.SafeFileName;
+                                archivo.ArchivoBytes = File.ReadAllBytes(file);
+                                Archivos.Add(archivo);
+                                RefrescarListBox();
+                            }
+                        }
+                    }
+
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AgregarArchivo();
+        }
+
+        private void listBox1_DoubleClick(object sender, EventArgs e)
+        {
+            DescargarArchivo();
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

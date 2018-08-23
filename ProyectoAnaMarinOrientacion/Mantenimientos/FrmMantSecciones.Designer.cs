@@ -49,6 +49,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSecciones)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -143,6 +145,9 @@
             // dgvSecciones
             // 
             this.dgvSecciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSecciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Nombre,
+            this.Nivel});
             this.dgvSecciones.Location = new System.Drawing.Point(297, 131);
             this.dgvSecciones.Name = "dgvSecciones";
             this.dgvSecciones.ReadOnly = true;
@@ -266,6 +271,20 @@
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
+            // Nombre
+            // 
+            this.Nombre.DataPropertyName = "Nombre";
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            // 
+            // Nivel
+            // 
+            this.Nivel.DataPropertyName = "Nivel";
+            this.Nivel.HeaderText = "Nivel";
+            this.Nivel.Name = "Nivel";
+            this.Nivel.ReadOnly = true;
+            // 
             // FrmMantSecciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -314,5 +333,7 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.ComboBox cboCiclo;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nivel;
     }
 }

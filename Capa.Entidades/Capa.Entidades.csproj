@@ -64,6 +64,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Archivo.cs" />
     <Compile Include="Ciclo.cs" />
     <Compile Include="Datos\Encargado.cs" />
     <Compile Include="Enumeradores\Instrumentos.cs" />
