@@ -16,10 +16,10 @@ namespace Capa.Logica.InstrumentosLN
         {
 
             EntrevistaEstudianteDatos datos = new EntrevistaEstudianteDatos();
-            if (datos.SeleccionarPorId(ent.Id) == null)
+            //if (datos.SeleccionarPorId(ent.Id) == null)
                 datos.Insertar(ent);
-            else
-                datos.Actualizar(ent);
+            //else
+            //    datos.Actualizar(ent);
         }
 
         public List<EntrevistaEstudiante> SeleccionarTodos()

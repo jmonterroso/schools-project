@@ -157,7 +157,7 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
                 FrmExpediente.instrumentos.Add(entrevista);
                 Limpiar();
                 Dispose();
-
+                entrevistaFuncionario = null;
 
             }
             catch (Exception ex)
@@ -283,6 +283,11 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
         private void listBox1_DoubleClick(object sender, EventArgs e)
         {
             DescargarArchivo();
+        }
+
+        private void FrmEntrevistaConFuncionarioCentroEducativo_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            entrevistaFuncionario = null;
         }
     }
 }

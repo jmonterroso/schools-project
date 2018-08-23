@@ -89,6 +89,7 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
                 MessageBox.Show("  Datos guardados con exito ");
                 Limpiar();
                 Dispose();
+                entrevistaEstudiante = null;
 
 
             }
@@ -185,6 +186,8 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
                 if (dialogo == DialogResult.Yes)
                 {
                     Dispose();
+                    entrevistaEstudiante = null;
+
                 }
                 else
                     return;
@@ -277,6 +280,11 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void FrmEntrevistaEstudiante_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            entrevistaEstudiante = null;
         }
     }
 }

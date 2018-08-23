@@ -86,9 +86,11 @@ namespace ProyectoAnaMarinOrientacion
                 {
                     foreach(var instrumento in instrumentos)
                     {
-                        if (instrumento.Id  == 0) {
+                        if (instrumento.Id == 0)
+                        {
                             instrumento.IdExpediente = facade.Id;
-                            switch (instrumento.TipoInstrumento) {
+                            switch (instrumento.TipoInstrumento)
+                            {
                                 case TipoInstrumentos.EntrevistaEstudiante:
                                     logicaEntrevistaEstudiante.Guardar((EntrevistaEstudiante)instrumento);
                                     break;
@@ -106,9 +108,9 @@ namespace ProyectoAnaMarinOrientacion
                                     break;
 
                             }
-                        }
-                        
 
+
+                        }
                     }
                     
                 }
@@ -237,8 +239,9 @@ namespace ProyectoAnaMarinOrientacion
                 facade = fac;
                 txtNumeroExpediente.Text = facade.Id.ToString();
                 instrumentos = facade.Instrumentos;
-                RefrescarGrids();
+                
             }
+            RefrescarGrids();
         }
         private void button2_Click(object sender, EventArgs e)
         {
@@ -368,6 +371,11 @@ namespace ProyectoAnaMarinOrientacion
 
 
             }
+
+        }
+
+        private void gpboxAgregarInstrumento_Enter(object sender, EventArgs e)
+        {
 
         }
     }

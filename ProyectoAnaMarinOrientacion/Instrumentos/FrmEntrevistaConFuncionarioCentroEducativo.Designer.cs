@@ -215,6 +215,7 @@
             this.Name = "FrmEntrevistaConFuncionarioCentroEducativo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Entrevista Con Funcionario(a) del Centro Educativo";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmEntrevistaConFuncionarioCentroEducativo_FormClosed);
             this.Load += new System.EventHandler(this.FrmEntrevistaConFuncionarioCentroEducativo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -195,6 +195,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmEntrevistaPadre_Madre_Encargado";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmEntrevistaPadre_Madre_Encargado_FormClosed);
             this.Load += new System.EventHandler(this.FrmEntrevistaPadre_Madre_Encargado_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

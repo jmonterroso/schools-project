@@ -112,6 +112,7 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
                // Logica.Guardar(vista);
                 MessageBox.Show("Datos guardados con exito ");
                 Dispose();
+                
 
 
             }
@@ -135,6 +136,7 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
                 if (dialogo == DialogResult.Yes)
                 {
                     Dispose();
+                    informeVisitaAlHogar = null;
                 }
                 else
                     return;
@@ -273,6 +275,11 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
         private void listBox1_DoubleClick(object sender, EventArgs e)
         {
             DescargarArchivo();
+        }
+
+        private void FrmInformeVisitaAlHogar_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            informeVisitaAlHogar = null;
         }
     }
 }

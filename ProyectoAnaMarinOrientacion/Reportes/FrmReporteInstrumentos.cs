@@ -21,11 +21,11 @@ namespace ProyectoAnaMarinOrientacion.Reportes
 
         private void FrmReporteInstrumentos_Load(object sender, EventArgs e)
         {
-            this.PA_SeleccionarInstrumentosFechaReporteTableAdapter.GetData( Convert.ToDateTime( desde), Convert.ToDateTime(hasta));
-            // TODO: This line of code loads data into the 'DataSet2.PA_SeleccionarInstrumentosFechaReporte' table. You can move, or remove it, as needed.
-            this.PA_SeleccionarInstrumentosFechaReporteTableAdapter.Fill(this.DataSet2.PA_SeleccionarInstrumentosFechaReporte);
+            //this.PA_SeleccionarInstrumentosFechaReporteTableAdapter.GetData( Convert.ToDateTime( desde), Convert.ToDateTime(hasta));
+            //// TODO: This line of code loads data into the 'DataSet2.PA_SeleccionarInstrumentosFechaReporte' table. You can move, or remove it, as needed.
+            //this.PA_SeleccionarInstrumentosFechaReporteTableAdapter.Fill(this.DataSet2.PA_SeleccionarInstrumentosFechaReporte);
 
-            this.reportViewer1.RefreshReport();
+            //this.reportViewer1.RefreshReport();
         }
 
         private void PA_SeleccionarInstrumentosFechaReporteBindingSource_CurrentChanged(object sender, EventArgs e)

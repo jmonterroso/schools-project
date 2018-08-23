@@ -248,6 +248,7 @@
             this.Name = "FrmReferenciaExterna";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Recibido por";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmReferenciaExterna_FormClosed);
             this.Load += new System.EventHandler(this.FrmReferenciaExterna_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

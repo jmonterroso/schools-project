@@ -297,5 +297,10 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
         {
             DescargarArchivo();
         }
+
+        private void FrmReferenciaExterna_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            referencia = null;
+        }
     }
 }

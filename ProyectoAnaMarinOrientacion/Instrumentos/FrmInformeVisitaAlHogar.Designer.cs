@@ -224,6 +224,7 @@
             this.Name = "FrmInformeVisitaAlHogar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Informe de Visita Al Hogar";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmInformeVisitaAlHogar_FormClosed);
             this.Load += new System.EventHandler(this.FrmInformeVisitaAlHogar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -173,6 +173,7 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
                 FrmExpediente.instrumentos.Add(entrevista);
                 Limpiar();
                 Dispose();
+                entrevistaEncargado = null;
 
 
             }
@@ -229,6 +230,11 @@ namespace ProyectoAnaMarinOrientacion.Instrumentos
                 MessageBox.Show("Archivo descargado");
             }
 
+        }
+
+        private void FrmEntrevistaPadre_Madre_Encargado_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            entrevistaEncargado = null;
         }
     }
     }

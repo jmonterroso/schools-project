@@ -37,9 +37,9 @@
             this.dgvExpedientes = new System.Windows.Forms.DataGridView();
             this.btnBuscarEncargado = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.rdNumeroExpediente = new System.Windows.Forms.RadioButton();
             this.IdExpediente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estudiante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rdNumeroExpediente = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExpedientes)).BeginInit();
             this.SuspendLayout();
@@ -112,10 +112,10 @@
             this.dgvExpedientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdExpediente,
             this.Estudiante});
-            this.dgvExpedientes.Location = new System.Drawing.Point(515, 65);
+            this.dgvExpedientes.Location = new System.Drawing.Point(61, 238);
             this.dgvExpedientes.Name = "dgvExpedientes";
             this.dgvExpedientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvExpedientes.Size = new System.Drawing.Size(244, 261);
+            this.dgvExpedientes.Size = new System.Drawing.Size(644, 261);
             this.dgvExpedientes.TabIndex = 16;
             this.dgvExpedientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvExpedientes_CellContentClick);
             this.dgvExpedientes.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvExpedientes_CellContentDoubleClick);
@@ -140,6 +140,16 @@
             this.label2.TabIndex = 18;
             this.label2.Text = "Criterio";
             // 
+            // rdNumeroExpediente
+            // 
+            this.rdNumeroExpediente.AutoSize = true;
+            this.rdNumeroExpediente.Location = new System.Drawing.Point(348, 82);
+            this.rdNumeroExpediente.Name = "rdNumeroExpediente";
+            this.rdNumeroExpediente.Size = new System.Drawing.Size(132, 17);
+            this.rdNumeroExpediente.TabIndex = 19;
+            this.rdNumeroExpediente.Text = "Numero de expediente";
+            this.rdNumeroExpediente.UseVisualStyleBackColor = true;
+            // 
             // IdExpediente
             // 
             this.IdExpediente.DataPropertyName = "Id";
@@ -151,16 +161,7 @@
             this.Estudiante.DataPropertyName = "estudiante";
             this.Estudiante.HeaderText = "Estudiante";
             this.Estudiante.Name = "Estudiante";
-            // 
-            // rdNumeroExpediente
-            // 
-            this.rdNumeroExpediente.AutoSize = true;
-            this.rdNumeroExpediente.Location = new System.Drawing.Point(348, 82);
-            this.rdNumeroExpediente.Name = "rdNumeroExpediente";
-            this.rdNumeroExpediente.Size = new System.Drawing.Size(132, 17);
-            this.rdNumeroExpediente.TabIndex = 19;
-            this.rdNumeroExpediente.Text = "Numero de expediente";
-            this.rdNumeroExpediente.UseVisualStyleBackColor = true;
+            this.Estudiante.Width = 500;
             // 
             // FrmBusquedaExpedientes
             // 
@@ -200,8 +201,8 @@
         private System.Windows.Forms.DataGridView dgvExpedientes;
         private System.Windows.Forms.Button btnBuscarEncargado;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RadioButton rdNumeroExpediente;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdExpediente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estudiante;
-        private System.Windows.Forms.RadioButton rdNumeroExpediente;
     }
 }

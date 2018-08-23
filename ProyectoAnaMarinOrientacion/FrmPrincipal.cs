@@ -37,8 +37,8 @@ namespace ProyectoAnaMarinOrientacion
 
         private void estudianteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmDatosEstudiante est = new FrmDatosEstudiante();
-            est.Show();
+            //FrmDatosEstudiante est = new FrmDatosEstudiante();
+            //est.Show();
         }
 
         private void encargadoToolStripMenuItem_Click(object sender, EventArgs e)

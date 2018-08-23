@@ -73,7 +73,7 @@ namespace Capa.Datos.Instrumentos
                 // Finalmente ejecutamos el comando
                 // al ser un insert no requiere retornar un consulta
                 int Id = Convert.ToInt32(comando.ExecuteScalar());
-                if(entEst.Archivos.Count > 0)
+                if(entEst.Archivos!=null && entEst.Archivos.Count > 0)
                 {
                     foreach (var archivo in entEst.Archivos)
                     {

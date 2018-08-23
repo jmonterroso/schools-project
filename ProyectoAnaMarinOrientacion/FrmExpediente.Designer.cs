@@ -48,13 +48,13 @@
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.dgvInstrumentos = new System.Windows.Forms.DataGridView();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.gpboxAgregarInstrumento = new System.Windows.Forms.GroupBox();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Acciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Motivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.gpboxAgregarInstrumento = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbQRCODE)).BeginInit();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInstrumentos)).BeginInit();
@@ -284,21 +284,6 @@
             this.dgvInstrumentos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInstrumentos_CellContentClick_1);
             this.dgvInstrumentos.DoubleClick += new System.EventHandler(this.dgvInstrumentos_DoubleClick);
             // 
-            // gpboxAgregarInstrumento
-            // 
-            this.gpboxAgregarInstrumento.Controls.Add(this.button7);
-            this.gpboxAgregarInstrumento.Controls.Add(this.button3);
-            this.gpboxAgregarInstrumento.Controls.Add(this.button4);
-            this.gpboxAgregarInstrumento.Controls.Add(this.label3);
-            this.gpboxAgregarInstrumento.Controls.Add(this.button8);
-            this.gpboxAgregarInstrumento.Controls.Add(this.button9);
-            this.gpboxAgregarInstrumento.Location = new System.Drawing.Point(34, 139);
-            this.gpboxAgregarInstrumento.Name = "gpboxAgregarInstrumento";
-            this.gpboxAgregarInstrumento.Size = new System.Drawing.Size(528, 147);
-            this.gpboxAgregarInstrumento.TabIndex = 53;
-            this.gpboxAgregarInstrumento.TabStop = false;
-            this.gpboxAgregarInstrumento.Text = "groupBox1";
-            // 
             // Id
             // 
             this.Id.DataPropertyName = "Id";
@@ -334,6 +319,22 @@
             this.Motivo.HeaderText = "Motivo";
             this.Motivo.Name = "Motivo";
             this.Motivo.ReadOnly = true;
+            // 
+            // gpboxAgregarInstrumento
+            // 
+            this.gpboxAgregarInstrumento.Controls.Add(this.button7);
+            this.gpboxAgregarInstrumento.Controls.Add(this.button3);
+            this.gpboxAgregarInstrumento.Controls.Add(this.button4);
+            this.gpboxAgregarInstrumento.Controls.Add(this.label3);
+            this.gpboxAgregarInstrumento.Controls.Add(this.button8);
+            this.gpboxAgregarInstrumento.Controls.Add(this.button9);
+            this.gpboxAgregarInstrumento.Location = new System.Drawing.Point(34, 139);
+            this.gpboxAgregarInstrumento.Name = "gpboxAgregarInstrumento";
+            this.gpboxAgregarInstrumento.Size = new System.Drawing.Size(528, 147);
+            this.gpboxAgregarInstrumento.TabIndex = 53;
+            this.gpboxAgregarInstrumento.TabStop = false;
+            this.gpboxAgregarInstrumento.Text = "groupBox1";
+            this.gpboxAgregarInstrumento.Enter += new System.EventHandler(this.gpboxAgregarInstrumento_Enter);
             // 
             // FrmExpediente
             // 

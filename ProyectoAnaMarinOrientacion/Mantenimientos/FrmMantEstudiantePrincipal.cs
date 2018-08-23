@@ -208,16 +208,16 @@ namespace ProyectoAnaMarinOrientacion.Mantenimientos
                 return;
             }
 
-            if (btnSubirFot == null)
-            {
-                MessageBox.Show("Debe  agregar una foto estudiante");
-                return;
-            }
-            if(comboBox1.SelectedIndex == -1)
-            {
-                MessageBox.Show("Debe  seleccionar una camara para la foto estudiante");
-                return;
-            }
+            //if (btnSubirFot == null)
+            //{
+            //    MessageBox.Show("Debe  agregar una foto estudiante");
+            //    return;
+            //}
+           // if(comboBox1.SelectedIndex == -1)
+            //{
+            //    MessageBox.Show("Debe  seleccionar una camara para la foto estudiante");
+              //  return;
+        //    }
 
             //boton de aceptar
 
@@ -298,12 +298,12 @@ namespace ProyectoAnaMarinOrientacion.Mantenimientos
         private void button1_Click(object sender, EventArgs e)
         {
             //boton de enceder camara
-            if (FuenteDeVideo == null)
-             //   if (comboBox1.SelectedIndex == -1)
-            {
-                MessageBox.Show("Debe seleccionar una camara para tomar la foto ");
-                return;
-            }
+            //if (FuenteDeVideo == null)
+            // //   if (comboBox1.SelectedIndex == -1)
+            //{
+            //    MessageBox.Show("Debe seleccionar una camara para tomar la foto ");
+            //    return;
+            //}
                 //ESTABLECER EL DISPOSITIVO SELECCIONADO COMO FUENTE DE VIDEO
             FuenteDeVideo = new VideoCaptureDevice(Dispositivos[comboBox1.SelectedIndex].MonikerString);
             //INICIALIZAR EL CONTROL

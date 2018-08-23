@@ -269,6 +269,7 @@
             this.Name = "FrmEntrevistaEstudiante";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Entrevista Estudiante";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmEntrevistaEstudiante_FormClosed);
             this.Load += new System.EventHandler(this.FrmEntrevistaEstudiante_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
